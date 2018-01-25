@@ -1,7 +1,6 @@
 package in.nitjsr.ojass.Activities;
 
 import android.content.Intent;
-import android.os.Build;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -82,7 +81,7 @@ public class Walkthrough extends AppCompatActivity implements ViewPager.OnPageCh
     }
 
     private void startLoginActivity() {
-        startActivity(new Intent(this, Login.class));
+        startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
 }

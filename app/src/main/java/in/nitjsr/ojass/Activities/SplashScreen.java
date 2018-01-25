@@ -41,7 +41,7 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void moveToLoginPage() {
-        startActivity(new Intent(this, Login.class));
+        startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
 
