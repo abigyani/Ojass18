@@ -25,7 +25,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (!sharedPrefManager.isFirstOpen()){
+                if (sharedPrefManager.isFirstOpen()){
                     sharedPrefManager.setIsFirstOpen(false);
                     moveToWalkthrough();
                 } else {

@@ -7,4 +7,25 @@
     <string name="next">Next</string>
     <string name="skip">SKIP</string>
     <string name="gotit">Got It</string>
+
+    <string name="Maps">Maps</string>
+    <string name="Sponsors">Sponsors</string>
+    <string name="GuruGyan">Guru Gyan</string>
+    <string name="AppDev">App Dev</string>
+    <string name="Team">Core Team</string>
+    <string name="Faqs">Faqs</string>
+
+    <string name="ojass_id_text">Ojass ID: </string>
+
+    <string-array name="tshirt_size">
+        <item>Choose Size</item>
+        <item>XS</item>
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+        <item>XXXL</item>
+    </string-array>
+
 </resources>
