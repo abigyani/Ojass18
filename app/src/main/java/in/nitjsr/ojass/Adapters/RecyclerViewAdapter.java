@@ -11,6 +11,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import in.nitjsr.ojass.Activities.TeamActivity;
 import in.nitjsr.ojass.Modals.Modal;
 import in.nitjsr.ojass.R;
 
@@ -32,7 +33,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Modal current = dataset.get(position);
+        final Modal current = dataset.get(position);
         Picasso.with(context).load(current.getImage()).fit().into(holder.eventImg);
         holder.evenTitle.setText(current.getEventName());
         holder.eventDesc.setText(current.getDescription());

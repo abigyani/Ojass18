@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ojass_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.SplashScreen"></activity>
+        <activity android:name=".Activities.SplashScreen" />
         <activity android:name=".Activities.Walkthrough" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.RegisterActivity" />
@@ -23,7 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.TeamActivity"></activity>
+        <activity android:name=".Activities.TeamActivity" />
+        <activity android:name=".Activities.GuruGyanActivity"></activity>
     </application>
 
 </manifest>
