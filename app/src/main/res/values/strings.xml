@@ -48,5 +48,6 @@
         <item>Le**un</item>
         <item>Dha**ya</item>
     </string-array>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
