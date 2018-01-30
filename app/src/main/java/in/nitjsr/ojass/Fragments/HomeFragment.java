@@ -111,8 +111,8 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
 
     private ArrayList<Modal> prepareEventList() {
         ArrayList<Modal> models = new ArrayList<>();
-        models.add(new Modal(R.drawable.ic_launcher_background, "No Ground Zone", "Fly planes"));
-        models.add(new Modal(R.drawable.ic_launcher_background, "Armegaddon", "Play Games"));
+        models.add(new Modal(R.mipmap.bizzathalon, "No Ground Zone", "Fly planes"));
+        models.add(new Modal(R.mipmap.directorscut, "Armegaddon", "Play Games"));
         models.add(new Modal(R.drawable.ic_launcher_background, "Code Mania", "Coding"));
         models.add(new Modal(R.drawable.ic_launcher_background, "AppDroid", "Develop App"));
         models.add(new Modal(R.drawable.ic_launcher_background, "Scratch Easy", "MCA Event"));
