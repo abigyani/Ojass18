@@ -86,6 +86,7 @@
         android:layout_marginBottom="10dp"/>
     
     <LinearLayout
+        android:animateLayoutChanges="true"
         android:id="@+id/ll_swipe_up"
         android:visibility="gone"
         tools:visibility="visible"
@@ -156,6 +157,7 @@
             android:padding="10dp">
 
             <LinearLayout
+                android:id="@+id/ll_guru_gyan_menu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

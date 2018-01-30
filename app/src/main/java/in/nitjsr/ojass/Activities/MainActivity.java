@@ -3,8 +3,6 @@ package in.nitjsr.ojass.Activities;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -53,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewPager.setOnPageChangeListener(this);
 
         findViewById(R.id.ll_team_menu).setOnClickListener(this);
+        findViewById(R.id.ll_guru_gyan_menu).setOnClickListener(this);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -106,16 +105,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view == ibSwipeUp){
             if (isSwipeUpMenuVisible) {
-                ibSwipeUp.startAnimation(AnimationUtils.loadAnimation(this, R.anim.swipe_down));
+                ibSwipeUp.startAnimation(AnimationUtils.loadAnimation(this, R.anim.rotate_down));
                 findViewById(R.id.ll_swipe_up).setVisibility(View.GONE);
                 isSwipeUpMenuVisible = false;
             } else {
-                ibSwipeUp.startAnimation(AnimationUtils.loadAnimation(this, R.anim.swipe_up));
+                ibSwipeUp.startAnimation(AnimationUtils.loadAnimation(this, R.anim.rotate_up));
                 findViewById(R.id.ll_swipe_up).setVisibility(View.VISIBLE);
                 isSwipeUpMenuVisible = true;
             }
         } else if (view.getId() == R.id.ll_team_menu) {
             startActivity(new Intent(this, TeamActivity.class));
+        } else if (view.getId() == R.id.ll_guru_gyan_menu) {
+            startActivity(new Intent(this, GuruGyanActivity.class));
         }
     }
 
