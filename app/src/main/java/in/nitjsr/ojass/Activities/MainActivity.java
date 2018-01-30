@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ViewPager viewPager;
     private BottomNavigationView navigation;
     private FirebaseAuth mAuth;
+    ImageView aboutUs;
+    ImageView faqButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ibSwipeUp = findViewById(R.id.ib_swipe_up);
         ibSwipeUp.setOnClickListener(this);
+
+        faqButton=findViewById(R.id.main_faq);
+        faqButton.setOnClickListener(this);
 
         viewPager = findViewById(R.id.view_pager_mainactivity);
         viewPager.setAdapter(new MainActivityAdapter(getSupportFragmentManager()));
@@ -116,6 +122,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         } else if (view.getId() == R.id.ll_team_menu) {
             startActivity(new Intent(this, TeamActivity.class));
+        }
+
+        if(view.getId()==R.id.main_faq)
+        {
+            startActivity(new Intent(this,FaqActivity.class));
         }
     }
 
