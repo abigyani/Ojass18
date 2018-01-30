@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -33,6 +34,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ViewPager viewPager;
     private BottomNavigationView navigation;
     private FirebaseAuth mAuth;
+    private ImageView aboutusclick;
+
+    //temporary code
+    Button gotoAboutus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewPager.setOnPageChangeListener(this);
 
         findViewById(R.id.ll_team_menu).setOnClickListener(this);
+
+        aboutusclick = findViewById(R.id.main_aboutus);
+        aboutusclick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this , AboutUs.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
