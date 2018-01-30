@@ -24,6 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.TeamActivity"></activity>
+        <activity android:name=".Activities.FaqActivity"></activity>
     </application>
 
 </manifest>
