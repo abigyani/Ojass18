@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewPager.setOnPageChangeListener(this);
 
         findViewById(R.id.ll_team_menu).setOnClickListener(this);
+        findViewById(R.id.ll_maps).setOnClickListener(this);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -116,6 +117,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         } else if (view.getId() == R.id.ll_team_menu) {
             startActivity(new Intent(this, TeamActivity.class));
+        }
+        else if(view.getId()== R.id.ll_maps)
+        {
+            startActivity(new Intent(this,MapsActivity.class));
         }
     }
 
