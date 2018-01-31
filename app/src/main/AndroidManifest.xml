@@ -24,7 +24,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.TeamActivity" />
-        <activity android:name=".Activities.AboutUs"></activity>
+        <activity android:name=".Activities.AboutUs" />
+        <activity
+            android:name=".Activities.Developerspage"
+            android:label="@string/title_activity_developerspage"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
