@@ -245,6 +245,7 @@
                     android:layout_height="30dp"
                     android:layout_width="30dp"
                     android:scaleType="centerInside"
+                    android:id="@+id/main_faq"
                     app:srcCompat="@drawable/icon_faq"
                     android:tint="@color/white"/>
 
@@ -271,6 +272,7 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/main_aboutus"
                     android:layout_height="30dp"
                     android:layout_width="30dp"
                     android:scaleType="centerInside"
