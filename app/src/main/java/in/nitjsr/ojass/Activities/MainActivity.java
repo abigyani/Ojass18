@@ -35,10 +35,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ViewPager viewPager;
     private BottomNavigationView navigation;
     private FirebaseAuth mAuth;
-    private ImageView aboutusclick;
-
-    //temporary code
-    Button gotoAboutus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,15 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.ll_team_menu).setOnClickListener(this);
         findViewById(R.id.ll_guru_gyan_menu).setOnClickListener(this);
         findViewById(R.id.ll_faq_menu).setOnClickListener(this);
-
-        aboutusclick = findViewById(R.id.main_aboutus);
-        aboutusclick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this , AboutUs.class);
-                startActivity(intent);
-            }
-        });
+        findViewById(R.id.ll_about_us_menu).setOnClickListener(this);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -136,8 +124,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, TeamActivity.class));
         } else if (view.getId() == R.id.ll_guru_gyan_menu) {
             startActivity(new Intent(this, GuruGyanActivity.class));
-        } else if (view.getId()==R.id.ll_faq_menu) {
+        } else if (view.getId() == R.id.ll_faq_menu) {
             startActivity(new Intent(this,FaqActivity.class));
+        } else if (view.getId() == R.id.ll_about_us_menu) {
+            startActivity(new Intent(this, AboutUs.class));
         }
     }
 
