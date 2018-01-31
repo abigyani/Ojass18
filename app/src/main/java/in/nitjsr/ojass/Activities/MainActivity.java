@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.ll_guru_gyan_menu).setOnClickListener(this);
         findViewById(R.id.ll_faq_menu).setOnClickListener(this);
         findViewById(R.id.ll_about_us_menu).setOnClickListener(this);
+        findViewById(R.id.ll_maps_menu).setOnClickListener(this);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -98,11 +99,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Bitmap getQRCode(String uid) {
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
-            BitMatrix bMatrix=multiFormatWriter.encode(uid, BarcodeFormat.QR_CODE,300,300);
-            BarcodeEncoder encoder = new BarcodeEncoder();
-            return encoder.createBitmap(bMatrix);
-        }
-        catch (WriterException e) {
+            BitMatrix bMatrix = multiFormatWriter.encode(uid, BarcodeFormat.QR_CODE,300,300);
+            return new BarcodeEncoder().createBitmap(bMatrix);
+        } catch (WriterException e) {
             e.printStackTrace();
             return null;
         }
@@ -128,6 +127,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this,FaqActivity.class));
         } else if (view.getId() == R.id.ll_about_us_menu) {
             startActivity(new Intent(this, AboutUs.class));
+        } else if (view.getId() == R.id.ll_maps_menu) {
+            startActivity(new Intent(this, MapsActivity.class));
         }
     }
 

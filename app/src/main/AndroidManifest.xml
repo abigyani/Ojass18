@@ -3,6 +3,8 @@
     package="in.nitjsr.ojass">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".Utils.Ojass"
@@ -12,6 +14,11 @@
         android:roundIcon="@mipmap/ojass_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
         <activity android:name=".Activities.SplashScreen" />
         <activity android:name=".Activities.Walkthrough" />
         <activity android:name=".Activities.LoginActivity" />
@@ -27,6 +34,8 @@
         <activity android:name=".Activities.TeamActivity" />
         <activity android:name=".Activities.GuruGyanActivity" />
         <activity android:name=".Activities.AboutUs" />
+        <activity android:name=".Activities.MapsActivity" />
+
     </application>
 
 </manifest>
