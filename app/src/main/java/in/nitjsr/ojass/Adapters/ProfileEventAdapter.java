@@ -53,7 +53,7 @@ public class ProfileEventAdapter extends RecyclerView.Adapter<ProfileEventAdapte
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         private ImageView ivEvent;
-        private TextView tvEventName, tvTeamName, tvEventParticipants;
+        private TextView tvEventName, tvTeamName, tvEventParticipants, tvEventResult;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -61,6 +61,7 @@ public class ProfileEventAdapter extends RecyclerView.Adapter<ProfileEventAdapte
             tvEventName = itemView.findViewById(R.id.tv_profile_event_name);
             tvTeamName = itemView.findViewById(R.id.tv_profile_team_name);
             tvEventParticipants = itemView.findViewById(R.id.tv_profile_event_participant);
+            tvEventResult  = itemView.findViewById(R.id.tv_profile_team_result);
         }
     }
 }

@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="in.nitjsr.ojass.Fragments.HomeFragment"
-    android:background="@mipmap/ojass_background"
     android:paddingBottom="5dp">
 
     <LinearLayout
