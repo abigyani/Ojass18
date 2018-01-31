@@ -3,6 +3,7 @@ package in.nitjsr.ojass.Adapters;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import in.nitjsr.ojass.Fragments.EventsFragment;
 import in.nitjsr.ojass.Fragments.HomeFragment;
@@ -13,7 +14,7 @@ import in.nitjsr.ojass.Fragments.ProfileFragment;
  * Created by Abhishek on 28-Jan-18.
  */
 
-public class MainActivityAdapter extends FragmentPagerAdapter {
+public class MainActivityAdapter extends FragmentStatePagerAdapter {
 
     public MainActivityAdapter(FragmentManager fm) {
         super(fm);

@@ -15,7 +15,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" >
+            android:layout_marginTop="4dp" >
 
             <TextView
                 android:id="@+id/tv_profile_name"
@@ -42,6 +42,7 @@
                 android:layout_alignParentRight="true"
                 app:srcCompat="@drawable/icon_edit"
                 android:layout_centerVertical="true"
+                android:tint="@color/colorPrimary"
                 android:background="@android:color/transparent"
                 android:padding="6dp" />
 
@@ -73,7 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="abhishek@buyhatke.com"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="12sp" />
 
                 <TextView
@@ -82,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
                     tools:text="+91-7858030449"
-                    android:textColor="@android:color/darker_gray"/>
+                    android:textColor="@color/colorPrimaryDark"/>
 
             </LinearLayout>
 
@@ -110,7 +111,6 @@
                         android:layout_height="10dp"
                         android:src="@android:drawable/checkbox_on_background"
                         android:background="@android:color/transparent"
-                        android:backgroundTint="@android:color/holo_green_dark"
                         android:layout_marginRight="10dp"/>
 
                     <TextView
@@ -118,7 +118,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/tshirt"
                         android:textSize="12sp"
-                        android:textColor="@android:color/darker_gray"/>
+                        android:textColor="@color/colorPrimaryDark"/>
 
                 </LinearLayout>
 
@@ -133,7 +133,6 @@
                         android:layout_height="10dp"
                         android:src="@android:drawable/checkbox_on_background"
                         android:background="@android:color/transparent"
-                        android:backgroundTint="@android:color/holo_green_dark"
                         android:layout_marginRight="10dp"/>
 
                     <TextView
@@ -141,7 +140,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/kit"
                         android:textSize="12sp"
-                        android:textColor="@android:color/darker_gray"/>
+                        android:textColor="@color/colorPrimaryDark"/>
 
                 </LinearLayout>
 
@@ -153,11 +152,12 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:text="@string/log_out"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textAllCaps="false"
             android:textSize="14sp"
+            android:gravity="center"
             android:background="@color/colorAccent"
             android:textColor="@color/white"/>
 
@@ -165,7 +165,7 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:background="@android:color/darker_gray"
-            android:layout_margin="20dp"/>
+            android:layout_margin="16dp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -176,6 +176,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/activity_indicator"
+                android:textColor="@color/colorPrimaryDark"
                 android:layout_marginRight="10dp"/>
 
             <TextView
@@ -191,7 +192,7 @@
             android:id="@+id/rv_profile_events"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="6dp"/>
 
     </LinearLayout>
 

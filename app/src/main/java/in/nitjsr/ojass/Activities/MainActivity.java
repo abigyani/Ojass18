@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewPager = findViewById(R.id.view_pager_mainactivity);
         viewPager.setAdapter(new MainActivityAdapter(getSupportFragmentManager()));
         viewPager.setOnPageChangeListener(this);
+        viewPager.setOffscreenPageLimit(3);
 
         findViewById(R.id.ll_team_menu).setOnClickListener(this);
         findViewById(R.id.ll_guru_gyan_menu).setOnClickListener(this);

@@ -23,6 +23,7 @@
     <string name="log_out">Log Out</string>
     <string name="event_name">Event Name:</string>
     <string name="team_name">Team Name: </string>
+    <string name="team_result">Result: </string>
     <string name="participants">Participants:</string>
     <string name="bullet">\u2022</string>
     <string name="tshirt">T-Shirt</string>
