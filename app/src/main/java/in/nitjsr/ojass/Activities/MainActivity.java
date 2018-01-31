@@ -34,8 +34,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ViewPager viewPager;
     private BottomNavigationView navigation;
     private FirebaseAuth mAuth;
-    ImageView aboutUs;
-    ImageView faqButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +49,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ibSwipeUp = findViewById(R.id.ib_swipe_up);
         ibSwipeUp.setOnClickListener(this);
 
-        faqButton=findViewById(R.id.main_faq);
-        faqButton.setOnClickListener(this);
-
         viewPager = findViewById(R.id.view_pager_mainactivity);
         viewPager.setAdapter(new MainActivityAdapter(getSupportFragmentManager()));
         viewPager.setOnPageChangeListener(this);
@@ -61,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.ll_team_menu).setOnClickListener(this);
         findViewById(R.id.ll_guru_gyan_menu).setOnClickListener(this);
+        findViewById(R.id.ll_faq_menu).setOnClickListener(this);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -126,10 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, TeamActivity.class));
         } else if (view.getId() == R.id.ll_guru_gyan_menu) {
             startActivity(new Intent(this, GuruGyanActivity.class));
-        }
-
-        if(view.getId()==R.id.main_faq)
-        {
+        } else if (view.getId()==R.id.ll_faq_menu) {
             startActivity(new Intent(this,FaqActivity.class));
         }
     }
