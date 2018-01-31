@@ -128,5 +128,6 @@ public class GuruGyanActivity extends AppCompatActivity implements View.OnClickL
             tvShortDesc.setVisibility(View.VISIBLE);
             isSmallVisible = true;
         }
+        handler.removeCallbacks(runnable);
     }
 }

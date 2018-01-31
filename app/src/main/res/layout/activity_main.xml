@@ -105,6 +105,7 @@
             android:padding="10dp">
 
             <LinearLayout
+                android:id="@+id/ll_maps_menu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
