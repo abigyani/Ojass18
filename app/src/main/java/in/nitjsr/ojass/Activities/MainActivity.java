@@ -24,7 +24,11 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import java.util.Collections;
+import java.util.List;
+
 import in.nitjsr.ojass.Adapters.MainActivityAdapter;
+import in.nitjsr.ojass.Modals.Devpage_modal;
 import in.nitjsr.ojass.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener{
@@ -35,12 +39,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private BottomNavigationView navigation;
     private FirebaseAuth mAuth;
     private ImageView aboutusclick;
+    private ImageView developers;
 
+    private Button mGotodev;
     //temporary code
     Button gotoAboutus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -57,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewPager.setAdapter(new MainActivityAdapter(getSupportFragmentManager()));
         viewPager.setOnPageChangeListener(this);
 
+        developers=findViewById(R.id.main_devlopers);
+        developers.setOnClickListener(this);
+
         findViewById(R.id.ll_team_menu).setOnClickListener(this);
 
         aboutusclick = findViewById(R.id.main_aboutus);
@@ -64,6 +74,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this , AboutUs.class);
+                startActivity(intent);
+            }
+        });
+
+        mGotodev = findViewById(R.id.gotodev);
+        mGotodev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this , Developerspage.class);
                 startActivity(intent);
             }
         });
@@ -130,6 +149,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         } else if (view.getId() == R.id.ll_team_menu) {
             startActivity(new Intent(this, TeamActivity.class));
+        }
+        if(view.getId() == R.id.main_devlopers)
+        {
+            startActivity(new Intent(this,Developerspage.class));
         }
     }
 
