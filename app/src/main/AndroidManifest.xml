@@ -23,9 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.FaqActivity"></activity>
+        <activity android:name=".Activities.FaqActivity" />
         <activity android:name=".Activities.TeamActivity" />
-        <activity android:name=".Activities.GuruGyanActivity"></activity>
+        <activity android:name=".Activities.GuruGyanActivity" />
+        <activity android:name=".Activities.AboutUs" />
     </application>
 
 </manifest>
