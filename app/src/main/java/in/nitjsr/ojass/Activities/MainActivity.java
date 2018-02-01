@@ -41,9 +41,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView aboutusclick;
     private ImageView developers;
 
-    private Button mGotodev;
-    //temporary code
-    Button gotoAboutus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,14 +75,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        mGotodev = findViewById(R.id.gotodev);
-        mGotodev.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this , Developerspage.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

@@ -1,6 +1,8 @@
 package in.nitjsr.ojass.Activities;
 
+import android.content.Intent;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,6 +33,10 @@ public class Developerspage extends AppCompatActivity {
     static TextView name;
     static TextView description;
     static ImageView image;
+    ImageButton fb;
+    ImageButton insta;
+    ImageButton twitter;
+    ImageButton webpage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,42 @@ public class Developerspage extends AppCompatActivity {
         setContentView(R.layout.activity_developerspage);
 
 
+        fb = findViewById(R.id.dev_fb);
+        insta = findViewById(R.id.dev_insta);
+        twitter = findViewById(R.id.dev_twitter);
+        webpage = findViewById(R.id.dev_web);
+
+        fb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/Ojassnitjamshedpur"));
+                startActivity(intent);
+            }
+        });
+
+        insta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/ojass_nitjsr"));
+                startActivity(intent);
+            }
+        });
+
+        twitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/Ojass2k16"));
+                startActivity(intent);
+            }
+        });
+
+        webpage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.ojass.in"));
+                startActivity(intent);
+            }
+        });
         name=findViewById(R.id.developers_title);
         description=findViewById(R.id.developers_description);
         image=findViewById(R.id.profile_image);
