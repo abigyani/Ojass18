@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ftb_menu_about"
+        android:icon="@drawable/about"
+        android:title="Nearby"/>
+
+    <item
+        android:id="@+id/ftb_menu_details"
+        android:icon="@drawable/details"
+        android:title="Chat"/>
+
+    <item
+        android:id="@+id/ftb_menu_rules"
+        android:icon="@drawable/rules"
+        android:title="Profile"/>
+
+    <item
+        android:id="@+id/ftb_menu_prize"
+        android:icon="@drawable/prize"
+        android:title="Settings"/>
+
+</menu>
