@@ -2,6 +2,7 @@ package in.nitjsr.ojass.Fragments;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -25,6 +26,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
+import in.nitjsr.ojass.Activities.GuruGyanActivity;
+import in.nitjsr.ojass.Activities.MainActivity;
+import in.nitjsr.ojass.Activities.SponsorsActivity;
 import in.nitjsr.ojass.Adapters.RecyclerViewAdapter;
 import in.nitjsr.ojass.Adapters.PosterAdapter;
 import in.nitjsr.ojass.Modals.Modal;
@@ -38,7 +42,7 @@ import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_POSTERIMAGES;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment implements ViewPager.OnPageChangeListener{
+public class HomeFragment extends Fragment implements ViewPager.OnPageChangeListener, View.OnClickListener{
 
     //Poster shit
     private static final int BANNER_DELAY_TIME = 5 * 1000;
@@ -60,6 +64,11 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
         setEventRv(view);
         setGuruGyanRv(view);
         setSponsorsRv(view);
+
+        view.findViewById(R.id.tv_events_see_all).setOnClickListener(this);
+        view.findViewById(R.id.tv_guru_gyan_see_all).setOnClickListener(this);
+        view.findViewById(R.id.tv_sponsors_see_all).setOnClickListener(this);
+
         return view;
     }
 
@@ -187,6 +196,20 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
     public void onPageScrollStateChanged(int state) {
         if (state == ViewPager.SCROLL_STATE_IDLE){
             handler.postDelayed(runnable, BANNER_DELAY_TIME);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.tv_events_see_all:
+                MainActivity.setPager(1);
+                break;
+            case R.id.tv_guru_gyan_see_all:
+                startActivity(new Intent(getContext(), GuruGyanActivity.class));
+                break;
+            case R.id.tv_sponsors_see_all:
+                startActivity(new Intent(getContext(), SponsorsActivity.class));
         }
     }
 

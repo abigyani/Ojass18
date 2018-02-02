@@ -1,9 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout android:id="@+id/activity_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="#170f11">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:background="#170f11"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text=""
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:id="@+id/title_toolbar"
+                android:layout_marginRight="14dp"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:layout_height="match_parent"/>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <com.desarrollodroide.libraryfragmenttransactionextended.SlidingRelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_below="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/container"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <client.yalantis.com.foldingtabbar.FoldingTabBar
+            android:id="@+id/folding_tab_bar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:elevation="6dp"
+            app:menu="@menu/menu_tab_bar"/>
+
+        <com.nightonke.boommenu.BoomMenuButton
+            android:id="@+id/bmb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/folding_tab_bar"
+            android:layout_marginLeft="50dp"
+            android:layout_marginBottom="8dp"/>
+    </com.desarrollodroide.libraryfragmenttransactionextended.SlidingRelativeLayout>
+
+
+</RelativeLayout>
+
+    <!--  android:paddingLeft="@dimen/additional_button_top_margin"
+            android:paddingRight="@dimen/additional_button_top_margin"
+            android:paddingTop="@dimen/additional_button_top_margin"
+             -->
