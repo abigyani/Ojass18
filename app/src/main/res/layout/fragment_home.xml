@@ -58,6 +58,7 @@
                 android:layout_height="0dp" />
 
             <TextView
+                android:id="@+id/tv_events_see_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="See all >"/>
@@ -91,6 +92,7 @@
                 android:layout_height="0dp" />
 
             <TextView
+                android:id="@+id/tv_guru_gyan_see_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="See all >"/>
@@ -124,6 +126,7 @@
                 android:layout_height="0dp" />
 
             <TextView
+                android:id="@+id/tv_sponsors_see_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="See all >"/>

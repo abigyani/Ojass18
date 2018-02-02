@@ -54,6 +54,19 @@ public class ProfileFragment extends Fragment {
         ((TextView)view.findViewById(R.id.tv_profile_email)).setText(mUser.getEmail());
 
         DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users").child(mUser.getUid());
+
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

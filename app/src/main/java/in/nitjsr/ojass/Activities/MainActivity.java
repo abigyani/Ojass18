@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ImageButton ibSwipeUp;
     private boolean isSwipeUpMenuVisible;
-    private ViewPager viewPager;
+    private static ViewPager viewPager;
     private BottomNavigationView navigation;
     private FirebaseAuth mAuth;
 
@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.ll_faq_menu).setOnClickListener(this);
         findViewById(R.id.ll_about_us_menu).setOnClickListener(this);
         findViewById(R.id.ll_maps_menu).setOnClickListener(this);
+        findViewById(R.id.ll_sponsors_menu).setOnClickListener(this);
+        findViewById(R.id.ll_blank).setOnClickListener(this);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -113,10 +115,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (isSwipeUpMenuVisible) {
                 ibSwipeUp.startAnimation(AnimationUtils.loadAnimation(this, R.anim.rotate_down));
                 findViewById(R.id.ll_swipe_up).setVisibility(View.GONE);
+                findViewById(R.id.ll_blank).setVisibility(View.GONE);
                 isSwipeUpMenuVisible = false;
             } else {
                 ibSwipeUp.startAnimation(AnimationUtils.loadAnimation(this, R.anim.rotate_up));
                 findViewById(R.id.ll_swipe_up).setVisibility(View.VISIBLE);
+                findViewById(R.id.ll_blank).setVisibility(View.VISIBLE);
                 isSwipeUpMenuVisible = true;
             }
         } else if (view.getId() == R.id.ll_team_menu) {
@@ -129,6 +133,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, AboutUs.class));
         } else if (view.getId() == R.id.ll_maps_menu) {
             startActivity(new Intent(this, MapsActivity.class));
+        } else if (view.getId() == R.id.ll_sponsors_menu){
+            startActivity(new Intent(this, SponsorsActivity.class));
+        } else if (view.getId() == R.id.ll_blank) {
+            ibSwipeUp.performClick();
         }
     }
 
@@ -158,5 +166,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    public static void setPager(int position){
+        viewPager.setCurrentItem(position);
     }
 }
