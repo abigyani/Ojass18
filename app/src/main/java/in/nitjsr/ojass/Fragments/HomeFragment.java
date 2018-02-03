@@ -135,7 +135,7 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
         final ViewPager viewPager = view.findViewById(R.id.viewpager_poster);
         final CircleIndicator indicator = view.findViewById(R.id.indicator_slider);
         FirebaseDatabase dataref = FirebaseDatabase.getInstance();
-        dataref.setPersistenceEnabled(false);
+        //dataref.setPersistenceEnabled(false);
         DatabaseReference imageRef = dataref.getReference(FIREBASE_REF_POSTERIMAGES);
         imageRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -146,7 +146,7 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
                 int currIndex = 0;
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
                     imageUrls[currIndex] = dataSnapshot1.child(FIREBASE_REF_IMG_SRC).getValue().toString();
-                    clickUrls[currIndex] = dataSnapshot1.child(FIREBASE_REF_IMG_CLICK).getValue().toString();
+                    //clickUrls[currIndex] = dataSnapshot1.child(FIREBASE_REF_IMG_CLICK).getValue().toString();
                     Log.d("TAG", imageUrls[currIndex]);
                     currIndex++;
                 }

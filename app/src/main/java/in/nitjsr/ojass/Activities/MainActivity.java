@@ -17,6 +17,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.zxing.BarcodeFormat;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static CustomViewPager viewPager;
     private BottomNavigationView navigation;
     private FirebaseAuth mAuth;
+    private boolean isWarningShown = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.ll_maps_menu).setOnClickListener(this);
         findViewById(R.id.ll_sponsors_menu).setOnClickListener(this);
         findViewById(R.id.ll_blank).setOnClickListener(this);
+        findViewById(R.id.ll_app_dev_menu).setOnClickListener(this);
 
         Picasso.with(this).load(R.drawable.star_bg).fit().into(((ImageView)findViewById(R.id.iv_header)));
     }
@@ -74,6 +77,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            if (isSwipeUpMenuVisible) {
+                ibSwipeUp.performClick();
+            }
             switch (item.getItemId()) {
                 case R.id.bottom_nav_home:
                     viewPager.setCurrentItem(0);
@@ -116,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        isWarningShown = false;
         if (view == ibSwipeUp){
             if (isSwipeUpMenuVisible) {
                 ibSwipeUp.startAnimation(AnimationUtils.loadAnimation(this, R.anim.rotate_down));
@@ -140,6 +147,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, MapsActivity.class));
         } else if (view.getId() == R.id.ll_sponsors_menu){
             startActivity(new Intent(this, SponsorsActivity.class));
+        } else if (view.getId() == R.id.ll_app_dev_menu) {
+            startActivity(new Intent(this, DevelopersAcitivity.class));
         } else if (view.getId() == R.id.ll_blank) {
             ibSwipeUp.performClick();
         }
@@ -175,5 +184,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static void setPager(int position){
         viewPager.setCurrentItem(position);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (isSwipeUpMenuVisible) ibSwipeUp.performClick();
+        else {
+            if (viewPager.getCurrentItem() == 0){
+                if (!isWarningShown){
+                    Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show();
+                    isWarningShown = true;
+                }
+                else finish();
+            } else {
+                viewPager.setCurrentItem(0);
+            }
+        }
     }
 }

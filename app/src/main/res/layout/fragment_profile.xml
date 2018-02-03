@@ -43,6 +43,7 @@
                 app:srcCompat="@drawable/icon_edit"
                 android:layout_centerVertical="true"
                 android:tint="@color/colorPrimary"
+                android:visibility="gone"
                 android:background="@android:color/transparent"
                 android:padding="6dp" />
 
