@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.desarrollodroide.libraryfragmenttransactionextended.FragmentTransactionExtended;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
 import com.nightonke.boommenu.BoomButtons.HamButton;
+import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.nightonke.boommenu.ButtonEnum;
 import com.nightonke.boommenu.Piece.PiecePlaceEnum;
@@ -24,6 +25,7 @@ import com.nightonke.boommenu.Piece.PiecePlaceEnum;
 import org.jetbrains.annotations.NotNull;
 
 import client.yalantis.com.foldingtabbar.FoldingTabBar;
+import in.nitjsr.ojass.Activities.MainActivity;
 import in.nitjsr.ojass.R;
 
 public class SubEventsActivity extends AppCompatActivity {
@@ -50,19 +52,9 @@ public class SubEventsActivity extends AppCompatActivity {
         bmb = (BoomMenuButton) findViewById(R.id.bmb);
         bmb.setButtonEnum(ButtonEnum.Ham);
 
-        bmb.setPiecePlaceEnum(PiecePlaceEnum.HAM_3);
-        bmb.setButtonPlaceEnum(ButtonPlaceEnum.HAM_3);
-
-        for (int i = 0; i < bmb.getPiecePlaceEnum().pieceNumber(); i++) {
-            HamButton.Builder builder = new HamButton.Builder()
-                    .normalImageRes(R.drawable.about)
-                    .normalText("Coordinator")
-                    .subNormalText("mobile");
-            bmb.addBuilder(builder);
-        }
 
         // set no of  ham buttons
-    /*    if (MainActivity.data.get(position).getCoordinatorsModelArrayList().size() == 1) {
+      if (MainActivity.data.get(position).getCoordinatorsModelArrayList().size() == 1) {
             bmb.setPiecePlaceEnum(PiecePlaceEnum.HAM_1);
             bmb.setButtonPlaceEnum(ButtonPlaceEnum.HAM_1);
         } else if (MainActivity.data.get(position).getCoordinatorsModelArrayList().size() == 2) {
@@ -74,10 +66,10 @@ public class SubEventsActivity extends AppCompatActivity {
         } else {
             bmb.setPiecePlaceEnum(PiecePlaceEnum.HAM_4);
             bmb.setButtonPlaceEnum(ButtonPlaceEnum.HAM_4);
-        }   */
+        }
 
 
-    /*    for (int i = 0; i < bmb.getPiecePlaceEnum().pieceNumber(); i++) {
+        for (int i = 0; i < bmb.getPiecePlaceEnum().pieceNumber(); i++) {
             HamButton.Builder builder = new HamButton.Builder().listener(new OnBMClickListener() {
                 @Override
                 public void onBoomButtonClick(int index) {
@@ -89,7 +81,7 @@ public class SubEventsActivity extends AppCompatActivity {
                     .normalText(MainActivity.data.get(position).getCoordinatorsModelArrayList().get(i).getName())
                     .subNormalText(MainActivity.data.get(position).getCoordinatorsModelArrayList().get(i).getPhone());
             bmb.addBuilder(builder);
-        }    */
+        }
 
         FoldingTabBar tabBar = (FoldingTabBar) findViewById(R.id.folding_tab_bar);
         changeFragment(new AboutFragment());
