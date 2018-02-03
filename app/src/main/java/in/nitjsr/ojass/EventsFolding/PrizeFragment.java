@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import in.nitjsr.ojass.Activities.MainActivity;
 import in.nitjsr.ojass.R;
 
 
@@ -306,15 +307,15 @@ public class PrizeFragment extends Fragment {
             default: {
                 style1.setVisibility(View.VISIBLE);
                 style2.setVisibility(View.GONE);
-            //    prize1.setText(MainActivity.data.get(SubEventsActivity.position).getPrize1().toString());
-            //    prize2.setText(MainActivity.data.get(SubEventsActivity.position).getPrize2().toString());
-            //    prize3.setText(MainActivity.data.get(SubEventsActivity.position).getPrize3().toString());
-            //    prizet.setText(MainActivity.data.get(SubEventsActivity.position).getPrizeT().toString()+"/-");
+                prize1.setText(MainActivity.data.get(SubEventsActivity.position).getPrize1().toString());
+                prize2.setText(MainActivity.data.get(SubEventsActivity.position).getPrize2().toString());
+                prize3.setText(MainActivity.data.get(SubEventsActivity.position).getPrize3().toString());
+                prizet.setText(MainActivity.data.get(SubEventsActivity.position).getPrizeT().toString()+"/-");
 
-                prize1.setText("prize 1");
-                    prize2.setText("prize 1");
-                    prize3.setText("prize 1");
-                    prizet.setText("prize 1");
+//                prize1.setText("prize 1");
+//                    prize2.setText("prize 1");
+//                    prize3.setText("prize 1");
+//                    prizet.setText("prize 1");
 
                 break;}
         }

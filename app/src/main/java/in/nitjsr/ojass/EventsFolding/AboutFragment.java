@@ -3,11 +3,13 @@ package in.nitjsr.ojass.EventsFolding;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import in.nitjsr.ojass.Activities.MainActivity;
 import in.nitjsr.ojass.R;
 
 
@@ -34,7 +36,7 @@ public class AboutFragment extends Fragment {
         TextView t2=(TextView) view.findViewById(R.id.text_about);
     //    Typeface typeface= Typeface.createFromAsset(getActivity().getAssets(), "textfont.otf");
     //    t2.setTypeface(typeface);
-    //    t2.setText(Html.fromHtml(MainActivity.data.get(SubEventsActivity.position).getAbout()));
-        t2.setText("About Content");
+        t2.setText(Html.fromHtml(MainActivity.data.get(SubEventsActivity.position).getAbout()));
+//        t2.setText("About Content");
     }
 }
