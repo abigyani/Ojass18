@@ -88,8 +88,9 @@
         android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/icon_swipe_up"
         android:tint="@android:color/holo_red_dark"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
         android:scaleType="centerCrop"
         android:layout_marginBottom="10dp"/>
 
@@ -198,6 +199,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_app_dev_menu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
