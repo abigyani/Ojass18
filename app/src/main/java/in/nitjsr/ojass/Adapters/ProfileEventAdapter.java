@@ -42,7 +42,6 @@ public class ProfileEventAdapter extends RecyclerView.Adapter<ProfileEventAdapte
         Modal current = dataset.get(position);
         Picasso.with(context).load(current.getImage()).fit().into(holder.ivEvent);
         holder.tvEventName.setText(current.getEventName());
-        holder.tvTeamName.setText(current.getDescription());
     }
 
     @Override
@@ -59,8 +58,6 @@ public class ProfileEventAdapter extends RecyclerView.Adapter<ProfileEventAdapte
             super(itemView);
             ivEvent = itemView.findViewById(R.id.iv_profile_event_img);
             tvEventName = itemView.findViewById(R.id.tv_profile_event_name);
-            tvTeamName = itemView.findViewById(R.id.tv_profile_team_name);
-            tvEventParticipants = itemView.findViewById(R.id.tv_profile_event_participant);
             tvEventResult  = itemView.findViewById(R.id.tv_profile_team_result);
         }
     }

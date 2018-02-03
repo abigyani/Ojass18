@@ -1,6 +1,7 @@
 package in.nitjsr.ojass.Fragments;
 
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -156,8 +157,8 @@ public class EventsFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     SE=I;
-                   // BranchHeadDialogFragment dialogFragment=new BranchHeadDialogFragment();
-                   // dialogFragment.show(getFragmentManager(),"My Dialog");
+                   BranchHeadDialogFragment dialogFragment=new BranchHeadDialogFragment();
+                   dialogFragment.show(getActivity().getFragmentManager(),"My Dialog");
                 }
             });
         }

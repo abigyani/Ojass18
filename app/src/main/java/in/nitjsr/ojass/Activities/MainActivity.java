@@ -24,15 +24,17 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
+import com.squareup.picasso.Picasso;
 
 import in.nitjsr.ojass.Adapters.MainActivityAdapter;
 import in.nitjsr.ojass.R;
+import in.nitjsr.ojass.Utils.CustomViewPager;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener{
 
     private ImageButton ibSwipeUp;
     private boolean isSwipeUpMenuVisible;
-    private static ViewPager viewPager;
+    private static CustomViewPager viewPager;
     private BottomNavigationView navigation;
     private FirebaseAuth mAuth;
 
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewPager.setAdapter(new MainActivityAdapter(getSupportFragmentManager()));
         viewPager.setOnPageChangeListener(this);
         viewPager.setOffscreenPageLimit(3);
+        viewPager.setPagingEnabled(false);
 
         findViewById(R.id.ll_team_menu).setOnClickListener(this);
         findViewById(R.id.ll_guru_gyan_menu).setOnClickListener(this);
@@ -62,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.ll_maps_menu).setOnClickListener(this);
         findViewById(R.id.ll_sponsors_menu).setOnClickListener(this);
         findViewById(R.id.ll_blank).setOnClickListener(this);
+
+        Picasso.with(this).load(R.drawable.star_bg).fit().into(((ImageView)findViewById(R.id.iv_header)));
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
