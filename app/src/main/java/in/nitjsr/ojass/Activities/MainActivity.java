@@ -18,6 +18,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -35,6 +36,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import in.nitjsr.ojass.Adapters.MainActivityAdapter;
+import in.nitjsr.ojass.Fragments.SubscribeFragment;
 import in.nitjsr.ojass.Modals.CoordinatorsModel;
 import in.nitjsr.ojass.Modals.EventModel;
 import in.nitjsr.ojass.Modals.RulesModel;
@@ -43,7 +45,8 @@ import in.nitjsr.ojass.Utils.CustomViewPager;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener{
 
-    private ImageButton ibSwipeUp;
+    private ImageButton ibSwipeUp,subscribe;
+    private RelativeLayout notifications;
     private boolean isSwipeUpMenuVisible;
     private static CustomViewPager viewPager;
     private BottomNavigationView navigation;
@@ -102,12 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
 
 
-                    data.add(new EventModel(about,branch,details,name,prize1,prize2,prize3,prizeT,coordinatorsModelArrayList,rulesModelArrayList));
-
-
-
-
-/*
+                    data.add(new EventModel(about,branch,details,name,prize1,prize2,prize3,prizeT,coordinatorsModelArrayList,rulesModelArrayList));/*
                     Log.d("Event","About :"+about);
                     Log.d("Event","Branch :"+branch);
                     Log.d("Event","Details :"+details);
@@ -123,13 +121,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Log.d("Event","Rules"+i+" :"+rulesModelArrayList.get(i).getText());*/
 
                     // showLog();
-
                 }
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
 
@@ -156,7 +151,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.ll_maps_menu).setOnClickListener(this);
         findViewById(R.id.ll_sponsors_menu).setOnClickListener(this);
         findViewById(R.id.ll_blank).setOnClickListener(this);
-
+        findViewById(R.id.rl_notification_menu).setOnClickListener(this);
+        findViewById(R.id.rl_subscribe).setOnClickListener(this);
         Picasso.with(this).load(R.drawable.star_bg).fit().into(((ImageView)findViewById(R.id.iv_header)));
     }
 
@@ -234,6 +230,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (view.getId() == R.id.ll_blank) {
             ibSwipeUp.performClick();
         }
+        else if(view.getId()==R.id.rl_subscribe)
+        {
+            SubscribeFragment detailsfragment=new SubscribeFragment();
+            detailsfragment.show(getSupportFragmentManager(),"Subscribe");
+        }else if(view.getId()==R.id.rl_notification_menu)
+        {
+            startActivity(new Intent(this,FeedActivity.class));
+        }
+
     }
 
     @Override
