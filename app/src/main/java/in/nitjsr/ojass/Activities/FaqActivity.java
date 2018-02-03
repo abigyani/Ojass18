@@ -10,6 +10,11 @@ import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.bignerdranch.expandablerecyclerview.Model.ParentObject;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +30,9 @@ public class FaqActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     FAQAdapter adapter;
+    DatabaseReference ref;
     public static ArrayList<FaqModel> data;
-
+    ProgressDialog p;
 
 
 
@@ -38,11 +44,47 @@ public class FaqActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         data=new ArrayList<>();
-        data.add(new FaqModel("What is Ojass","Ojass, the annual Techno-Management fest of NIT Jamshedpur is one of the East India's  biggest Collage Festival. It will span for 3 days: March somethig . The spirit of Ojass lies in encouraging sound practice, making precision engineering a way of life,effectively bringing about a paradigm shift from classroom to path-breaking innovation"));
-        data.add(new FaqModel("What are the types of events in ojass?","Ojass is a plethara of many events. It includes branch events ,gaming events,formal events,fun events,etc"));
-        data.add(new FaqModel("Are there any online events","Yes,there will be online events. For details of the online events stay updated to our facebook page."));
-        data.add(new FaqModel("What about the accommodation?","Accomodation will be provided for the students in the collage hostel."));
-        data.add(new FaqModel("Will participation certificate be given for events","Yes, we do give participation certificate for the registered candidates"));
+
+        ref= FirebaseDatabase.getInstance().getReference().child("Faq");
+        ref.keepSynced(true);
+        p=new ProgressDialog(this);
+        p.setMessage("Loading FAQs....");
+        p.setCancelable(false);
+        p.show();
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //Toast.makeText(FAQActivity.this,"fetched"+dataSnapshot.getChildrenCount(),Toast.LENGTH_SHORT).show();
+                p.dismiss();
+                data.clear();
+                for(DataSnapshot ds: dataSnapshot.getChildren())
+                {
+                    FaqModel q=ds.getValue(FaqModel.class);
+                    data.add(q);
+                    // Toast.makeText(FAQActivity.this,"Q"+q.getQuestion()+"\nA:"+q.getAns(),Toast.LENGTH_SHORT).show();
+
+                }
+
+                adapter = new FAQAdapter(FaqActivity.this,initData());
+                adapter.setParentClickableViewAnimationDefaultDuration();
+                adapter.setParentAndIconExpandOnClick(true);
+                recyclerView.setAdapter(adapter);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+//        data.add(new FaqModel("What is Ojass","Ojass, the annual Techno-Management fest of NIT Jamshedpur is one of the East India's  biggest Collage Festival. It will span for 3 days: March somethig . The spirit of Ojass lies in encouraging sound practice, making precision engineering a way of life,effectively bringing about a paradigm shift from classroom to path-breaking innovation"));
+//        data.add(new FaqModel("What are the types of events in ojass?","Ojass is a plethara of many events. It includes branch events ,gaming events,formal events,fun events,etc"));
+//        data.add(new FaqModel("Are there any online events","Yes,there will be online events. For details of the online events stay updated to our facebook page."));
+//        data.add(new FaqModel("What about the accommodation?","Accomodation will be provided for the students in the collage hostel."));
+//        data.add(new FaqModel("Will participation certificate be given for events","Yes, we do give participation certificate for the registered candidates"));
 
         adapter=new FAQAdapter(FaqActivity.this,initData());
 
