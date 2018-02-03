@@ -1,12 +1,15 @@
 package in.nitjsr.ojass.Activities;
-
 import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.bignerdranch.expandablerecyclerview.Model.ParentObject;
@@ -16,46 +19,83 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 import in.nitjsr.ojass.Adapters.FAQAdapter;
 import in.nitjsr.ojass.Modals.FaqModel;
 import in.nitjsr.ojass.Modals.TitleChild;
-import in.nitjsr.ojass.Modals.TitleCreater;
+import in.nitjsr.ojass.Modals.TitleCreater1;
 import in.nitjsr.ojass.Modals.TitleParent;
 import in.nitjsr.ojass.R;
 
-public class FaqActivity extends AppCompatActivity {
+
+
+public class FeedActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
+    TextView toolbar;
     FAQAdapter adapter;
     DatabaseReference ref;
     public static ArrayList<FaqModel> data;
     ProgressDialog p;
-
-
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_faq);
+        setContentView(R.layout.activity_feed);
+
+        toolbar = (TextView) findViewById(R.id.toolbarText);
+        Typeface tf = Typeface.createFromAsset(getAssets(), "ToolbarText.ttf");
+        toolbar.setTypeface(tf);
+
+        spinner = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.events, R.layout.spinner_layout);
+        adapter.setDropDownViewResource(R.layout.spinner_layout);
+        spinner.setAdapter(adapter);
+
         recyclerView=(RecyclerView)findViewById(R.id.myRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         data=new ArrayList<>();
 
-        ref= FirebaseDatabase.getInstance().getReference().child("Faq");
-        ref.keepSynced(true);
         p=new ProgressDialog(this);
-        p.setMessage("Loading FAQs....");
-        p.setCancelable(false);
-        p.show();
+        //onItemSelect();
 
+
+
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                ((TextView)adapterView.getChildAt(0)).setTextColor(Color.WHITE);
+                onItemSelect();
+                //  Toast.makeText(getApplication(),spinner.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+    }
+
+    public void onItemSelect()
+    {
+
+        p.setMessage("Loading Feed....");
+        p.setCancelable(true);
+        p.show();
+        ref= FirebaseDatabase.getInstance().getReference().child("feed").child(spinner.getSelectedItem().toString());
+        ref.keepSynced(true);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                //Toast.makeText(FAQActivity.this,"fetched"+dataSnapshot.getChildrenCount(),Toast.LENGTH_SHORT).show();
                 p.dismiss();
                 data.clear();
                 for(DataSnapshot ds: dataSnapshot.getChildren())
@@ -66,12 +106,10 @@ public class FaqActivity extends AppCompatActivity {
 
                 }
 
-                adapter = new FAQAdapter(FaqActivity.this,initData());
+                adapter = new FAQAdapter(FeedActivity.this,initData());
                 adapter.setParentClickableViewAnimationDefaultDuration();
                 adapter.setParentAndIconExpandOnClick(true);
                 recyclerView.setAdapter(adapter);
-
-
             }
 
             @Override
@@ -80,35 +118,41 @@ public class FaqActivity extends AppCompatActivity {
             }
         });
 
-//        data.add(new FaqModel("What is Ojass","Ojass, the annual Techno-Management fest of NIT Jamshedpur is one of the East India's  biggest Collage Festival. It will span for 3 days: March somethig . The spirit of Ojass lies in encouraging sound practice, making precision engineering a way of life,effectively bringing about a paradigm shift from classroom to path-breaking innovation"));
-//        data.add(new FaqModel("What are the types of events in ojass?","Ojass is a plethara of many events. It includes branch events ,gaming events,formal events,fun events,etc"));
-//        data.add(new FaqModel("Are there any online events","Yes,there will be online events. For details of the online events stay updated to our facebook page."));
-//        data.add(new FaqModel("What about the accommodation?","Accomodation will be provided for the students in the collage hostel."));
-//        data.add(new FaqModel("Will participation certificate be given for events","Yes, we do give participation certificate for the registered candidates"));
-
-        adapter=new FAQAdapter(FaqActivity.this,initData());
-
-        recyclerView.setAdapter(adapter);
-
 
 
     }
 
+
+
     private List<ParentObject> initData() {
-        TitleCreater titleCreater= new TitleCreater(FaqActivity.this);
+        TitleCreater1 titleCreater= new TitleCreater1(FeedActivity.this);
         //titleCreater= TitleCreater.get(this);
-        List<TitleParent> titles=TitleCreater._titleParents;
+        List<TitleParent> titles= TitleCreater1._titleParents;
         List<ParentObject> parentObject = new ArrayList<>();
-        // Toast.makeText(FAQActivity.this,"Title:"+titles.size(),Toast.LENGTH_SHORT).show();
-        int i=0;
+        //Toast.makeText(FeedActivity.this,"Title:"+titles.size(),Toast.LENGTH_SHORT).show();
+        int i=data.size()-1;
         for(TitleParent title:titles)
         {
             List<Object> childList = new ArrayList<>();
             //childList.add(new TitleChild(("It is LSE web style to title a page of FAQs 'Frequently asked questions (FAQs)'. While the abbreviation is in quite common usage this ensures that there can be no mistaking what they are")));
-            childList.add(new TitleChild(data.get(i++).getAns()));
+            childList.add(new TitleChild(data.get(i--).getAns()));
             title.setChildObjectList(childList);
             parentObject.add(title);
         }
         return parentObject;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="events">
+        <item>OJASS</item>
+        <item>Arthashastra</item>
+        <item>Circuit House</item>
+        <item>Vishwa CodeGenesis</item>
+        <item>No Ground Zone</item>
+        <item>Paraphernalia</item>
+        <item>Produs</item>
+        <item>Silicon Valley</item>
+        <item>Rise Of Machines</item>
+        <item>NSCET</item>
+        <item>Neo Drishti</item>
+        <item>Exposicion</item>
+        <item>Deus-X-Machina</item>
+        <item>Avartan</item>
+        <item>Armageddon</item>
+        <item>Aakriti</item>
+        <item>Prayas</item>
+        <item>Live CS</item>
+    </string-array>
+</resources>
