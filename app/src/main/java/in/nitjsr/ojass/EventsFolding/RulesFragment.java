@@ -3,12 +3,14 @@ package in.nitjsr.ojass.EventsFolding;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import in.nitjsr.ojass.Activities.MainActivity;
 import in.nitjsr.ojass.R;
 
 
@@ -33,12 +35,12 @@ public class RulesFragment extends Fragment {
     //    t2.setTypeface(typeface);
         String rules="";
 
-    /*    for(int i = 0; i< MainActivity.data.get(SubEventsActivity.position).getRulesModels().size(); i++)
+        for(int i = 0; i< MainActivity.data.get(SubEventsActivity.position).getRulesModels().size(); i++)
         {
             rules=rules+"<br>"+(i+1)+". "+MainActivity.data.get(SubEventsActivity.position).getRulesModels().get(i).getText();
         }
 
-        t2.setText(Html.fromHtml(rules));  */
-        t2.setText("Rules");
+        t2.setText(Html.fromHtml(rules));
+       // t2.setText("Rules");
     }
 }
