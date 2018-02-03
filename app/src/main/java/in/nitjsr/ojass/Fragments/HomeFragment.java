@@ -120,19 +120,23 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
 
     private ArrayList<Modal> prepareEventList() {
         ArrayList<Modal> models = new ArrayList<>();
-        models.add(new Modal(R.mipmap.bizzathalon, "No Ground Zone", "Fly planes"));
-        models.add(new Modal(R.mipmap.directorscut, "Armegaddon", "Play Games"));
-        models.add(new Modal(R.drawable.ic_launcher_background, "Code Mania", "Coding"));
-        models.add(new Modal(R.drawable.ic_launcher_background, "AppDroid", "Develop App"));
-        models.add(new Modal(R.drawable.ic_launcher_background, "Scratch Easy", "MCA Event"));
-        models.add(new Modal(R.drawable.ic_launcher_background, "LIVE CS", "Shooting"));
+        models.add(new Modal(R.drawable.noground, "No Ground Zone", "Fly planes"));
+        models.add(new Modal(R.mipmap.directorscut, "Director's Cut", "Shot Movies"));
+        models.add(new Modal(R.mipmap.bizzathalon, "Bizzathalon", "Business"));
+        models.add(new Modal(R.drawable.major_codemania, "CodeMania", "Coding"));
+        models.add(new Modal(R.drawable.major_capture, "Capture", "MCA Event"));
+        models.add(new Modal(R.drawable.major_dota, "Armeggadon", "Gaming"));
+        models.add(new Modal(R.drawable.major_robowar, "Robo War", "Robo Fight"));
+        models.add(new Modal(R.drawable.major_robowar2, "Robo War 2", "Robo Fight 2"));
         return models;
     }
 
     public void setSlider(final View view){
         final ViewPager viewPager = view.findViewById(R.id.viewpager_poster);
         final CircleIndicator indicator = view.findViewById(R.id.indicator_slider);
-        DatabaseReference imageRef = FirebaseDatabase.getInstance().getReference(FIREBASE_REF_POSTERIMAGES);
+        FirebaseDatabase dataref = FirebaseDatabase.getInstance();
+        dataref.setPersistenceEnabled(false);
+        DatabaseReference imageRef = dataref.getReference(FIREBASE_REF_POSTERIMAGES);
         imageRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

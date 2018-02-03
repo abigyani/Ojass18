@@ -9,38 +9,45 @@
     android:background="@mipmap/ojass_background"
     tools:context="in.nitjsr.ojass.Activities.MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/ll_topbar"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@color/colorPrimary"
-        android:gravity="center_vertical"
-        android:padding="10dp">
+        android:layout_height="55dp">
+
+        <ImageView
+            android:id="@+id/iv_header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/star_bg"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ojass"
+            android:paddingLeft="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
             android:textColor="@color/white"
             android:textSize="18sp"/>
 
-        <View
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
-
         <ImageButton
+            android:layout_toLeftOf="@+id/rl_notification_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/icon_subscribe"
             android:layout_marginRight="6dp"
+            android:layout_centerVertical="true"
             android:background="@android:color/transparent"
             android:tint="@color/white"
             android:scaleType="centerCrop"/>
 
         <RelativeLayout
+            android:id="@+id/rl_notification_menu"
+            android:layout_centerVertical="true"
             android:layout_width="45dp"
-            android:layout_height="match_parent" >
+            android:padding="10dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true">
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -65,9 +72,9 @@
 
         </RelativeLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <android.support.v4.view.ViewPager
+    <in.nitjsr.ojass.Utils.CustomViewPager
         android:id="@+id/view_pager_mainactivity"
         android:layout_below="@+id/ll_topbar"
         android:layout_above="@+id/navigation"
