@@ -28,7 +28,7 @@ import java.util.ArrayList;
 
 import in.nitjsr.ojass.Activities.GuruGyanActivity;
 import in.nitjsr.ojass.Activities.MainActivity;
-import in.nitjsr.ojass.Activities.SponsorsActivity;
+import in.nitjsr.ojass.Activities.SponsersActivity;
 import in.nitjsr.ojass.Adapters.RecyclerViewAdapter;
 import in.nitjsr.ojass.Adapters.PosterAdapter;
 import in.nitjsr.ojass.Modals.Modal;
@@ -213,7 +213,9 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
                 startActivity(new Intent(getContext(), GuruGyanActivity.class));
                 break;
             case R.id.tv_sponsors_see_all:
-                startActivity(new Intent(getContext(), SponsorsActivity.class));
+
+
+                startActivity(new Intent(getContext(), SponsersActivity.class));
         }
     }
 
