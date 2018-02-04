@@ -234,7 +234,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (view.getId() == R.id.ll_maps_menu) {
             startActivity(new Intent(this, MapsActivity.class));
         } else if (view.getId() == R.id.ll_sponsors_menu){
-            startActivity(new Intent(this, SponsorsActivity.class));
+            startActivity(new Intent(this, SponsersActivity.class));
         } else if (view.getId() == R.id.ll_app_dev_menu) {
             startActivity(new Intent(this, DevelopersAcitivity.class));
         } else if (view.getId() == R.id.ll_blank) {
