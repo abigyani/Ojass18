@@ -14,7 +14,6 @@
         android:roundIcon="@mipmap/ojass_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -22,22 +21,22 @@
         <activity android:name=".Activities.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".Activities.Walkthrough" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.RegisterActivity" />
-        <activity android:name=".Activities.MainActivity"></activity>
+        <activity android:name=".Activities.MainActivity" />
         <activity android:name=".Activities.FaqActivity" />
         <activity android:name=".Activities.TeamActivity" />
         <activity android:name=".Activities.GuruGyanActivity" />
         <activity android:name=".Activities.AboutUs" />
         <activity android:name=".Activities.MapsActivity" />
         <activity android:name=".EventsFolding.SubEventsActivity" />
-        <activity android:name=".Activities.SponsorsActivity" />
-
-        <activity android:name=".Activities.FeedActivity"/>
+        <activity android:name=".Activities.FeedActivity" />
+        <activity android:name=".Activities.SponsersActivity"/>
 
         <service android:name=".Utils.FirebaseInstanceIdService">
             <intent-filter>
