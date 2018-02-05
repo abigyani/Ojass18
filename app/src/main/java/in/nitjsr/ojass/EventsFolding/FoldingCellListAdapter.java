@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ramotion.foldingcell.FoldingCell;
@@ -74,8 +75,14 @@ public class FoldingCellListAdapter extends ArrayAdapter<Item> {
             viewHolder.C8 = (LinearLayout) cell.findViewById(R.id.c8);
             viewHolder.C9 = (LinearLayout) cell.findViewById(R.id.c9);
             viewHolder.C10 = (LinearLayout) cell.findViewById(R.id.c10);
+
             viewHolder.I1 = (ImageView) cell.findViewById((R.id.head_image));
             viewHolder.I2 = (ImageView) cell.findViewById((R.id.head_image1));
+
+            viewHolder.tvEventName = (TextView)cell.findViewById((R.id.head_event_name));
+            viewHolder.tvEventName2 = (TextView)cell.findViewById((R.id.head_event_name2));
+            viewHolder.tvEventTag = (TextView)cell.findViewById((R.id.head_event_tag));
+
             viewHolder.pioneerTextView=(TextView) cell.findViewById(R.id.content_request_btn);
             changeFont(viewHolder);
             cell.setTag(viewHolder);
@@ -115,8 +122,14 @@ public class FoldingCellListAdapter extends ArrayAdapter<Item> {
             viewHolder.C8 = (LinearLayout) cell.findViewById(R.id.c8);
             viewHolder.C9 = (LinearLayout) cell.findViewById(R.id.c9);
             viewHolder.C10 = (LinearLayout) cell.findViewById(R.id.c10);
+
             viewHolder.I1 = (ImageView) cell.findViewById((R.id.head_image));
             viewHolder.I2 = (ImageView) cell.findViewById((R.id.head_image1));
+
+            viewHolder.tvEventName = (TextView)cell.findViewById((R.id.head_event_name));
+            viewHolder.tvEventName2 = (TextView)cell.findViewById((R.id.head_event_name2));
+            viewHolder.tvEventTag = (TextView)cell.findViewById((R.id.head_event_tag));
+
             viewHolder.pioneerTextView=(TextView) cell.findViewById(R.id.content_request_btn);
             changeFont(viewHolder);
             cell.setTag(viewHolder);
@@ -138,8 +151,13 @@ public class FoldingCellListAdapter extends ArrayAdapter<Item> {
         // viewHolder.toAddress.setText(item.getToAddress());
         // viewHolder.requestsCount.setText(String.valueOf(item.getRequestsCount()));
         // viewHolder.pledgePrice.setText(item.getPledgePrice());
+
         viewHolder.I1.setImageResource(item.getImage());
         viewHolder.I2.setImageResource(item.getImage1());
+        viewHolder.tvEventName.setText(item.getHeadEventName());
+        viewHolder.tvEventName2.setText(item.getHeadEventName());
+        viewHolder.tvEventTag.setText(item.getHeadEventTag());
+
         if (item.getSub1() != null) {
             viewHolder.C1.setVisibility(View.VISIBLE);
             viewHolder.IW1.setVisibility(View.VISIBLE);
@@ -333,7 +351,8 @@ public class FoldingCellListAdapter extends ArrayAdapter<Item> {
 
     // View lookup cache
     private static class ViewHolder {
-        TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9, textView10, textViewHead,pioneerTextView;
+        TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9, textView10, tvEventName,
+                tvEventName2, tvEventTag, textViewHead,pioneerTextView;
         View IW1, IW2, IW3, IW4, IW5, IW6, IW7, IW8, IW9, IW10;
         LinearLayout C1, C2, C3, C4, C5, C6, C7, C8, C9, C10;
         ImageView I1, I2;

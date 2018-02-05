@@ -15,6 +15,7 @@ import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import in.nitjsr.ojass.R;
+import in.nitjsr.ojass.Utils.Utilities;
 
 /**
  * Created by Abhishek on 28-Jan-18.
@@ -36,17 +37,7 @@ public class PosterAdapter extends PagerAdapter {
         LayoutInflater layoutinflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = layoutinflater.inflate(R.layout.item_poster, container, false);
         final ImageView iv = view.findViewById(R.id.iv_poster);
-        Picasso.with(context).load(imageUrls[position]).fit().networkPolicy(NetworkPolicy.OFFLINE).into(iv, new Callback() {
-            @Override
-            public void onSuccess() {
-
-            }
-
-            @Override
-            public void onError() {
-                Picasso.with(context).load(imageUrls[position]).fit().into(iv);
-            }
-        });
+        Utilities.setPicassoImage(context, imageUrls[position], iv);
         container.addView(view);
         return view;
     }

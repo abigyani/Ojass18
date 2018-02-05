@@ -93,7 +93,7 @@
                                 android:layout_margin="10dp"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:background="@drawable/icon_facebook"
+                                android:background="@drawable/ic_icon_facebook"
                                 android:id="@+id/fb"
                                 android:layout_gravity="center"
                                 />
@@ -101,21 +101,21 @@
                                 android:layout_margin="10dp"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:background="@drawable/icon_instagram"
+                                android:background="@drawable/ic_icon_instagram"
                                 android:id="@+id/insta"
                                 />
                             <ImageButton
                                 android:layout_margin="10dp"
                                 android:layout_width="45dp"
                                 android:layout_height="45dp"
-                                android:background="@drawable/icon_twitter"
+                                android:background="@drawable/ic_icon_twitter"
                                 android:id="@+id/twitter"
                                 />
                             <ImageButton
                                 android:layout_margin="10dp"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
-                                android:background="@drawable/icon_www"
+                                android:background="@drawable/ic_icon_www"
                                 android:id="@+id/web"
                                 />
 

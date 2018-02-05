@@ -27,7 +27,7 @@ public class DevelopersAcitivity extends AppCompatActivity implements View.OnCli
     private static final String abhiFb = "https://www.facebook.com/ak47gyani";
     private static final String abhiLinkedIn = "https://www.linkedin.com/in/abhishek-kumar-1706/";
     private static final String abhiGithub = "https://github.com/abigyani";
-    private static final String abhiwhatsAp = "917858030449";
+    private static final String abhiwhatsAp = "7858030449";
 
 
     @Override
