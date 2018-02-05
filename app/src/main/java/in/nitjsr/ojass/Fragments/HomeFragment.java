@@ -33,8 +33,14 @@ import in.nitjsr.ojass.Adapters.RecyclerViewAdapter;
 import in.nitjsr.ojass.Adapters.PosterAdapter;
 import in.nitjsr.ojass.Modals.Modal;
 import in.nitjsr.ojass.R;
+import in.nitjsr.ojass.Utils.Constants;
 import me.relex.circleindicator.CircleIndicator;
 
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN;
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_IMAGE;
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_SHORT_DESC;
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_SHORT_IMAGE;
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_TITLE;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_IMG_CLICK;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_IMG_SRC;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_POSTERIMAGES;
@@ -83,30 +89,40 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
 
     private ArrayList<Modal> prepareSponsorList() {
         ArrayList<Modal> models = new ArrayList<>();
-        models.add(new Modal(R.drawable.ic_launcher_background, "Codechef", "Coding site"));
-        models.add(new Modal(R.drawable.ic_launcher_background, "Hackerrank", "Coding Site"));
-        models.add(new Modal(R.drawable.ic_launcher_background, "Radio Mirchi", "Radio Station"));
-        models.add(new Modal(R.drawable.ic_launcher_background, "Vimal", "Pan Masala"));
-        models.add(new Modal(R.drawable.ic_launcher_background, "MRF", "Tyres"));
+        models.add(new Modal(R.drawable.codechef, "Codechef", "Coding site"));
+        models.add(new Modal(R.drawable.hackerearth, "Hackerrank", "Coding Site"));
+        models.add(new Modal(R.drawable.hondaq, "Honda", "Radio Station"));
+        models.add(new Modal(R.drawable.brubeck, "Bru Beck", "Pan Masala"));
+        models.add(new Modal(R.drawable.sonnet, "Sonnet", "Tyres"));
         return models;
     }
 
     private void setGuruGyanRv(View view) {
-        RecyclerView rv = view.findViewById(R.id.rv_guru_gyan);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(FIREBASE_REF_GURU_GYAN);
+        ref.keepSynced(false);
+        final RecyclerView rv = view.findViewById(R.id.rv_guru_gyan);
         LinearLayoutManager ll = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false);
         rv.setLayoutManager(ll);
         rv.setHasFixedSize(true);
-        ArrayList<Modal> guruGyanList = prepareGuruGyanList();
-        rv.setAdapter(new RecyclerViewAdapter(guruGyanList, view.getContext()));
-    }
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<Modal> modals = new ArrayList<>();
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+                    modals.add(new Modal(
+                            dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_SHORT_IMAGE).getValue().toString(),
+                            dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_TITLE).getValue().toString(),
+                            dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_SHORT_DESC).getValue().toString()
+                    ));
+                }
+                rv.setAdapter(new RecyclerViewAdapter(modals, rv.getContext()));
+            }
 
-    private ArrayList<Modal> prepareGuruGyanList() {
-        ArrayList<Modal> models = new ArrayList<>();
-        models.add(new Modal(R.drawable.ic_launcher_background, "Amitabh Bachan", "Actor"));
-        models.add(new Modal(R.drawable.ic_launcher_background, "Zakir Khan", "Comedian"));
-        models.add(new Modal(R.drawable.ic_launcher_background, "Arijit Singh", "Singer"));
-        models.add(new Modal(R.drawable.ic_launcher_background, "Dhinchak Pooja", "Mental"));
-        return models;
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void setEventRv(View view) {
@@ -120,14 +136,12 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
 
     private ArrayList<Modal> prepareEventList() {
         ArrayList<Modal> models = new ArrayList<>();
-        models.add(new Modal(R.drawable.noground, "No Ground Zone", "Fly planes"));
-        models.add(new Modal(R.mipmap.directorscut, "Director's Cut", "Shot Movies"));
-        models.add(new Modal(R.mipmap.bizzathalon, "Bizzathalon", "Business"));
-        models.add(new Modal(R.drawable.major_codemania, "CodeMania", "Coding"));
-        models.add(new Modal(R.drawable.major_capture, "Capture", "MCA Event"));
-        models.add(new Modal(R.drawable.major_dota, "Armeggadon", "Gaming"));
-        models.add(new Modal(R.drawable.major_robowar, "Robo War", "Robo Fight"));
-        models.add(new Modal(R.drawable.major_robowar2, "Robo War 2", "Robo Fight 2"));
+        models.add(new Modal(Constants.homeEvent[0], "Bizzathalon", "Business"));
+        models.add(new Modal(Constants.homeEvent[1], "Director's Cut", "Shot Movies"));
+        models.add(new Modal(Constants.homeEvent[2], "CodeMani", "Coding"));
+        models.add(new Modal(Constants.homeEvent[3], "No Ground Zone", "Fly Planes"));
+        models.add(new Modal(Constants.homeEvent[4], "Robo War", "Robo Fight"));
+        models.add(new Modal(Constants.homeEvent[5], "Armeggadon", "Gaming"));
         return models;
     }
 

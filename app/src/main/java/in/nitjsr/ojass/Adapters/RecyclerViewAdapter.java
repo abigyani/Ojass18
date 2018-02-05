@@ -1,6 +1,7 @@
 package in.nitjsr.ojass.Adapters;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import in.nitjsr.ojass.Activities.TeamActivity;
 import in.nitjsr.ojass.Modals.Modal;
 import in.nitjsr.ojass.R;
+import in.nitjsr.ojass.Utils.Utilities;
 
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
@@ -34,7 +36,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Modal current = dataset.get(position);
-        Picasso.with(context).load(current.getImage()).fit().into(holder.eventImg);
+        if (current.getImage() != null) Utilities.setPicassoImage(context, current.getImage(), holder.eventImg);
+        else Picasso.with(context).load(current.getDrawableImage()).fit().into(holder.eventImg);
+
         holder.evenTitle.setText(current.getEventName());
         holder.eventDesc.setText(current.getDescription());
     }

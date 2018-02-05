@@ -1,15 +1,25 @@
 package in.nitjsr.ojass.Modals;
 
 
+import android.graphics.drawable.Drawable;
+
 public class Modal {
     private String eventName;
-    private int image;
+    private String image;
     private String description;
+    private int drawableImage;
 
-    public Modal(int image, String eventName, String description) {
+    public Modal(String image, String eventName, String description) {
         this.eventName = eventName;
         this.image = image;
         this.description = description;
+    }
+
+    public Modal(int drawableImage, String eventName, String description) {
+        this.eventName = eventName;
+        this.drawableImage = drawableImage;
+        this.description = description;
+        this.image = null;
     }
 
     public void setDescription(String description) {
@@ -24,7 +34,7 @@ public class Modal {
         this.eventName = eventName;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -32,7 +42,11 @@ public class Modal {
         return eventName;
     }
 
-    public int getImage() {
-        return image;
+    public String getImage() {
+       return image;
+    }
+
+    public int getDrawableImage(){
+        return drawableImage;
     }
 }

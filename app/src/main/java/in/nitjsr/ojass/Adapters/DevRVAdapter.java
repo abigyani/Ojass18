@@ -52,18 +52,18 @@ public class DevRVAdapter extends RecyclerView.Adapter<DevRVAdapter.Myviewholder
             "https://www.facebook.com/ak47gyani"
     };
     private static final String[] whatsApp = new String[] {
-            "91 7858030449",
-            "91 9155956813",
-            "91 7870517024",
-            "91 7858030449",
-            "91 8507118002",
-            "91 7858030449",
-            "91 7858030449",
-            "91 7858030449",
-            "91 7858030449",
-            "91 7858030449",
-            "91 7858030449",
-            "91 7858030449"
+            "7858030449",
+            "9155956813",
+            "7870517024",
+            "7858030449",
+            "8507118002",
+            "7858030449",
+            "7858030449",
+            "7858030449",
+            "7858030449",
+            "7858030449",
+            "7858030449",
+            "7858030449"
     };
 
     private static final String[] linkedIn = new String[] {

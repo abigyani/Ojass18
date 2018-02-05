@@ -1,17 +1,26 @@
 package in.nitjsr.ojass.Fragments;
 
 
+import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,48 +34,96 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+import in.nitjsr.ojass.Activities.LoginActivity;
 import in.nitjsr.ojass.Adapters.ProfileEventAdapter;
 import in.nitjsr.ojass.Adapters.RecyclerViewAdapter;
 import in.nitjsr.ojass.Modals.Modal;
 import in.nitjsr.ojass.R;
 import in.nitjsr.ojass.Utils.Constants;
+import in.nitjsr.ojass.Utils.SharedPrefManager;
 import in.nitjsr.ojass.Utils.Utilities;
+
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_USERS;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements View.OnClickListener {
+
+    private FirebaseUser mUser;
+    private TextView tvUsername, tvUserOjId, tvEmail, tvNum;
+    private CircleImageView circleImageView;
+    private ImageView ivtShirt, ivKit;
+    private ProgressDialog pd;
+    private ImageButton ibRefresh;
+    private Button ibLogOut;
 
     public ProfileFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        tvUsername = view.findViewById(R.id.tv_profile_name);
+        tvUserOjId = view.findViewById(R.id.tv_profile_ojass_id);
+        tvEmail = view.findViewById(R.id.tv_profile_email);
+        tvNum = view.findViewById(R.id.tv_profile_number);
+        circleImageView = view.findViewById(R.id.iv_profile_img);
+        ivtShirt = view.findViewById(R.id.iv_tshirt);
+        ivKit = view.findViewById(R.id.iv_kit);
+        ibRefresh = view.findViewById(R.id.ib_refresh);
+        ibLogOut = view.findViewById(R.id.ib_logOut);
 
-        FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
-        Utilities.setPicassoImage(view.getContext(), mUser.getPhotoUrl().toString(), (ImageView)view.findViewById(R.id.iv_profile_img));
-        ((TextView)view.findViewById(R.id.tv_profile_name)).setText(mUser.getDisplayName());
-        ((TextView)view.findViewById(R.id.tv_profile_email)).setText(mUser.getEmail());
+        mUser = FirebaseAuth.getInstance().getCurrentUser();
+        Utilities.setPicassoImage(view.getContext(), mUser.getPhotoUrl().toString(), circleImageView);
+        pd = new ProgressDialog(getContext());
+        pd.setTitle("Please Wait");
+        pd.setMessage("Loading...");
+        pd.show();
 
-        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users").child(mUser.getUid());
+        tvUsername.setText(mUser.getDisplayName());
+        tvEmail.setText(mUser.getEmail());
+
+        prepareRecyclerView(view);
+        fetchData(view);
+
+        ibRefresh.setOnClickListener(this);
+        ibLogOut.setOnClickListener(this);
+
+        return view;
+    }
+
+    private void fetchData(final View view) {
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference(FIREBASE_REF_USERS).child(mUser.getUid());
+        userRef.keepSynced(true);
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @SuppressLint("NewApi")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                ((TextView)view.findViewById(R.id.tv_profile_number)).setText("+91 "+dataSnapshot.child(Constants.FIREBASE_REF_MOBILE).getValue().toString());
-                TextView tvOjassId = view.findViewById(R.id.tv_profile_ojass_id);
+                tvNum.setText("+91 "+dataSnapshot.child(Constants.FIREBASE_REF_MOBILE).getValue().toString());
                 if (dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue() != null) {
-                    tvOjassId.setText(dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue().toString());
-                    tvOjassId.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                    tvUserOjId.setText(dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue().toString());
+                    tvUserOjId.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                 }
                 else {
-                    tvOjassId.setText(getString(R.string.not_registered));
-                    tvOjassId.setTextColor(Color.RED);
+                    tvUserOjId.setText(getString(R.string.not_registered));
+                    tvUserOjId.setTextColor(Color.RED);
                 }
+                if (dataSnapshot.child(Constants.FIREBASE_REF_TSHIRT).exists()){
+                    ivtShirt.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_on_background));
+                } else {
+                    ivtShirt.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_off_background));
+                }
+                if (dataSnapshot.child(Constants.FIREBASE_REF_KIT).exists()){
+                    ivKit.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_on_background));
+                } else {
+                    ivKit.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_off_background));
+                }
+                if (pd.isShowing()) pd.dismiss();
             }
 
             @Override
@@ -74,9 +131,6 @@ public class ProfileFragment extends Fragment {
 
             }
         });
-
-        prepareRecyclerView(view);
-        return view;
     }
 
     private void prepareRecyclerView(View view) {
@@ -99,4 +153,28 @@ public class ProfileFragment extends Fragment {
         return dataSet;
     }
 
+    @Override
+    public void onClick(View view) {
+        if (view == ibRefresh) {
+            pd.show();
+            fetchData(view);
+        } else if (view == ibLogOut) {
+            signOut();
+        }
+    }
+
+    private void signOut() {
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(getContext(), gso);
+        mGoogleSignInClient.signOut();
+        FirebaseAuth.getInstance().signOut();
+        SharedPrefManager shared = new SharedPrefManager(getContext());
+        shared.setIsLoggedIn(false);
+        startActivity(new Intent(getActivity(), LoginActivity.class));
+        getActivity().finishAffinity();
+    }
 }

@@ -239,13 +239,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, DevelopersAcitivity.class));
         } else if (view.getId() == R.id.ll_blank) {
             ibSwipeUp.performClick();
-        }
-        else if(view.getId()==R.id.rl_subscribe)
-        {
+        } else if(view.getId()==R.id.rl_subscribe) {
             SubscribeFragment detailsfragment=new SubscribeFragment();
             detailsfragment.show(getSupportFragmentManager(),"Subscribe");
-        }else if(view.getId()==R.id.rl_notification_menu)
-        {
+        }else if(view.getId()==R.id.rl_notification_menu) {
             startActivity(new Intent(this,FeedActivity.class));
         }
 

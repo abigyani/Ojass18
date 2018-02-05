@@ -18,6 +18,7 @@ public class Item {
     private int requestsCount;
     private String date;
     private String time;
+    private String headEventName, headEventTag;
     private String sub1,sub2,sub3,sub4,sub5,sub6,sub7,sub8,sub9,sub10,MainiEvent;
     private int image1,image2;
 
@@ -28,7 +29,8 @@ public class Item {
     public Item() {
     }
 
-    public Item(String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8, String s9, String s10, int main, int main2) {
+    public Item(String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8, String s9, String s10, String headEventName,
+                String headEventTag, int main, int main2) {
         this.sub1 = s1;
         this.sub2 = s2;
         this.sub3 = s3;
@@ -39,8 +41,11 @@ public class Item {
         this.sub8 = s8;
         this.sub9 = s9;
         this.sub10 = s10;
+        this.headEventName = headEventName;
+        this.headEventTag = headEventTag;
         this.image1=main;
         this.image2=main2;
+
     }
 
     public String getSub1() {
@@ -203,6 +208,22 @@ public class Item {
         this.time = time;
     }
 
+    public String getHeadEventName() {
+        return headEventName;
+    }
+
+    public void setHeadEventName(String headEventName) {
+        this.headEventName = headEventName;
+    }
+
+    public String getHeadEventTag() {
+        return headEventTag;
+    }
+
+    public void setHeadEventTag(String headEventTag) {
+        this.headEventTag = headEventTag;
+    }
+
     public View.OnClickListener getRequestBtnClickListener() {
         return requestBtnClickListener1;
     }
@@ -327,28 +348,28 @@ public class Item {
      */
     public static ArrayList<Item> getTestingList() {
         ArrayList<Item> items = new ArrayList<>();
-        String Array1[]={"ArthaShatra","Circuit house","Kalp IT","No Ground Zone","Paraphernalia","Produs","Silicon Valley","Rise of Machines"
+        String Array1[]={"ArthaShastra","Circuit House","Vishwa CodeGenesis","No Ground Zone","Paraphernalia","Produs","Silicon Valley","Rise of Machines"
                 ,"NSCET","NeoDrishti","Exposicion","Dues-X-Machina","Avartan","Aarmagedon","Aakriti","Prayas","LiveCS"};
-        int[] Array2={R.drawable.e1, R.drawable.e1, R.drawable.e1, R.drawable.e1, R.drawable.e1, R.drawable.e1, R.drawable.e1, R.drawable.e1, R.drawable.e1, R.drawable.e1, R.drawable.e1, R.drawable.e1, R.drawable.e1, R.drawable.e1, R.drawable.e1, R.drawable.e1, R.drawable.e1};
-        int[] Array3={R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,};
+        int[] Array2={R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1};
+        int[] Array3={R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1};
         items.add(new Item("ABC","Neetishastra","Let's Start Up","Corporate Roadies","Bizzathlon","Wolf of Dalal Street",
-                "Selfie Ad",null,null,null,Array2[0],Array3[0]));
-        items.add(new Item("High Voltage Concepts (HVC)","Elixir of Electricity","Pro-Lo-Co","Mat Sim","Nexus","Electro-Q","Who Am I",null,null,null,Array2[1],Array3[1]));
-        items.add(new Item("App Droid","Code-for-shu987","Codemania","Code-karmas-bot","Shubh-Scripthon","Bug-Dkarmas-Bash","Web Vogue","Shubh-DbQuery",null,null,Array2[2],Array3[2]));
-        items.add(new Item("Touch Down the plane","MICAV",null, null, null, null,null,null,null,null,Array2[3],Array3[3]));
-        items.add(new Item("The Great Ojass Race","SCI FI", "Mad Ad", "Lens View", "Director's Cut", null, null, null,null,null,Array2[4],Array3[4]));
-        items.add(new Item("Industrial Tycoon", "Utpreksh","Artifact", "DronaGyan", "Udyog", null, null, null,null,null,Array2[5],Array3[5]));
-        items.add(new Item("Tukvilla","Jigyasa","Codesense","Analog Hunter","Digizone","Netkraft","Embetrix",null,null,null,Array2[6],Array3[6]));
-        items.add(new Item("Autoquiz","Accelodrome","Moto Virtuale 2017","Junkyard Wars","Samveg","Prakshepan","Enigma","Ansys",null,null,Array2[7],Array3[7]));
-        items.add(new Item("NSCET",null,null,null,null,null,null,null,null,null,Array2[8],Array3[8]));
-        items.add(new Item("Codiyapa","Game of Troves","Scratch Easy","SimplySql","CodeBug",null,null,null,null,null,Array2[9],Array3[9]));
-        items.add(new Item("Exposicion",null,null,null,null,null,null,null,null,null,Array2[10],Array3[10]));
-        items.add(new Item("360 Mania","Tachyon","Battleship","Kurukshetra","MAC FIFA","Shapeshifter",null,null,null,null,Array2[11],Array3[11]));
-        items.add(new Item("Indus Solva","Agnikund","Metal Trivia","Chitrankit","Funtoosh",null,null,null,null,null,Array2[12],Array3[12]));
-        items.add(new Item("FIFA","Counter Strike- Global Offensive","NFS Most Wanted","Angry Birds","DOTA",null,null,null,null,null,Array2[13],Array3[13]));
-        items.add(new Item("Acumen","Sanrachna","Archmadeease","Exempler","Pipe-o-Mania","Metropolis",null,null,null,null,Array2[14],Array3[14]));
-        items.add(new Item("Jagriti","Samvedna","Pratibimb",null,null,null,null,null,null,null,Array2[15],Array3[15]));
-        items.add(new Item("LiveCS",null,null,null,null,null,null,null,null,null,Array2[16],Array3[16]));
+                "Selfie Ad",null,null,null,Array1[0], "Dream Dare Achieve", Array2[0],Array3[0]));
+        items.add(new Item("High Voltage Concepts (HVC)","Elixir of Electricity","Pro-Lo-Co","Mat Sim","Nexus","Electro-Q","Who Am I",null,null,null,Array1[1], "Dream Dare Achieve",Array2[1],Array3[1]));
+        items.add(new Item("App Droid","Code-for-shu987","Codemania","Code-karmas-bot","Shubh-Scripthon","Bug-Dkarmas-Bash","Web Vogue","Shubh-DbQuery",null,null,Array1[2], "Dream Dare Achieve",Array2[2],Array3[2]));
+        items.add(new Item("Touch Down the plane","MICAV",null, null, null, null,null,null,null,null,Array1[3], "Dream Dare Achieve",Array2[3],Array3[3]));
+        items.add(new Item("The Great Ojass Race","SCI FI", "Mad Ad", "Lens View", "Director's Cut", null, null, null,null,null,Array1[4], "Dream Dare Achieve",Array2[4],Array3[4]));
+        items.add(new Item("Industrial Tycoon", "Utpreksh","Artifact", "DronaGyan", "Udyog", null, null, null,null,null,Array1[5], "Dream Dare Achieve",Array2[5],Array3[5]));
+        items.add(new Item("Tukvilla","Jigyasa","Codesense","Analog Hunter","Digizone","Netkraft","Embetrix",null,null,null,Array1[6], "Dream Dare Achieve",Array2[6],Array3[6]));
+        items.add(new Item("Autoquiz","Accelodrome","Moto Virtuale 2017","Junkyard Wars","Samveg","Prakshepan","Enigma","Ansys",null,null,Array1[7], "Dream Dare Achieve",Array2[7],Array3[7]));
+        items.add(new Item("NSCET",null,null,null,null,null,null,null,null,null,Array1[8], "Dream Dare Achieve",Array2[8],Array3[8]));
+        items.add(new Item("Codiyapa","Game of Troves","Scratch Easy","SimplySql","CodeBug",null,null,null,null,null,Array1[9], "Dream Dare Achieve",Array2[9],Array3[9]));
+        items.add(new Item("Exposicion",null,null,null,null,null,null,null,null,null,Array1[10], "Dream Dare Achieve",Array2[10],Array3[10]));
+        items.add(new Item("360 Mania","Tachyon","Battleship","Kurukshetra","MAC FIFA","Shapeshifter",null,null,null,null,Array1[11], "Dream Dare Achieve",Array2[11],Array3[11]));
+        items.add(new Item("Indus Solva","Agnikund","Metal Trivia","Chitrankit","Funtoosh",null,null,null,null,null,Array1[12], "Dream Dare Achieve",Array2[12],Array3[12]));
+        items.add(new Item("FIFA","Counter Strike- Global Offensive","NFS Most Wanted","Angry Birds","DOTA",null,null,null,null,null,Array1[13], "Dream Dare Achieve",Array2[13],Array3[13]));
+        items.add(new Item("Acumen","Sanrachna","Archmadeease","Exempler","Pipe-o-Mania","Metropolis",null,null,null,null,Array1[14], "Dream Dare Achieve",Array2[14],Array3[14]));
+        items.add(new Item("Jagriti","Samvedna","Pratibimb",null,null,null,null,null,null,null,Array1[15], "Dream Dare Achieve",Array2[15],Array3[15]));
+        items.add(new Item("LiveCS",null,null,null,null,null,null,null,null,null,Array1[16], "Dream Dare Achieve",Array2[16],Array3[16]));
         return items;
 
     }

@@ -70,7 +70,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@android:color/black"
-                        android:text="Sanay"
+                        android:text="Abhishek"
                         android:textSize="30sp" />
 
                     <TextView
@@ -100,28 +100,31 @@
                         android:gravity="center">
 
                         <ImageButton
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:background="@drawable/icon_instagram"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/ic_icon_linkedin"
                             android:id="@+id/dev_linked_in" />
 
                         <ImageButton
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
-                            android:background="@drawable/icon_facebook"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/ic_icon_facebook"
                             android:id="@+id/dev_fb" />
 
                         <ImageButton
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:background="@drawable/icon_www"
-                            android:id="@+id/dev_github" />
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/ic_icon_github"
+                            android:id="@+id/dev_github"
+                            android:layout_marginRight="10dp"/>
 
                         <ImageButton
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
                             android:scaleType="centerCrop"
-                            android:background="@drawable/whatsapp_icon"
+                            android:background="@drawable/ic_icon_whatsapp"
                             android:id="@+id/dev_whats_app" />
 
                     </LinearLayout>
