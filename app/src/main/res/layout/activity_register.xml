@@ -172,6 +172,16 @@
                 android:layout_margin="18dp"
                 android:layout_marginTop="10dp" />
 
+            <Button
+                android:id="@+id/btn_skip_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/white"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="10dp"/>
+
         </LinearLayout>
 
     </ScrollView>

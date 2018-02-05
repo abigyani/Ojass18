@@ -26,11 +26,11 @@ import in.nitjsr.ojass.R;
 import in.nitjsr.ojass.Utils.Utilities;
 import in.nitjsr.ojass.Utils.Constants;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
 
     private ImageView ivBackground, ivOjassIcon;
     private Spinner spinner;
-    private Button registerButton, verifyButton;
+    private Button registerButton, verifyButton, skipButton;
     private EditText inputName,inputEmail,inputMobile,inputCollege,inputRegId,inputBranch;
     private String tshirtSize;
     private FirebaseUser mUser;
@@ -46,10 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         ivBackground = findViewById(R.id.iv_background);
         ivOjassIcon = findViewById(R.id.iv_ojass_icon);
-
-        Picasso.with(this).load(R.mipmap.ojass_bg).fit().into(ivBackground);
-        Picasso.with(this).load(mUser.getPhotoUrl()).fit().into(ivOjassIcon);
-
+        skipButton = findViewById(R.id.btn_skip);
         inputName = findViewById(R.id.input_name);
         inputEmail = findViewById(R.id.input_email);
         inputMobile = findViewById(R.id.input_mobile);
@@ -60,9 +57,15 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.register_button);
         spinner = findViewById(R.id.spinner);
 
+        skipButton.setOnClickListener(this);
+
+        Picasso.with(this).load(R.mipmap.ojass_bg).fit().into(ivBackground);
+        Picasso.with(this).load(mUser.getPhotoUrl()).fit().into(ivOjassIcon);
+
         verifyButton.setBackgroundColor(Color.GRAY);
 
         inputMobile.addTextChangedListener(new TextWatcher() {
+
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -163,4 +166,10 @@ public class RegisterActivity extends AppCompatActivity {
         return valid;
     }
 
+    @Override
+    public void onClick(View view) {
+        if (view == skipButton){
+            //Skip
+        }
+    }
 }
