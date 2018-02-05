@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 import in.nitjsr.ojass.R;
 
+import static in.nitjsr.ojass.Utils.Constants.smallEventImage;
+import static in.nitjsr.ojass.Utils.Constants.largeEventImage;
+
 /**
  * Simple POJO model for example
  */
@@ -20,7 +23,7 @@ public class Item {
     private String time;
     private String headEventName, headEventTag;
     private String sub1,sub2,sub3,sub4,sub5,sub6,sub7,sub8,sub9,sub10,MainiEvent;
-    private int image1,image2;
+    private String image1,image2;
 
     private View.OnClickListener requestBtnClickListener1,requestBtnClickListener2,requestBtnClickListener3,requestBtnClickListener4,
             requestBtnClickListener5,requestBtnClickListener6,requestBtnClickListener7,
@@ -30,7 +33,7 @@ public class Item {
     }
 
     public Item(String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8, String s9, String s10, String headEventName,
-                String headEventTag, int main, int main2) {
+                String headEventTag, String main, String main2) {
         this.sub1 = s1;
         this.sub2 = s2;
         this.sub3 = s3;
@@ -152,19 +155,19 @@ public class Item {
         MainiEvent = mainiEvent;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image1;
     }
 
-    public void setImage(int Image) {
+    public void setImage(String Image) {
         image1 = Image;
     }
 
-    public int getImage1() {
+    public String getImage1() {
         return image2;
     }
 
-    public void setImage1(int Image) {
+    public void setImage1(String Image) {
         image2 = Image;
     }
 
@@ -350,8 +353,16 @@ public class Item {
         ArrayList<Item> items = new ArrayList<>();
         String Array1[]={"ArthaShastra","Circuit House","Vishwa CodeGenesis","No Ground Zone","Paraphernalia","Produs","Silicon Valley","Rise of Machines"
                 ,"NSCET","NeoDrishti","Exposicion","Dues-X-Machina","Avartan","Aarmagedon","Aakriti","Prayas","LiveCS"};
-        int[] Array2={R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1,R.drawable.e1};
-        int[] Array3={R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1,R.drawable.f1};
+
+        String[] Array2={smallEventImage[0],smallEventImage[1],smallEventImage[2],smallEventImage[3],smallEventImage[4],smallEventImage[5],
+                smallEventImage[6],smallEventImage[7],smallEventImage[8],smallEventImage[9],smallEventImage[10],smallEventImage[11],smallEventImage[12],
+                smallEventImage[13],smallEventImage[14],smallEventImage[15],smallEventImage[16]};
+
+        String[] Array3={largeEventImage[0],largeEventImage[1],largeEventImage[2],largeEventImage[3],largeEventImage[4],largeEventImage[5],
+                largeEventImage[6],largeEventImage[7],largeEventImage[8],largeEventImage[9],largeEventImage[10],largeEventImage[11],largeEventImage[12],
+                largeEventImage[13],largeEventImage[14],largeEventImage[15],largeEventImage[16]};
+
+
         items.add(new Item("ABC","Neetishastra","Let's Start Up","Corporate Roadies","Bizzathlon","Wolf of Dalal Street",
                 "Selfie Ad",null,null,null,Array1[0], "Dream Dare Achieve", Array2[0],Array3[0]));
         items.add(new Item("High Voltage Concepts (HVC)","Elixir of Electricity","Pro-Lo-Co","Mat Sim","Nexus","Electro-Q","Who Am I",null,null,null,Array1[1], "Dream Dare Achieve",Array2[1],Array3[1]));

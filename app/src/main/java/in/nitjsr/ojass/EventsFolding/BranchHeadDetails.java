@@ -6,53 +6,55 @@ package in.nitjsr.ojass.EventsFolding;
 
 public class BranchHeadDetails {
 
-    public static String VishwacodeGenesisname[]={"Shubhendu","Deepakshi","Mrityunjay"};
-    public static String VishwacodeGenesisphone[]={"8409558075","8092443331","8084039161"};
+    public static String VishwacodeGenesisname[] = {"Shikhar Kunal"};
+    public static String VishwacodeGenesisphone[] = {"9470979069"};
 
-    public static String CircuitHousename[]={"Kshitiz Gupta","Rahul Gupta","Arundhati"};
-    public static String CircuitHousephone[]={"8936832295","7209804673","7631177634"};
+    public static String CircuitHousename[] = {"Krishna Gopal Singh", "Arnav Sarkar", "Diksha Agarwal"};
+    public static String CircuitHousephone[] = {"9471126529", "7070654097", "8092348666"};
 
-    public static String Neodrishtiname[]={"Kriti Duggal","Manish","Rohit"};
-    public static String Neodrishtiphone[]={"9830126572","8541996181","9570453145"};
 
-    public static String Nogroundzonename[]={"Aditya","Hrishabh"};
-    public static String Nogroundzonephone[]={"8092443067","8936094242"};
+    public static String Neodrishtiname[] = {"Hrishikesh Kumar", "Kanika Parnami", "Abhishek Sharma"};
+    public static String Neodrishtiphone[] = {"9504047586", "9651010322", "9711487046"};
 
-    public static String Nscetname[]={"Shriti Priya","Abhishek Singh"};
-    public static String Nscetphone[]={"7209594530","8809211137"};
+    public static String Nogroundzonename[] = {"Pankaj Kumar"};
+    public static String Nogroundzonephone[] = {"9304022913"};
 
-    public static String Avratanname[]={"Avinash Kumar","G.Sunil","Smriti Kiran"};
-    public static String Avratanphone[]={"9570038860","8885306878","7209163814"};
+    public static String Nscetname[] = {" "};
+    public static String Nscetphone[] = {" "};
 
-    public static String Paraphernalianame[]={"Ayush Agrahari","Amrit Lal Saha"};
-    public static String Paraphernaliaphone[]={"9155120276","9046501302"};
+    public static String Avratanname[] = {"Kumar Adarsh", "Richa Ojha", "BH.V.Vijay"};
+    public static String Avratanphone[] = {"9931167630", "8340674404", "9777988058"};
 
-    public static String Prayasname[]={"Vivek Kumar","Shweta Kumari","Smriti Kumari"};
-    public static String Prayasphone[]={"8603348047","7909068426","9279033750"};
+    public static String Paraphernalianame[] = {"Poras Thavnani"};
+    public static String Paraphernaliaphone[] = {"8797361542"};
 
-    public static String Produsname[]={"Shobhit Shubham","Zeba","Rahul Yadav"};
-    public static String Produsphone[]={"9708616488","9546499866","9709215732"};
+    public static String Prayasname[] = {"Khusboo Rani", "Manish Kumar", "Ujjwal Kumar Yadav"};
+    public static String Prayasphone[] = {"8757080513", "8541833888", "9771935189"};
 
-    public static String SiliconValleyname[]={"Sumant","Amrita","Vishnu"};
-    public static String SiliconValleyphone[]={"8986720051","7209412369","9491248806"};
+    public static String Produsname[] = {"Vivek Banerjee", "Ajit Kumar Gupta", "Akanksha Sinha"};
+    public static String Produsphone[] = {"7050544344", "9304018524", "9304359578"};
 
-    public static String Armageddonname[]={"Aayush","Shubhojit"};
-    public static String Armageddonphone[]={"8986617896","8092681401"};
+    public static String SiliconValleyname[] = {"Niraj Kumar", "Sacchi Prakash", "Shubham Anand"};
+    public static String SiliconValleyphone[] = {"7070613942", "7631184347", "8789522609"};
 
-    public static String Aakritiname[]={"Mrinal","Vaibhav","Madhu"};
-    public static String Aakritiphone[]={"8252275445","8271002428","9798714508"};
+    public static String Armageddonname[] = {"Jibak Roy", "Abhishek Roul"};
+    public static String Armageddonphone[] = {"9470177612", "7992455725"};
 
-    public static String DuesExMachinaname[]={"Amritesh Ranjan","Aman Kumar","Sourabh Sharma","Amit Kumar"};
-    public static String DuesExMachinaphone[]={"9608667456","8541918655","7209824669","9162659555"};
+    public static String Aakritiname[] = {"Nikhil Kumar", "Nidhi Nivedita", "Vishal Singh"};
+    public static String Aakritiphone[] = {"7783825879", "9973949841", "8406080962"};
 
-    public static String Arthashastraname[]={"Ayush Chauhan","Ankit Tanmay","Anish"};
-    public static String Arthashastraaphone[]={"8292962962","7903305762","8521153126"};
+    public static String DuesExMachinaname[] = {" "};
+    public static String DuesExMachinaphone[] = {" "};
 
-    public static String Exposicionname[]={"Richa Thackar","Aparajite"};
-    public static String Exposicionphone[]={"8603606099","8298443326"};
+    public static String Arthashastraname[] = {"Sujeet Gupta"};
+    public static String Arthashastraaphone[] = {"7828077280"};
 
-    public static String LiveCSname[]={"Rahul Ranjan","Rahul Kumar"};
-    public static String LiveCSphone[]={"8294263150","7549101494"};
+    public static String Exposicionname[] = {"Gajendra Kumar Gupta"};
+    public static String Exposicionphone[] = {"7209359790"};
 
-    public static String Riseofmachinename[]={"Manish Rai","Himanshu Pathak","Sudamah"};
-    public static String Riseofmachinephone[]={"9431745329","9654160694","7870789925"};}
+    public static String LiveCSname[] = {"Rahul Meena"};
+    public static String LiveCSphone[] = {"9530476929"};
+
+    public static String Riseofmachinename[] = {"Ikshwaku Kumar Dwivedi", "Amit Kumar", "Anand Kashyap"};
+    public static String Riseofmachinephone[] = {"8051377895", "8507909903", "7070469511"};
+}

@@ -1,5 +1,6 @@
 package in.nitjsr.ojass.Activities;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -19,6 +20,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +28,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
@@ -42,7 +45,12 @@ import in.nitjsr.ojass.Modals.CoordinatorsModel;
 import in.nitjsr.ojass.Modals.EventModel;
 import in.nitjsr.ojass.Modals.RulesModel;
 import in.nitjsr.ojass.R;
+import in.nitjsr.ojass.Utils.Constants;
 import in.nitjsr.ojass.Utils.CustomViewPager;
+
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_NOTIFICATIONS;
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_OJASS_ID;
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_USERS;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener{
 
@@ -53,7 +61,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private BottomNavigationView navigation;
     private FirebaseAuth mAuth;
     private boolean isWarningShown = false;
-    private DatabaseReference ref;
     public static ArrayList<EventModel> data;
     public ProgressDialog progressDialog;
 
@@ -63,23 +70,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         //Events
-        ref= FirebaseDatabase.getInstance().getReference().child("Events");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Events");
         ref.keepSynced(true);
         progressDialog=new ProgressDialog(this);
         progressDialog.setMessage("Initialising App data...");
         progressDialog.setCancelable(false);
         progressDialog.show();
         data=new ArrayList<>();
+
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 data.clear();
                 progressDialog.dismiss();
-                //Toast.makeText(getApplicationContext(), "DataFetched", Toast.LENGTH_SHORT).show();
-                for(DataSnapshot ds: dataSnapshot.getChildren())
-                {
+                for(DataSnapshot ds: dataSnapshot.getChildren()) {
                     String about=ds.child("about").getValue(String.class);
                     String branch=ds.child("branch").getValue(String.class);
                     String details=ds.child("detail").getValue(String.class);
@@ -94,35 +99,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     ArrayList<RulesModel> rulesModelArrayList=new ArrayList<>();
                     rulesModelArrayList.clear();
 
-                    for(DataSnapshot d:ds.child("coordinators").getChildren())
-                    {
+                    for(DataSnapshot d:ds.child("coordinators").getChildren()) {
                         CoordinatorsModel coordinatorsModel=d.getValue(CoordinatorsModel.class);
                         coordinatorsModelArrayList.add(coordinatorsModel);
                     }
 
-                    for(DataSnapshot d:ds.child("rules").getChildren())
-                    {
+                    for(DataSnapshot d:ds.child("rules").getChildren()) {
                         RulesModel rulesModel=d.getValue(RulesModel.class);
                         rulesModelArrayList.add(rulesModel);
                     }
 
 
-                    data.add(new EventModel(about,branch,details,name,prize1,prize2,prize3,prizeT,coordinatorsModelArrayList,rulesModelArrayList));/*
-                    Log.d("Event","About :"+about);
-                    Log.d("Event","Branch :"+branch);
-                    Log.d("Event","Details :"+details);
-                    Log.d("Event","Name :"+name);
-                    Log.d("Event","Prize1 :"+prize1);
-                    Log.d("Event","Prize2 :"+prize2);
-                    Log.d("Event","Prize3 :"+prize3);
-                    Log.d("Event","PrizeT :"+prizeT);
-                    for(int i=0;i<coordinatorsModelArrayList.size();i++)
-                        Log.d("Event","Name :"+coordinatorsModelArrayList.get(i).getName()+"  Phone :"+coordinatorsModelArrayList.get(i).getPhone());
-
-                    for(int i=0;i<rulesModelArrayList.size();i++)
-                        Log.d("Event","Rules"+i+" :"+rulesModelArrayList.get(i).getText());*/
-
-                    // showLog();
+                    data.add(new EventModel(about,branch,details,name,prize1,prize2,prize3,prizeT,coordinatorsModelArrayList,rulesModelArrayList));
                 }
             }
             @Override
@@ -190,11 +178,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     };
 
     private void createQRPopup() {
-        Dialog QRDialog = new Dialog(this);
+        final Dialog QRDialog = new Dialog(this);
         QRDialog.setContentView(R.layout.dialog_qr);
         QRDialog.getWindow().getAttributes().windowAnimations = R.style.pop_up_anim;
         ((ImageView)QRDialog.findViewById(R.id.iv_qr_code)).setImageBitmap(getQRCode(mAuth.getCurrentUser().getUid()));
         QRDialog.show();
+        final TextView tvOjassId = QRDialog.findViewById(R.id.tv_ojass_id);
+        final ImageView ivQR = QRDialog.findViewById(R.id.iv_qr_code);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(FIREBASE_REF_USERS).child(mAuth.getCurrentUser().getUid());
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @SuppressLint("NewApi")
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    ivQR.setImageBitmap(getQRCode(mAuth.getCurrentUser().getUid()));
+                    if (dataSnapshot.child(FIREBASE_REF_OJASS_ID).exists()){
+                        tvOjassId.setText(dataSnapshot.child(FIREBASE_REF_OJASS_ID).getValue().toString());
+                        tvOjassId.setTextColor(Color.BLUE);
+                    } else {
+                        tvOjassId.setText(Constants.PAYMENT_DUE);
+                        tvOjassId.setTextColor(Color.RED);
+                    }
+                } else {
+                    //Show Please Register Image
+                    ivQR.setImageDrawable(getDrawable(R.drawable.ic_launcher_background));
+                    tvOjassId.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private Bitmap getQRCode(String uid) {
@@ -243,9 +259,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             SubscribeFragment detailsfragment=new SubscribeFragment();
             detailsfragment.show(getSupportFragmentManager(),"Subscribe");
         }else if(view.getId()==R.id.rl_notification_menu) {
-            startActivity(new Intent(this,FeedActivity.class));
+            //startActivity(new Intent(this,FeedActivity.class));
+            queryNotifications();
         }
 
+    }
+
+    private void queryNotifications() {
+        Query ref = FirebaseDatabase.getInstance().getReference(FIREBASE_REF_NOTIFICATIONS).orderByKey();
+        ref.keepSynced(true);
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
