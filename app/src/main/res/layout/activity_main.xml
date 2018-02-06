@@ -51,7 +51,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentRight="true">
 
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/icon_notification"
@@ -61,6 +61,7 @@
                 android:scaleType="centerCrop"/>
 
             <TextView
+                android:id="@+id/tv_noti_count"
                 android:layout_width="14dp"
                 android:layout_height="14dp"
                 android:layout_alignParentRight="true"
@@ -78,10 +79,115 @@
 
     <in.nitjsr.ojass.Utils.CustomViewPager
         android:id="@+id/view_pager_mainactivity"
-        android:layout_below="@+id/ll_topbar"
-        android:layout_above="@+id/navigation"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ll_topbar"
+        android:layout_above="@+id/navigation"/>
+
+    <!--LinearLayout
+        android:id="@+id/ll_notification"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_below="@+id/ll_topbar"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:tint="#cdcdcd"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/triangle"/>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:background="#cdcdcd"
+            android:id="@+id/rv_notification"
+            android:layout_width="match_parent"
+            android:layout_marginTop="-5dp"
+            android:layout_height="250dp" />
+
+        <TextView
+            android:id="@+id/tv_see_all_noti"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/bg_screen1"
+            android:text="See all Notification"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+
+        <View
+            android:id="@+id/view_noti_blank"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+    </LinearLayout!-->
+    <LinearLayout
+        android:id="@+id/ll_notification"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_topbar"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:background="@android:color/transparent"
+                android:tint="#cdcdcd" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner_all_notif"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_notification"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="-5dp"
+                android:background="#cdcdcd"/>
+
+            <TextView
+                android:id="@+id/tv_see_all_noti"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="See all Notification"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view_noti_blank"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/ib_swipe_up"
@@ -108,7 +214,7 @@
         android:animateLayoutChanges="true"
         android:id="@+id/ll_swipe_up"
         android:visibility="gone"
-        tools:visibility="visible"
+        tools:visibility="gone"
         android:layout_above="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

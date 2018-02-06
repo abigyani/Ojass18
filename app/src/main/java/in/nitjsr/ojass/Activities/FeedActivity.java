@@ -30,6 +30,7 @@ import in.nitjsr.ojass.Modals.TitleCreater1;
 import in.nitjsr.ojass.Modals.TitleParent;
 import in.nitjsr.ojass.R;
 
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_NOTIFICATIONS;
 
 
 public class FeedActivity extends AppCompatActivity {
@@ -91,7 +92,7 @@ public class FeedActivity extends AppCompatActivity {
         p.setMessage("Loading Feed....");
         p.setCancelable(true);
         p.show();
-        ref= FirebaseDatabase.getInstance().getReference().child("feed").child(spinner.getSelectedItem().toString());
+        ref= FirebaseDatabase.getInstance().getReference().child(FIREBASE_REF_NOTIFICATIONS).child(spinner.getSelectedItem().toString());
         ref.keepSynced(true);
         ref.addValueEventListener(new ValueEventListener() {
             @Override

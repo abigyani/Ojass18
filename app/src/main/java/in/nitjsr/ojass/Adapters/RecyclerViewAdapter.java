@@ -41,6 +41,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.evenTitle.setText(current.getEventName());
         holder.eventDesc.setText(current.getDescription());
+
     }
 
     @Override

@@ -112,7 +112,7 @@
                         android:id="@+id/iv_tshirt"
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:src="@android:drawable/checkbox_on_background"
+                        android:src="@android:drawable/checkbox_off_background"
                         android:background="@android:color/transparent"
                         android:layout_marginRight="10dp"/>
 
@@ -135,7 +135,7 @@
                         android:id="@+id/iv_kit"
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:src="@android:drawable/checkbox_on_background"
+                        android:src="@android:drawable/checkbox_off_background"
                         android:background="@android:color/transparent"
                         android:layout_marginRight="10dp"/>
 

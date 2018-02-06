@@ -23,10 +23,11 @@ public class Constants {
     public static final String FIREBASE_REF_KIT = "isKit";
 
     public static final String FIREBASE_REF_NOTIFICATIONS = "Notifications";
-    public static final String FIREBASE_REF_NOTIFICATIONS_BODY = "body";
-    public static final String FIREBASE_REF_NOTIFICATIONS_IMAGE = "image";
-    public static final String FIREBASE_REF_NOTIFICATIONS_TITLE = "title";
-    public static final String FIREBASE_REF_NOTIFICATIONS_URL = "url";
+    public static final String FIREBASE_REF_OJASS_CHANNEL = "OJASS";
+    public static final String FIREBASE_REF_NOTIFICATIONS_BODY = "ans";
+    public static final String FIREBASE_REF_NOTIFICATIONS_IMAGE = "imageUrl";
+    public static final String FIREBASE_REF_NOTIFICATIONS_TITLE = "question";
+    public static final String FIREBASE_REF_NOTIFICATIONS_URL = "clickUrl";
 
     public static final String FIREBASE_REF_POSTERIMAGES = "PosterImages";
     public static final String FIREBASE_REF_IMG_SRC = "img_url";
