@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    repositories {
+        jcenter()
+    }
+
 }
 
 dependencies {
@@ -45,6 +49,7 @@ dependencies {
     implementation 'com.desarrollodroide:fragmenttransactionextended:1'
     implementation 'com.github.Yalantis:OfficialFoldingTabBar.Android:v0.9'
     implementation 'com.nightonke:boommenu:2.1.1'
+    implementation 'com.facebook.android:account-kit-sdk:4.+'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'

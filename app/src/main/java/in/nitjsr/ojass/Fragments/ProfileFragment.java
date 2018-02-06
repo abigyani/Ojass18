@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -33,6 +34,7 @@ import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import in.nitjsr.ojass.Activities.LoginActivity;
@@ -104,26 +106,33 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             @SuppressLint("NewApi")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                tvNum.setText("+91 "+dataSnapshot.child(Constants.FIREBASE_REF_MOBILE).getValue().toString());
-                if (dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue() != null) {
-                    tvUserOjId.setText(dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue().toString());
-                    tvUserOjId.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
-                }
-                else {
-                    tvUserOjId.setText(getString(R.string.not_registered));
+                if (dataSnapshot.exists()){
+                    tvNum.setText("+91 "+dataSnapshot.child(Constants.FIREBASE_REF_MOBILE).getValue().toString());
+                    if (dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue() != null) {
+                        tvUserOjId.setText(dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue().toString());
+                        tvUserOjId.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                    }
+                    else {
+                        tvUserOjId.setText(Constants.PAYMENT_DUE);
+                        tvUserOjId.setTextColor(Color.RED);
+                    }
+                    if (dataSnapshot.child(Constants.FIREBASE_REF_TSHIRT).exists()){
+                        ivtShirt.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_on_background));
+                    } else {
+                        ivtShirt.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_off_background));
+                    }
+                    if (dataSnapshot.child(Constants.FIREBASE_REF_KIT).exists()){
+                        ivKit.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_on_background));
+                    } else {
+                        ivKit.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_off_background));
+                    }
+                    if (pd.isShowing()) pd.dismiss();
+                } else {
+                    if (pd.isShowing()) pd.dismiss();
+                    tvUserOjId.setText(Constants.NOT_REGISTERED);
                     tvUserOjId.setTextColor(Color.RED);
+                    Toast.makeText(getContext(), Constants.NOT_REGISTERED, Toast.LENGTH_SHORT).show();
                 }
-                if (dataSnapshot.child(Constants.FIREBASE_REF_TSHIRT).exists()){
-                    ivtShirt.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_on_background));
-                } else {
-                    ivtShirt.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_off_background));
-                }
-                if (dataSnapshot.child(Constants.FIREBASE_REF_KIT).exists()){
-                    ivKit.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_on_background));
-                } else {
-                    ivKit.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_off_background));
-                }
-                if (pd.isShowing()) pd.dismiss();
             }
 
             @Override

@@ -37,7 +37,6 @@
         <item>L</item>
         <item>XL</item>
         <item>XXL</item>
-        <item>XXXL</item>
     </string-array>
 
     <string-array name="team_names">
@@ -51,5 +50,9 @@
     </string-array>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_feed">FeedActivity</string>
+
+    <string name="FACEBOOK_APP_ID">1811310532502668</string>
+    <string name="ACCOUNT_KIT_CLIENT_TOKEN">411eda77756a51cbbd79e63baeadc212</string>
+    <string name="ak_login_protocol_scheme">ak1811310532502668</string>
 
 </resources>

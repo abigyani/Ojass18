@@ -1,8 +1,11 @@
 package in.nitjsr.ojass.Activities;
 
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,6 +19,10 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.facebook.accountkit.AccountKitLoginResult;
+import com.facebook.accountkit.ui.AccountKitActivity;
+import com.facebook.accountkit.ui.AccountKitConfiguration;
+import com.facebook.accountkit.ui.LoginType;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import in.nitjsr.ojass.R;
+import in.nitjsr.ojass.Utils.SharedPrefManager;
 import in.nitjsr.ojass.Utils.Utilities;
 import in.nitjsr.ojass.Utils.Constants;
 
@@ -35,6 +43,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private String tshirtSize;
     private FirebaseUser mUser;
     private DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users");
+    private static final int APP_REQUEST_CODE = 99;
+    private boolean mobileVerified = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +56,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         ivBackground = findViewById(R.id.iv_background);
         ivOjassIcon = findViewById(R.id.iv_ojass_icon);
-        skipButton = findViewById(R.id.btn_skip);
+        skipButton = findViewById(R.id.btn_skip_register);
         inputName = findViewById(R.id.input_name);
         inputEmail = findViewById(R.id.input_email);
         inputMobile = findViewById(R.id.input_mobile);
@@ -63,6 +73,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         Picasso.with(this).load(mUser.getPhotoUrl()).fit().into(ivOjassIcon);
 
         verifyButton.setBackgroundColor(Color.GRAY);
+        verifyButton.setOnClickListener(this);
 
         inputMobile.addTextChangedListener(new TextWatcher() {
 
@@ -101,13 +112,29 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(validate()) registerUser();
+                if(validate()) {
+                    registerUser();
+                } else if (!mobileVerified){
+                    Toast.makeText(RegisterActivity.this, "Verify Mobile Number", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(RegisterActivity.this, "Enter details", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         inputName.setText(mUser.getDisplayName());
         inputEmail.setText(mUser.getEmail());
         inputMobile.setText(mUser.getPhoneNumber());
+        checkSMSPermission();
+    }
+
+    private void checkSMSPermission() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{
+                    Manifest.permission.READ_SMS,
+                    Manifest.permission.RECEIVE_SMS
+            }, 101);
+        }
     }
 
     private void registerUser() {
@@ -121,6 +148,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         userRef.child(Constants.FIREBASE_REF_BRANCH).setValue(inputBranch.getText().toString());
         userRef.child(Constants.FIREBASE_REF_TSHIRT_SIZE).setValue(tshirtSize);
         Toast.makeText(this, "Welcome to Ojass Space Voyage Dashboard!", Toast.LENGTH_LONG).show();
+        new SharedPrefManager(this).setIsLoggedIn(true);
         startActivity(new Intent(RegisterActivity.this,MainActivity.class));
         finish();
     }
@@ -163,13 +191,62 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             valid=false;
         }
 
-        return valid;
+        return valid && mobileVerified;
     }
 
     @Override
     public void onClick(View view) {
         if (view == skipButton){
-            //Skip
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        } else if (view == verifyButton){
+            phoneLogin();
         }
     }
+
+    public void phoneLogin() {
+        final Intent intent = new Intent(this, AccountKitActivity.class);
+        AccountKitConfiguration.AccountKitConfigurationBuilder configurationBuilder =
+                new AccountKitConfiguration.AccountKitConfigurationBuilder(
+                        LoginType.PHONE,
+                        AccountKitActivity.ResponseType.CODE);
+        intent.putExtra(
+                AccountKitActivity.ACCOUNT_KIT_ACTIVITY_CONFIGURATION,
+                configurationBuilder.build());
+        startActivityForResult(intent, APP_REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(
+            final int requestCode,
+            final int resultCode,
+            final Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == APP_REQUEST_CODE) { // confirm that this response matches your request
+            AccountKitLoginResult loginResult = data.getParcelableExtra(AccountKitLoginResult.RESULT_KEY);
+            String toastMessage;
+            if (loginResult.getError() != null) {
+                toastMessage = loginResult.getError().getErrorType().getMessage();
+            } else if (loginResult.wasCancelled()) {
+                toastMessage = "Login Cancelled";
+            } else {
+                if (loginResult.getAccessToken() != null) {
+                    toastMessage = "Success:" + loginResult.getAccessToken().getAccountId();
+                } else {
+                    toastMessage = String.format(
+                            "Success:%s...",
+                            loginResult.getAuthorizationCode().substring(0,10));
+                }
+                mobileVerified = true;
+            }
+
+            // Surface the result to your user in an appropriate way.
+            Toast.makeText(
+                    this,
+                    toastMessage,
+                    Toast.LENGTH_LONG)
+                    .show();
+        }
+    }
+
 }

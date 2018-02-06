@@ -4,11 +4,11 @@
     android:layout_height="match_parent"
     tools:context="in.nitjsr.ojass.Fragments.ItinaryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/iv_itinerary"
+        android:src="@drawable/chotalaunchingsoon"
+        android:scaleType="fitXY"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Itinary"
-        android:gravity="center"/>
+        android:layout_height="match_parent" />
 
 </FrameLayout>

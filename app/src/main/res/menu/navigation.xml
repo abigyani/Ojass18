@@ -16,7 +16,7 @@
         android:title="" />
     <item
         android:id="@+id/bottom_nav_itinary"
-        android:title="Itinary"
+        android:title="Itinerary"
         android:icon="@drawable/icon_itinary"
         />
     <item
