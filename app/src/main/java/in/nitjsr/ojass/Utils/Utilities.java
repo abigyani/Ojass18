@@ -13,6 +13,8 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
+import in.nitjsr.ojass.R;
+
 /**
  * Created by Abhishek on 26-Jan-18.
  */

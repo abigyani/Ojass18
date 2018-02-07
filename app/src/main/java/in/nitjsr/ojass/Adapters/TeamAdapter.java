@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import in.nitjsr.ojass.Activities.TeamActivity;
 import in.nitjsr.ojass.Modals.Team;
 import in.nitjsr.ojass.R;
+import in.nitjsr.ojass.Utils.Utilities;
 
 /**
  * Created by Abhishek on 30-Jan-18.
@@ -40,7 +41,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Team team = teamList.get(position);
-        Picasso.with(context).load(team.getImageSrc()).fit().into(holder.iv);
+        Utilities.setPicassoImage(context, team.getImageSrc(), holder.iv);
         holder.tvName.setText(team.getName());
         holder.tvDesg.setText(team.getDesg());
         holder.itemView.setOnClickListener(new View.OnClickListener() {

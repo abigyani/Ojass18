@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e){
+                Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "Google Sign in failed. Reason: " + e.getMessage());
                 if (pd.isShowing()) pd.dismiss();
             }
@@ -129,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
                     moveToRegisterActivity();
                     Toast.makeText(LoginActivity.this, "Hey "+fName+"! Let us know you better.", Toast.LENGTH_LONG).show();
                 }
-                if (pd.isShowing()) pd.dismiss();
+                //if (pd.isShowing()) pd.dismiss();
             }
 
             @Override

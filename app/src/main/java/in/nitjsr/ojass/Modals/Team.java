@@ -6,17 +6,16 @@ package in.nitjsr.ojass.Modals;
 
 public class Team {
 
-    private int imageSrc;
-    private String name, desg, phone;
+    private String name, desg, phone, imageSrc;
 
-    public Team(int imageSrc, String name, String desg, String phone) {
+    public Team(String name, String desg, String phone, String imageSrc) {
         this.imageSrc = imageSrc;
         this.name = name;
         this.desg = desg;
         this.phone = phone;
     }
 
-    public int getImageSrc() {
+    public String getImageSrc() {
         return imageSrc;
     }
 

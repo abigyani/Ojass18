@@ -6,8 +6,8 @@ package in.nitjsr.ojass.EventsFolding;
 
 public class BranchHeadDetails {
 
-    public static String VishwacodeGenesisname[] = {"Shikhar Kunal"};
-    public static String VishwacodeGenesisphone[] = {"9470979069"};
+    public static String VishwacodeGenesisname[] = {"Shikhar Kunal","Ankita Bohra", "Abhishek Keshri"};
+    public static String VishwacodeGenesisphone[] = {"9470979069", "7209227678", "7903580340"};
 
     public static String CircuitHousename[] = {"Krishna Gopal Singh", "Arnav Sarkar", "Diksha Agarwal"};
     public static String CircuitHousephone[] = {"9471126529", "7070654097", "8092348666"};
@@ -19,8 +19,8 @@ public class BranchHeadDetails {
     public static String Nogroundzonename[] = {"Pankaj Kumar"};
     public static String Nogroundzonephone[] = {"9304022913"};
 
-    public static String Nscetname[] = {" "};
-    public static String Nscetphone[] = {" "};
+    public static String Nscetname[] = {"Kumar Ankur"};
+    public static String Nscetphone[] = {"8406028040"};
 
     public static String Avratanname[] = {"Kumar Adarsh", "Richa Ojha", "BH.V.Vijay"};
     public static String Avratanphone[] = {"9931167630", "8340674404", "9777988058"};
@@ -43,11 +43,11 @@ public class BranchHeadDetails {
     public static String Aakritiname[] = {"Nikhil Kumar", "Nidhi Nivedita", "Vishal Singh"};
     public static String Aakritiphone[] = {"7783825879", "9973949841", "8406080962"};
 
-    public static String DuesExMachinaname[] = {" "};
-    public static String DuesExMachinaphone[] = {" "};
+    public static String DuesExMachinaname[] = {"Kaushik Komanduri", "Sammeta Saisaran", "Sushil Rajwar"};
+    public static String DuesExMachinaphone[] = {"8008458784","9471105567", "9905183679"};
 
-    public static String Arthashastraname[] = {"Sujeet Gupta"};
-    public static String Arthashastraaphone[] = {"7828077280"};
+    public static String Arthashastraname[] = {"Sujeet Gupta", "Shalini Singh"};
+    public static String Arthashastraaphone[] = {"7828077280", "7004871347"};
 
     public static String Exposicionname[] = {"Gajendra Kumar Gupta"};
     public static String Exposicionphone[] = {"7209359790"};

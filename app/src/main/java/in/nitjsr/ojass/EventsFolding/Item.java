@@ -352,7 +352,7 @@ public class Item {
     public static ArrayList<Item> getTestingList() {
         ArrayList<Item> items = new ArrayList<>();
         String Array1[]={"ArthaShastra","Circuit House","Vishwa CodeGenesis","No Ground Zone","Paraphernalia","Produs","Silicon Valley","Rise of Machines"
-                ,"NSCET","NeoDrishti","Exposicion","Dues-X-Machina","Avartan","Aarmagedon","Aakriti","Prayas","LiveCS"};
+                ,"NSCET","NeoDrishti","Exposicion","Deus-X-Machina","Avartan","Armageddon","Aakriti","Prayas","LiveCS"};
 
         String[] Array2={smallEventImage[0],smallEventImage[1],smallEventImage[2],smallEventImage[3],smallEventImage[4],smallEventImage[5],
                 smallEventImage[6],smallEventImage[7],smallEventImage[8],smallEventImage[9],smallEventImage[10],smallEventImage[11],smallEventImage[12],
@@ -364,19 +364,19 @@ public class Item {
 
 
         items.add(new Item("ABC","Neetishastra","Let's Start Up","Corporate Roadies","Bizzathlon","Wolf of Dalal Street",
-                "Selfie Ad",null,null,null,Array1[0], "Dream Dare Achieve", Array2[0],Array3[0]));
+                "Selfie Ad","Teenpreneur",null,null,Array1[0], "Dream Dare Achieve",Array2[0],Array3[0]));
         items.add(new Item("High Voltage Concepts (HVC)","Elixir of Electricity","Pro-Lo-Co","Mat Sim","Nexus","Electro-Q","Who Am I",null,null,null,Array1[1], "Dream Dare Achieve",Array2[1],Array3[1]));
-        items.add(new Item("App Droid","Code-for-shu987","Codemania","Code-karmas-bot","Shubh-Scripthon","Bug-Dkarmas-Bash","Web Vogue","Shubh-DbQuery",null,null,Array1[2], "Dream Dare Achieve",Array2[2],Array3[2]));
+        items.add(new Item("App Droid","Algorithma","Codemania","Code-O-Soccer","Sudo Code","Labyrinth","Web Weaver","Tech Know",null,null,Array1[2], "Dream Dare Achieve",Array2[2],Array3[2]));
         items.add(new Item("Touch Down the plane","MICAV",null, null, null, null,null,null,null,null,Array1[3], "Dream Dare Achieve",Array2[3],Array3[3]));
         items.add(new Item("The Great Ojass Race","SCI FI", "Mad Ad", "Lens View", "Director's Cut", null, null, null,null,null,Array1[4], "Dream Dare Achieve",Array2[4],Array3[4]));
-        items.add(new Item("Industrial Tycoon", "Utpreksh","Artifact", "DronaGyan", "Udyog", null, null, null,null,null,Array1[5], "Dream Dare Achieve",Array2[5],Array3[5]));
+        items.add(new Item("Industrial Tycoon", "Utpreaks","Artifact", "DronaGyan", "M&I Quiz", null, null, null,null,null,Array1[5], "Dream Dare Achieve",Array2[5],Array3[5]));
         items.add(new Item("Tukvilla","Jigyasa","Codesense","Analog Hunter","Digizone","Netkraft","Embetrix",null,null,null,Array1[6], "Dream Dare Achieve",Array2[6],Array3[6]));
-        items.add(new Item("Autoquiz","Accelodrome","Moto Virtuale 2017","Junkyard Wars","Samveg","Prakshepan","Enigma","Ansys",null,null,Array1[7], "Dream Dare Achieve",Array2[7],Array3[7]));
+        items.add(new Item("Autoquiz","Accelodrome","Junkyard Wars","Samveg","Prakshepan","Enigma","Ansys",null,null,null,Array1[7], "Dream Dare Achieve",Array2[7],Array3[7]));
         items.add(new Item("NSCET",null,null,null,null,null,null,null,null,null,Array1[8], "Dream Dare Achieve",Array2[8],Array3[8]));
-        items.add(new Item("Codiyapa","Game of Troves","Scratch Easy","SimplySql","CodeBug",null,null,null,null,null,Array1[9], "Dream Dare Achieve",Array2[9],Array3[9]));
+        items.add(new Item("Codiyapa","Game of Troves","Scratch Easy","SimplySql","Tame the pyhton",null,null,null,null,null,Array1[9], "Dream Dare Achieve",Array2[9],Array3[9]));
         items.add(new Item("Exposicion",null,null,null,null,null,null,null,null,null,Array1[10], "Dream Dare Achieve",Array2[10],Array3[10]));
         items.add(new Item("360 Mania","Tachyon","Battleship","Kurukshetra","MAC FIFA","Shapeshifter",null,null,null,null,Array1[11], "Dream Dare Achieve",Array2[11],Array3[11]));
-        items.add(new Item("Indus Solva","Agnikund","Metal Trivia","Chitrankit","Funtoosh",null,null,null,null,null,Array1[12], "Dream Dare Achieve",Array2[12],Array3[12]));
+        items.add(new Item("Spectra","Agnikund","Metal Trivia","Innovision","K.O.",null,null,null,null,null,Array1[12], "Dream Dare Achieve",Array2[12],Array3[12]));
         items.add(new Item("FIFA","Counter Strike- Global Offensive","NFS Most Wanted","Angry Birds","DOTA",null,null,null,null,null,Array1[13], "Dream Dare Achieve",Array2[13],Array3[13]));
         items.add(new Item("Acumen","Sanrachna","Archmadeease","Exempler","Pipe-o-Mania","Metropolis",null,null,null,null,Array1[14], "Dream Dare Achieve",Array2[14],Array3[14]));
         items.add(new Item("Jagriti","Samvedna","Pratibimb",null,null,null,null,null,null,null,Array1[15], "Dream Dare Achieve",Array2[15],Array3[15]));
