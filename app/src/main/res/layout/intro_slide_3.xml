@@ -5,4 +5,9 @@
     android:layout_height="match_parent"
     android:background="@color/bg_screen3">
 
+    <ImageView
+        android:id="@+id/iv_intro_slide_3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </RelativeLayout>
