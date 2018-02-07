@@ -170,7 +170,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.rl_notification_menu).setOnClickListener(this);
         findViewById(R.id.rl_subscribe).setOnClickListener(this);
         findViewById(R.id.view_noti_blank).setOnClickListener(this);
-        //Picasso.with(this).load(R.drawable.star_bg).fit().into(((ImageView)findViewById(R.id.iv_header)));
 
         getFbHash();
     }
