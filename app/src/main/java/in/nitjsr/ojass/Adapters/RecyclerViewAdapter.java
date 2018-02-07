@@ -1,6 +1,7 @@
 package in.nitjsr.ojass.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,18 +13,27 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import in.nitjsr.ojass.Activities.GuruGyanActivity;
 import in.nitjsr.ojass.Activities.TeamActivity;
+import in.nitjsr.ojass.EventsFolding.SubEventsActivity;
 import in.nitjsr.ojass.Modals.Modal;
 import in.nitjsr.ojass.R;
 import in.nitjsr.ojass.Utils.Utilities;
+
+import static in.nitjsr.ojass.Activities.GuruGyanActivity.POSITION_PARAM;
+import static in.nitjsr.ojass.Utils.Constants.EVENT_FLAG;
+import static in.nitjsr.ojass.Utils.Constants.GURU_GYAN_FLAG;
+import static in.nitjsr.ojass.Utils.Constants.SPONSORS_FLAG;
 
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private ArrayList<Modal> dataset;
     private Context context;
-    public RecyclerViewAdapter(ArrayList<Modal> dataset, Context context) {
+    private int FLAG;
+    public RecyclerViewAdapter(ArrayList<Modal> dataset, Context context, int FLAG) {
         this.dataset = dataset;
         this.context=context;
+        this.FLAG = FLAG;
     }
 
     @Override
@@ -34,7 +44,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         final Modal current = dataset.get(position);
         if (current.getImage() != null) Utilities.setPicassoImage(context, current.getImage(), holder.eventImg);
         else Picasso.with(context).load(current.getDrawableImage()).fit().into(holder.eventImg);
@@ -42,6 +52,25 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.evenTitle.setText(current.getEventName());
         holder.eventDesc.setText(current.getDescription());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (FLAG){
+                    case EVENT_FLAG:
+                        Intent subEvent =new Intent(context,SubEventsActivity.class);
+                        subEvent.putExtra("title",current.getEventName());
+                        context.startActivity(subEvent);
+                        break;
+                    case GURU_GYAN_FLAG:
+                        Intent intent = new Intent(context, GuruGyanActivity.class);
+                        intent.putExtra(POSITION_PARAM, position);
+                        context.startActivity(intent);
+                        break;
+                    case SPONSORS_FLAG:
+                        break;
+                }
+            }
+        });
     }
 
     @Override

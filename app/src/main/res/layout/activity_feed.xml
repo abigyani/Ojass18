@@ -35,6 +35,8 @@
             android:spinnerMode="dialog"
             android:entries="@array/team_names"/>
 
+
+
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

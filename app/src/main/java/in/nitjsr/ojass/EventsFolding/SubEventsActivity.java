@@ -249,7 +249,7 @@ public class SubEventsActivity extends AppCompatActivity {
             case "Jigyasa":
                 position = 34;
                 break;
-            case "Algorithma7":
+            case "Algorithma":
                 position = 35;
                 break;
             case "Ansys":

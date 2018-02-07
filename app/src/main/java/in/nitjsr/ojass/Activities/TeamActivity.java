@@ -31,6 +31,7 @@ import in.nitjsr.ojass.Modals.Team;
 import in.nitjsr.ojass.R;
 import in.nitjsr.ojass.Utils.Utilities;
 
+
 public class TeamActivity extends AppCompatActivity implements View.OnClickListener{
 
     private static ImageView iv;
@@ -236,7 +237,7 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
         coreTeam.add(new Team("Shubham K. Singh","Technical Secretary","8404879565","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Ftechie.png?alt=media&token=f7487eea-eaf7-4746-a845-c3416cd26bae"));
         coreTeam.add(new Team("Anjali Thakur","Joint Technical Secretary","7258885571","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fanjali.png?alt=media&token=9b649889-41b2-4d22-b7fc-f0a58d1ad616"));
         coreTeam.add(new Team("Shubham Kumar","Joint Secretary","8051115377","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fshubham.png?alt=media&token=f4031a7a-2ade-4b20-960d-bf35e0deaa28"));
-        coreTeam.add(new Team("Parhaas Boppudi","External General Secretary","7070449936","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fprahaas.png?alt=media&token=d3f705f4-7fed-44d3-a110-e7c4a8bb407f"));
+        coreTeam.add(new Team("Prahaas Boppudi","External General Secretary","7070449936","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fprahaas.png?alt=media&token=d3f705f4-7fed-44d3-a110-e7c4a8bb407f"));
         coreTeam.add(new Team("Bikrant Amrit","Internal General Secretary","7856046490","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fbikrant.png?alt=media&token=4b02e59c-b15d-4e59-9f06-068a4095b2ff"));
         coreTeam.add(new Team("Chandralok Kumar","Treasurer","7870480126","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fchandralok.png?alt=media&token=8f4b6db5-6215-49d7-a602-7fd3435ccd98"));
         coreTeam.add(new Team("Akula Sreekar Roy","Spokesperson","8500435856","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2FAsreekarRoy.png?alt=media&token=30c0cf63-b069-4753-a9aa-a02d2925067b"));

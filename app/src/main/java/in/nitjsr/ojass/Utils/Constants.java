@@ -14,6 +14,10 @@ public class Constants {
     public static final String NOT_REGISTERED = "Not Registered";
     public static final String PAYMENT_DUE = "Payment Due";
 
+    public static final int EVENT_FLAG = 1;
+    public static final int GURU_GYAN_FLAG = 2;
+    public static final int SPONSORS_FLAG = 3;
+
     public static final String FIREBASE_REF_USERS = "Users";
     public static final String FIREBASE_REF_EMAIL = "email";
     public static final String FIREBASE_REF_NAME = "name";
@@ -30,9 +34,7 @@ public class Constants {
     public static final String FIREBASE_REF_NOTIFICATIONS = "Notifications";
     public static final String FIREBASE_REF_OJASS_CHANNEL = "OJASS";
     public static final String FIREBASE_REF_NOTIFICATIONS_BODY = "ans";
-    public static final String FIREBASE_REF_NOTIFICATIONS_IMAGE = "imageUrl";
     public static final String FIREBASE_REF_NOTIFICATIONS_TITLE = "question";
-    public static final String FIREBASE_REF_NOTIFICATIONS_URL = "clickUrl";
 
     public static final String FIREBASE_REF_POSTERIMAGES = "PosterImages";
     public static final String FIREBASE_REF_IMG_SRC = "img_url";

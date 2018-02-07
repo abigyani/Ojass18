@@ -200,6 +200,19 @@
             android:visibility="gone"
             android:layout_marginTop="6dp"/>
 
+        <Button
+            android:id="@+id/btn_click_to_register"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="Click To Register"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:layout_marginTop="60dp"
+            android:textAllCaps="false"/>
+
     </LinearLayout>
 
 </ScrollView>

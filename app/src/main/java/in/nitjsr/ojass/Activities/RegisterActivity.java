@@ -54,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         Utilities.changeStatusBarColor(this);
         mUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        ivBackground = findViewById(R.id.iv_background);
+        //ivBackground = findViewById(R.id.iv_background);
         ivOjassIcon = findViewById(R.id.iv_ojass_icon);
         skipButton = findViewById(R.id.btn_skip_register);
         inputName = findViewById(R.id.input_name);
@@ -69,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         skipButton.setOnClickListener(this);
 
-        Picasso.with(this).load(R.mipmap.ojass_bg).fit().into(ivBackground);
+        //Picasso.with(this).load(R.mipmap.ojass_bg).fit().into(ivBackground);
         Picasso.with(this).load(mUser.getPhotoUrl()).fit().into(ivOjassIcon);
 
         verifyButton.setBackgroundColor(Color.GRAY);
@@ -200,7 +200,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             startActivity(new Intent(this, MainActivity.class));
             finish();
         } else if (view == verifyButton){
-            phoneLogin();
+            if (verifyButton.getText().toString().equals("Edit")) {
+              verifyButton.setText("Verify");
+              inputMobile.setEnabled(true);
+              mobileVerified = false;
+            } else phoneLogin();
         }
     }
 
@@ -238,14 +242,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             loginResult.getAuthorizationCode().substring(0,10));
                 }
                 mobileVerified = true;
+                inputMobile.setEnabled(false);
+                verifyButton.setText("Edit");
             }
 
-            // Surface the result to your user in an appropriate way.
-            Toast.makeText(
-                    this,
-                    toastMessage,
-                    Toast.LENGTH_LONG)
-                    .show();
         }
     }
 
