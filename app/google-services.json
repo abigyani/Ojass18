@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "411731649279-7r85j9mr4q703cictkaupe8raa5qhd6i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.nitjsr.ojass",
+            "certificate_hash": "2547cbb8207bf31c459d42296f10e5b468804a2e"
+          }
+        },
+        {
+          "client_id": "411731649279-3mauf7hbdkb386cl7bj5ggn3i934nm5l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.nitjsr.ojass",
+            "certificate_hash": "6d9fd46c69a804063256cf388f1ba078727aeb3b"
+          }
+        },
+        {
           "client_id": "411731649279-6ienu4mr9r9ejnas1902i5pkv794k36f.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -33,6 +49,62 @@
             "package_name": "in.nitjsr.ojass",
             "certificate_hash": "f5eb56720e9260fa20254d29043d7d80fa0e55f0"
           }
+        },
+        {
+          "client_id": "411731649279-qftb7s0anmhq95v97o2gj8t2d08pp869.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhVeGSTREg0X3k1gU6HIHDse0GZFo2rH8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "411731649279-7plmhhl3sm53gifgisltk3panjhq8f9k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411731649279:android:8870a113fa3d48c7",
+        "android_client_info": {
+          "package_name": "ojassadmin.nitjsr.in.ojassadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "411731649279-vmmtnhj1col5dk9ddhj01560t1l992ae.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ojassadmin.nitjsr.in.ojassadmin",
+            "certificate_hash": "6d9fd46c69a804063256cf388f1ba078727aeb3b"
+          }
+        },
+        {
+          "client_id": "411731649279-8ibv2fg1nf9dnaigapqd42h50fq5u7vq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ojassadmin.nitjsr.in.ojassadmin",
+            "certificate_hash": "f5eb56720e9260fa20254d29043d7d80fa0e55f0"
+          }
+        },
+        {
+          "client_id": "411731649279-7plmhhl3sm53gifgisltk3panjhq8f9k.apps.googleusercontent.com",
+          "client_type": 3
         },
         {
           "client_id": "411731649279-qftb7s0anmhq95v97o2gj8t2d08pp869.apps.googleusercontent.com",
