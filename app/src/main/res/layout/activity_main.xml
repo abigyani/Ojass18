@@ -31,23 +31,23 @@
             android:textSize="18sp"/>
 
         <ImageButton
-            android:padding="10dp"
+            android:padding="8dp"
             android:id="@+id/rl_subscribe"
             android:layout_toLeftOf="@+id/rl_notification_menu"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:srcCompat="@drawable/ic_bookmark_border_white_36px"
-            android:layout_marginRight="6dp"
             android:layout_centerVertical="true"
             android:background="@android:color/transparent"
             android:tint="@color/white"
-            android:scaleType="centerCrop"/>
+            android:scaleType="fitCenter"/>
 
         <RelativeLayout
             android:id="@+id/rl_notification_menu"
             android:layout_centerVertical="true"
-            android:layout_width="45dp"
-            android:padding="10dp"
+            android:layout_width="40dp"
+            android:paddingTop="6dp"
+            android:layout_marginRight="5dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true">
 
@@ -198,6 +198,7 @@
         app:srcCompat="@drawable/up_font"
         android:tint="@android:color/holo_red_dark"
         android:layout_width="50dp"
+        android:padding="6dp"
         android:layout_height="50dp"
         android:scaleType="centerCrop"
         android:layout_marginBottom="10dp"/>
@@ -214,7 +215,7 @@
         android:animateLayoutChanges="true"
         android:id="@+id/ll_swipe_up"
         android:visibility="gone"
-        tools:visibility="gone"
+        tools:visibility="visible"
         android:layout_above="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
