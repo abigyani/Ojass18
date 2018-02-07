@@ -17,6 +17,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -256,9 +258,10 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
             intent.setData(Uri.parse("tel:+91"+userPhone));
             startActivity(intent);
         } else if (view == ibWhatsApp){
+            String userName = ""+FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_VIEW);
-            String url = "https://api.whatsapp.com/send?phone=91" + userPhone + "&text=Hey!";
+            String url = "https://api.whatsapp.com/send?phone=91" + userPhone + "&text=Hey! I'm "+userName+".";
             sendIntent.setData(Uri.parse(url));
             startActivity(sendIntent);
         } else if (view.getId() == R.id.ib_back_btn) finish();

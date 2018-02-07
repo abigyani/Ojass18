@@ -44,6 +44,7 @@ public class Constants {
     public static final String FIREBASE_REF_GURU_GYAN_SHORT_DESC = "shortDesc";
     public static final String FIREBASE_REF_GURU_GYAN_SHORT_IMAGE = "shortImage";
     public static final String FIREBASE_REF_GURU_GYAN_TITLE = "title";
+    public static final String FIREBASE_REF_GURU_GYAN_DATE = "date";
 
     public static final String[] homeEvent = new String[]{
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventsHome%2Fmajor_business.png?alt=media&token=b2c3f891-9789-4543-b102-578533a3592d",
