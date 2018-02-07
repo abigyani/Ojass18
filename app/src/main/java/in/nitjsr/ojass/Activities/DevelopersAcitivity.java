@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
 import in.nitjsr.ojass.Adapters.DevRVAdapter;
@@ -90,9 +91,10 @@ public class DevelopersAcitivity extends AppCompatActivity implements View.OnCli
                 startActivity(intent);
                 break;
             case R.id.dev_whats_app:
+                String userName = ""+ FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
-                String url = "https://api.whatsapp.com/send?phone=91" + whatsApp + "&text=Hey!";
+                String url = "https://api.whatsapp.com/send?phone=91" + whatsApp + "&text=Hey! I'm "+userName+".";
                 intent.setData(Uri.parse(url));
                 startActivity(intent);
         }

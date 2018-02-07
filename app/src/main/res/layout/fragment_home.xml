@@ -61,7 +61,13 @@
                 android:id="@+id/tv_events_see_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="See all >"/>
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="4dp"
+                android:text="See all"/>
 
         </LinearLayout>
 
@@ -95,7 +101,12 @@
                 android:id="@+id/tv_guru_gyan_see_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="See all >"/>
+                android:background="@color/colorPrimary"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="4dp"
+                android:textColor="@color/white"
+                android:text="See all"/>
 
         </LinearLayout>
 
@@ -129,7 +140,12 @@
                 android:id="@+id/tv_sponsors_see_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="See all >"/>
+                android:background="@color/colorPrimary"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="4dp"
+                android:textColor="@color/white"
+                android:text="See all"/>
 
         </LinearLayout>
 

@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -21,6 +22,7 @@ import in.nitjsr.ojass.Utils.Utilities;
 import me.relex.circleindicator.CircleIndicator;
 
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN;
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_DATE;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_IMAGE;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_LONG_DESC;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_SHORT_DESC;
@@ -28,7 +30,8 @@ import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_TITLE;
 
 public class GuruGyanActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener{
 
-    private TextView tvShortDesc, tvFullDesc;
+    private TextView tvShortDesc, tvLongDesc, tvTitle, tvDate;
+    private CardView card;
     private Handler handler;
     private boolean firstTimeOpen = true;
     private int previousPos = 0;
@@ -36,11 +39,11 @@ public class GuruGyanActivity extends AppCompatActivity implements View.OnClickL
     private Runnable runnable = new Runnable() {
         @Override
         public void run() {
-            tvShortDesc.performClick();
+            if (isSmallVisible) card.performClick();
         }
     };
 
-    private String[] images, title, shortDesc, longDesc;
+    private String[] images, title, shortDesc, longDesc, dates;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +53,17 @@ public class GuruGyanActivity extends AppCompatActivity implements View.OnClickL
         Utilities.changeStatusBarColor(this);
 
         tvShortDesc = findViewById(R.id.tv_guru_gyan_short_desc);
-        tvShortDesc.setOnClickListener(this);
-        tvFullDesc = findViewById(R.id.tv_guru_gyan_full_desc);
-        tvFullDesc.setOnClickListener(this);
+        tvLongDesc = findViewById(R.id.tv_guru_gyan_long_desc);
+        tvTitle = findViewById(R.id.tv_guru_gyan_celeb_name);
+        tvDate = findViewById(R.id.tv_gg_date);
+        card = findViewById(R.id.ll_info);
+
+        card.setOnClickListener(this);
 
         prepareViewPager();
 
         handler = new Handler(getMainLooper());
-        handler.postDelayed(runnable, 3000);
+        handler.postDelayed(runnable, 1500);
     }
 
     private void prepareViewPager() {
@@ -66,25 +72,35 @@ public class GuruGyanActivity extends AppCompatActivity implements View.OnClickL
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                int childCount = (int) dataSnapshot.getChildrenCount();
-                images = new String[childCount];
-                title = new String[childCount];
-                shortDesc = new String[childCount];
-                longDesc = new String[childCount];
-                int currIndex = 0;
-                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-                    images[currIndex] = dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_IMAGE).getValue().toString();
-                    title[currIndex] = dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_TITLE).getValue().toString();
-                    shortDesc[currIndex] = dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_SHORT_DESC).getValue().toString();
-                    longDesc[currIndex] = dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_LONG_DESC).getValue().toString();
-                    currIndex++;
+                if (dataSnapshot.exists()){
+                    try{
+                        int childCount = (int) dataSnapshot.getChildrenCount();
+                        images = new String[childCount];
+                        title = new String[childCount];
+                        shortDesc = new String[childCount];
+                        longDesc = new String[childCount];
+                        dates = new String[childCount];
+                        int currIndex = 0;
+                        for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+                            images[currIndex] = dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_IMAGE).getValue().toString();
+                            title[currIndex] = dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_TITLE).getValue().toString();
+                            shortDesc[currIndex] = dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_SHORT_DESC).getValue().toString();
+                            longDesc[currIndex] = dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_LONG_DESC).getValue().toString();
+                            dates[currIndex] = dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_DATE).getValue().toString();
+                            currIndex++;
+                        }
+                        ViewPager viewPager = findViewById(R.id.vp_guru_gyan);
+                        viewPager.setAdapter(new PosterAdapter(GuruGyanActivity.this, images, null));
+                        ((CircleIndicator)findViewById(R.id.ci_guru_gyan)).setViewPager(viewPager);
+                        viewPager.addOnPageChangeListener(GuruGyanActivity.this);
+                        tvDate.setText(dates[0]);
+                        tvTitle.setText(title[0]);
+                        tvShortDesc.setText(title[0]);
+                        tvLongDesc.setText(longDesc[0]);
+                    } catch (Exception e){
+
+                    }
                 }
-                ViewPager viewPager = findViewById(R.id.vp_guru_gyan);
-                viewPager.setAdapter(new PosterAdapter(GuruGyanActivity.this, images, null));
-                ((CircleIndicator)findViewById(R.id.ci_guru_gyan)).setViewPager(viewPager);
-                viewPager.addOnPageChangeListener(GuruGyanActivity.this);
-                tvShortDesc.setText(title[0]);
-                tvFullDesc.setText(longDesc[0]);
             }
 
             @Override
@@ -97,13 +113,11 @@ public class GuruGyanActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-        if (view == tvShortDesc) {
-            tvShortDesc.setVisibility(View.GONE);
-            tvFullDesc.setVisibility(View.VISIBLE);
+        if (isSmallVisible){
+            tvLongDesc.setVisibility(View.VISIBLE);
             isSmallVisible = false;
-        } else if (view == tvFullDesc) {
-            tvFullDesc.setVisibility(View.GONE);
-            tvShortDesc.setVisibility(View.VISIBLE);
+        } else {
+            tvLongDesc.setVisibility(View.GONE);
             isSmallVisible = true;
         }
         handler.removeCallbacks(runnable);
@@ -120,22 +134,30 @@ public class GuruGyanActivity extends AppCompatActivity implements View.OnClickL
         Animation animLeft = AnimationUtils.loadAnimation(GuruGyanActivity.this, R.anim.slide_in_left);
         Animation animRight = AnimationUtils.loadAnimation(GuruGyanActivity.this, R.anim.slide_in_right);
         if (position > previousPos) {
-            if (tvShortDesc.isActivated()) tvShortDesc.startAnimation(animRight);
-            else tvFullDesc.startAnimation(animRight);
+            if (!isSmallVisible)
+                tvLongDesc.startAnimation(animRight);
+            tvShortDesc.startAnimation(animRight);
+            tvDate.startAnimation(animRight);
+            tvTitle.startAnimation(animRight);
         } else {
-            if (tvShortDesc.isActivated()) tvShortDesc.startAnimation(animLeft);
-            else tvFullDesc.startAnimation(animLeft);
+            if (!isSmallVisible)
+                tvLongDesc.startAnimation(animLeft);
+            tvShortDesc.startAnimation(animLeft);
+            tvDate.startAnimation(animLeft);
+            tvTitle.startAnimation(animLeft);
         }
         previousPos = position;
 
-        tvShortDesc.setText(title[0]);
-        tvFullDesc.setText(longDesc[0]);
+        tvDate.setText(dates[position]);
+        tvTitle.setText(title[position]);
+        tvShortDesc.setText(shortDesc[position]);
+        tvLongDesc.setText(longDesc[position]);
     }
 
     @Override
     public void onPageScrollStateChanged(int state) {
         if (state == ViewPager.SCROLL_STATE_IDLE){
-            handler.postDelayed(runnable, 3000);
+            handler.postDelayed(runnable, 1500);
         }
     }
 }

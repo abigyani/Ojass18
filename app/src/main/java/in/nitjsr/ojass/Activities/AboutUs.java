@@ -15,7 +15,7 @@ public class AboutUs extends AppCompatActivity {
     ImageButton fb;
     ImageButton insta;
     ImageButton twitter;
-    ImageButton webpage;
+    ImageButton webpage, back;
 
 
     @Override
@@ -27,6 +27,14 @@ public class AboutUs extends AppCompatActivity {
         insta = findViewById(R.id.insta);
         twitter = findViewById(R.id.twitter);
         webpage = findViewById(R.id.web);
+        back = findViewById(R.id.ib_back_about_us);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
