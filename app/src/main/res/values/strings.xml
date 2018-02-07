@@ -40,13 +40,19 @@
     </string-array>
 
     <string-array name="team_names">
-        <item>App</item>
-        <item>Web</item>
         <item>Core</item>
-        <item>PR</item>
-        <item>L**ra</item>
-        <item>Le**un</item>
-        <item>Dha**ya</item>
+        <item>Plannning &amp; Development</item>
+        <item>Team Coordinator</item>
+        <item>Media Relation</item>
+        <item>Public Relation</item>
+        <item>Event Management</item>
+        <item>Hospitality</item>
+        <item>Corporate</item>
+        <item>Logistics</item>
+        <item>Web Team</item>
+        <item>App Team</item>
+        <item>Creative Team</item>
+        <item>Robotics</item>
     </string-array>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_feed">FeedActivity</string>

@@ -150,7 +150,7 @@ public class SubEventsActivity extends AppCompatActivity {
             case "Mat Sim":
                 position = 1;
                 break;
-            case "CodeBug":
+            case "Tame the pyhton":
                 position = 2;
                 break;
             case "Codiyapa":
@@ -213,7 +213,7 @@ public class SubEventsActivity extends AppCompatActivity {
             case "Industrial Tycoon":
                 position = 22;
                 break;
-            case "Udyog":
+            case "M&I Quiz":
                 position = 23;
                 break;
             case "MICAV":
@@ -222,7 +222,7 @@ public class SubEventsActivity extends AppCompatActivity {
             case "DronaGyan":
                 position = 25;
                 break;
-            case "Utpreksh":
+            case "Utpreaks":
                 position = 26;
                 break;
             case "Analog Hunter":
@@ -234,22 +234,22 @@ public class SubEventsActivity extends AppCompatActivity {
             case "Digizone":
                 position = 29;
                 break;
-            case "Bug-Dkarmas-Bash":
+            case "Labyrinth":
                 position = 30;
                 break;
             case "Embetrix":
                 position = 31;
                 break;
-            case "Web Vogue":
+            case "Web Weaver":
                 position = 32;
                 break;
-            case "Shubh-Scripthon":
+            case "Sudo Code":
                 position = 33;
                 break;
             case "Jigyasa":
                 position = 34;
                 break;
-            case "Code-for-shu987":
+            case "Algorithma7":
                 position = 35;
                 break;
             case "Ansys":
@@ -258,7 +258,7 @@ public class SubEventsActivity extends AppCompatActivity {
             case "Netkraft":
                 position = 37;
                 break;
-            case "Indus Solva":
+            case "Spectra":
                 position = 38;
                 break;
             case "Tukvilla":
@@ -267,13 +267,13 @@ public class SubEventsActivity extends AppCompatActivity {
             case "Metal Trivia":
                 position = 40;
                 break;
-            case "Funtoosh":
+            case "K.O.":
                 position = 41;
                 break;
             case "Exposicion":
                 position = 42;
                 break;
-            case "Code-karmas-bot":
+            case "Code-O-Soccer":
                 position = 43;
                 break;
             case "Codemania":
@@ -288,7 +288,7 @@ public class SubEventsActivity extends AppCompatActivity {
             case "Junkyard Wars":
                 position = 47;
                 break;
-            case "Moto Virtuale 2017":
+            case "Teenpreneur":
                 position = 48;
                 break;
             case "Prakshepan":
@@ -333,7 +333,7 @@ public class SubEventsActivity extends AppCompatActivity {
             case "SCI FI":
                 position = 62;
                 break;
-            case "Shubh-DbQuery":
+            case "Tech-Know":
                 position = 63;
                 break;
             case "The Great Ojass Race":
@@ -348,7 +348,7 @@ public class SubEventsActivity extends AppCompatActivity {
             case "LiveCS":
                 position = 67;
                 break;
-            case "Chitrankit":
+            case "Innovision":
                 position = 68;
                 break;
             case "Wolf of Dalal Street":
@@ -390,7 +390,6 @@ public class SubEventsActivity extends AppCompatActivity {
             case "Lens View":
                 position = 81;
                 break;
-
 
         }
 

@@ -18,13 +18,13 @@
             android:id="@+id/iv_header"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/star_bg"/>
+            android:background="@color/colorPrimary"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ojass"
-            android:paddingLeft="10dp"
+            android:text="OJASS"
+            android:paddingLeft="25dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:textColor="@color/white"
@@ -36,7 +36,7 @@
             android:layout_toLeftOf="@+id/rl_notification_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/icon_subscribe"
+            app:srcCompat="@drawable/ic_bookmark_border_white_36px"
             android:layout_marginRight="6dp"
             android:layout_centerVertical="true"
             android:background="@android:color/transparent"
@@ -154,11 +154,13 @@
                 android:layout_height="30dp"
                 android:layout_alignParentRight="true"
                 android:background="@android:color/transparent"
-                android:tint="#cdcdcd" />
+                android:tint="#cdcdcd"
+                android:src="@drawable/triangle"/>
 
         </RelativeLayout>
 
         <LinearLayout
+            android:layout_marginTop="-8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corner_all_notif"
@@ -168,7 +170,6 @@
                 android:id="@+id/rv_notification"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:layout_marginTop="-5dp"
                 android:background="#cdcdcd"/>
 
             <TextView
@@ -194,11 +195,10 @@
         android:background="@android:color/transparent"
         android:layout_above="@+id/ll_swipe_up"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/icon_swipe_up"
+        app:srcCompat="@drawable/up_font"
         android:tint="@android:color/holo_red_dark"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:padding="10dp"
         android:scaleType="centerCrop"
         android:layout_marginBottom="10dp"/>
 

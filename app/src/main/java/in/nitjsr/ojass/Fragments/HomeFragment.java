@@ -89,11 +89,11 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
 
     private ArrayList<Modal> prepareSponsorList() {
         ArrayList<Modal> models = new ArrayList<>();
-        models.add(new Modal(R.drawable.codechef, "Codechef", "Coding site"));
-        models.add(new Modal(R.drawable.hackerearth, "Hackerrank", "Coding Site"));
-        models.add(new Modal(R.drawable.hondaq, "Honda", "Radio Station"));
-        models.add(new Modal(R.drawable.brubeck, "Bru Beck", "Pan Masala"));
-        models.add(new Modal(R.drawable.sonnet, "Sonnet", "Tyres"));
+        models.add(new Modal(R.drawable.sonnet, "Sonnet", "Associate Sponsor"));
+        models.add(new Modal(R.drawable.codechef, "Codechef", "Programming Partner"));
+        models.add(new Modal(R.drawable.hackerearth, "Hackerrank", "Programming Partner"));
+        models.add(new Modal(R.drawable.hondaq, "Dominoz", "Food Partner"));
+        models.add(new Modal(R.drawable.brubeck, "Bru Beck", "Food Partner"));
         return models;
     }
 
@@ -136,12 +136,12 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
 
     private ArrayList<Modal> prepareEventList() {
         ArrayList<Modal> models = new ArrayList<>();
-        models.add(new Modal(Constants.homeEvent[0], "Bizzathalon", "Business"));
-        models.add(new Modal(Constants.homeEvent[1], "Director's Cut", "Shot Movies"));
-        models.add(new Modal(Constants.homeEvent[2], "CodeMani", "Coding"));
+        models.add(new Modal(Constants.homeEvent[0], "Bizzathalon", "Business Quiz"));
+        models.add(new Modal(Constants.homeEvent[1], "Director's Cut", "Film Making"));
+        models.add(new Modal(Constants.homeEvent[2], "CodeMania", "Coding"));
         models.add(new Modal(Constants.homeEvent[3], "No Ground Zone", "Fly Planes"));
-        models.add(new Modal(Constants.homeEvent[4], "Robo War", "Robo Fight"));
-        models.add(new Modal(Constants.homeEvent[5], "Armeggadon", "Gaming"));
+        models.add(new Modal(Constants.homeEvent[4], "Kurukshetra", "Robo War"));
+        models.add(new Modal(Constants.homeEvent[5], "Armageddon", "Gaming"));
         return models;
     }
 
