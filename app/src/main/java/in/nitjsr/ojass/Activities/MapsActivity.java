@@ -59,8 +59,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Manifest.permission.ACCESS_FINE_LOCATION
             }, MAP_REQUEST_ID);
         } else {
-            final LocationManager manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
-            if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
+            String locationProviders = Settings.Secure.getString(getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+            if (locationProviders == null || locationProviders.equals("")) {
                 displayPromptForEnablingGPS(this);
             }
         }
@@ -70,7 +70,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == MAP_REQUEST_ID) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                //Do something here
+                checkLocationPermission();
             }
         } else super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }

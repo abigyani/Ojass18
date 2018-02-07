@@ -98,7 +98,7 @@ public class GuruGyanActivity extends AppCompatActivity implements View.OnClickL
                         viewPager.addOnPageChangeListener(GuruGyanActivity.this);
                         tvDate.setText(dates[0]);
                         tvTitle.setText(title[0]);
-                        tvShortDesc.setText(title[0]);
+                        tvShortDesc.setText(shortDesc[0]);
                         tvLongDesc.setText(longDesc[0]);
 
                         int toOpenPos = getIntent().getIntExtra(POSITION_PARAM, 0);

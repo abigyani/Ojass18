@@ -19,7 +19,7 @@
         tools:text="Day 1"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/white"
         android:layout_above="@+id/ll_info"
         android:layout_centerHorizontal="true"/>
 
@@ -56,7 +56,7 @@
                     android:textSize="18sp"
                     android:gravity="center"
                     tools:text="Amitabh Bachhan"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/white"/>
 
                 <TextView
                     android:id="@+id/tv_guru_gyan_short_desc"
@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     tools:text="Something"
                     android:gravity="center"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/white"/>
 
             </LinearLayout>
 
