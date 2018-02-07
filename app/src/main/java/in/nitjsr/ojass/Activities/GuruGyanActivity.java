@@ -39,7 +39,7 @@ public class GuruGyanActivity extends AppCompatActivity implements View.OnClickL
     private Runnable runnable = new Runnable() {
         @Override
         public void run() {
-            tvShortDesc.performClick();
+            if (isSmallVisible) card.performClick();
         }
     };
 

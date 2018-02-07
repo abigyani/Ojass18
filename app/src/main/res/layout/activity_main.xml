@@ -47,7 +47,7 @@
             android:layout_centerVertical="true"
             android:layout_width="40dp"
             android:paddingTop="6dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="10dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true">
 
@@ -85,62 +85,13 @@
         android:layout_below="@+id/ll_topbar"
         android:layout_above="@+id/navigation"/>
 
-    <!--LinearLayout
-        android:id="@+id/ll_notification"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:visibility="gone"
-        tools:visibility="visible"
-        android:layout_below="@+id/ll_topbar"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp">
-
-            <ImageView
-                android:layout_alignParentRight="true"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:tint="#cdcdcd"
-                android:background="@android:color/transparent"
-                app:srcCompat="@drawable/triangle"/>
-
-        </RelativeLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:background="#cdcdcd"
-            android:id="@+id/rv_notification"
-            android:layout_width="match_parent"
-            android:layout_marginTop="-5dp"
-            android:layout_height="250dp" />
-
-        <TextView
-            android:id="@+id/tv_see_all_noti"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:background="@color/bg_screen1"
-            android:text="See all Notification"
-            android:textSize="14sp"
-            android:gravity="center"
-            android:textColor="@color/white"/>
-
-        <View
-            android:id="@+id/view_noti_blank"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"/>
-
-    </LinearLayout!-->
     <LinearLayout
         android:id="@+id/ll_notification"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/ll_topbar"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:orientation="vertical"
         android:visibility="gone"
         tools:visibility="visible">
@@ -160,10 +111,9 @@
         </RelativeLayout>
 
         <LinearLayout
-            android:layout_marginTop="-8dp"
+            android:layout_marginTop="-6dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_corner_all_notif"
             android:orientation="vertical">
 
             <android.support.v7.widget.RecyclerView
@@ -175,10 +125,11 @@
             <TextView
                 android:id="@+id/tv_see_all_noti"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="36dp"
                 android:gravity="center"
                 android:text="See all Notification"
                 android:textColor="#fff"
+                android:background="@color/colorPrimary"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -215,7 +166,7 @@
         android:animateLayoutChanges="true"
         android:id="@+id/ll_swipe_up"
         android:visibility="gone"
-        tools:visibility="visible"
+        tools:visibility="gone"
         android:layout_above="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
