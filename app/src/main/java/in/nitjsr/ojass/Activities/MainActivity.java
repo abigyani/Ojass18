@@ -233,10 +233,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void createQRPopup() {
         final Dialog QRDialog = new Dialog(this);
         QRDialog.setContentView(R.layout.dialog_qr);
-        QRDialog.getWindow().getAttributes().windowAnimations = R.style.pop_up_anim;
-        QRDialog.show();
         final TextView tvOjassId = QRDialog.findViewById(R.id.tv_ojass_id);
         final ImageView ivQR = QRDialog.findViewById(R.id.iv_qr_code);
+        QRDialog.getWindow().getAttributes().windowAnimations = R.style.pop_up_anim;
+        QRDialog.show();
+        QRDialog.findViewById(R.id.rl_qr).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (tvOjassId.getText().toString().equals(Constants.NOT_REGISTERED)) {
+                    startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+                    finish();
+                }
+            }
+        });
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference(FIREBASE_REF_USERS).child(mAuth.getCurrentUser().getUid());
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @SuppressLint("NewApi")
@@ -253,8 +262,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 } else {
                     //Show Please Register Image
-                    ivQR.setImageDrawable(getDrawable(R.drawable.ic_launcher_background));
-                    tvOjassId.setVisibility(View.GONE);
+                    ivQR.setImageDrawable(getDrawable(R.drawable.not_reg));
+                    tvOjassId.setText(Constants.NOT_REGISTERED);
+                    tvOjassId.setTextColor(Color.RED);
                 }
             }
 
@@ -281,12 +291,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         isWarningShown = false;
         if (view == ibSwipeUp){
             if (isSwipeUpMenuVisible) {
-                ibSwipeUp.startAnimation(AnimationUtils.loadAnimation(this, R.anim.rotate_down));
+                //ibSwipeUp.startAnimation(AnimationUtils.loadAnimation(this, R.anim.rotate_down));
                 findViewById(R.id.ll_swipe_up).setVisibility(View.GONE);
                 findViewById(R.id.ll_blank).setVisibility(View.GONE);
                 isSwipeUpMenuVisible = false;
             } else {
-                ibSwipeUp.startAnimation(AnimationUtils.loadAnimation(this, R.anim.rotate_up));
+                //ibSwipeUp.startAnimation(AnimationUtils.loadAnimation(this, R.anim.rotate_up));
                 findViewById(R.id.ll_swipe_up).setVisibility(View.VISIBLE);
                 findViewById(R.id.ll_blank).setVisibility(View.VISIBLE);
                 isSwipeUpMenuVisible = true;

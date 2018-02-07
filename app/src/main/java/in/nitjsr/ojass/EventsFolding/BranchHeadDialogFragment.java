@@ -42,72 +42,72 @@ public class BranchHeadDialogFragment extends DialogFragment {
 
         switch(EventsFragment.SE){
             case 0:
-                br_head_name = BranchHeadDetails.Arthashastraname;
-                br_head_phone = BranchHeadDetails.Arthashastraaphone;
-                break;
-            case 1:
-                br_head_name = BranchHeadDetails.CircuitHousename;
-                br_head_phone = BranchHeadDetails.CircuitHousephone;
-                break;
-            case 2:
-                br_head_name = BranchHeadDetails.VishwacodeGenesisname;
-                br_head_phone = BranchHeadDetails.VishwacodeGenesisphone;
-                break;
-            case 3:
-                br_head_name = BranchHeadDetails.Nogroundzonename;
-                br_head_phone = BranchHeadDetails.Nogroundzonephone;
-                break;
-            case 4:
-                br_head_name = BranchHeadDetails.Paraphernalianame;
-                br_head_phone = BranchHeadDetails.Paraphernaliaphone;
-                break;
-            case 5:
-                br_head_name = BranchHeadDetails.Produsname;
-                br_head_phone = BranchHeadDetails.Produsphone;
-                break;
-            case 6:
-                br_head_name = BranchHeadDetails.SiliconValleyname;
-                br_head_phone = BranchHeadDetails.SiliconValleyphone;
-                break;
-            case 7:
                 br_head_name = BranchHeadDetails.Riseofmachinename;
                 br_head_phone = BranchHeadDetails.Riseofmachinephone;
                 break;
+            case 1:
+                br_head_name = BranchHeadDetails.VishwacodeGenesisname;
+                br_head_phone = BranchHeadDetails.VishwacodeGenesisphone;
+                break;
+            case 2:
+                br_head_name = BranchHeadDetails.CircuitHousename;
+                br_head_phone = BranchHeadDetails.CircuitHousephone;
+                break;
+            case 3:
+                br_head_name = BranchHeadDetails.SiliconValleyname;
+                br_head_phone = BranchHeadDetails.SiliconValleyphone;
+                break;
+            case 4:
+                br_head_name = BranchHeadDetails.Arthashastraname;
+                br_head_phone = BranchHeadDetails.Arthashastraaphone;
+                break;
+            case 5:
+                br_head_name = BranchHeadDetails.Aakritiname;
+                br_head_phone = BranchHeadDetails.Aakritiphone;
+                break;
+            case 6:
+                br_head_name = BranchHeadDetails.DuesExMachinaname;
+                br_head_phone = BranchHeadDetails.DuesExMachinaphone;
+                break;
+            case 7:
+                br_head_name = BranchHeadDetails.Produsname;
+                br_head_phone = BranchHeadDetails.Produsphone;
+                break;
             case 8:
-                br_head_name = BranchHeadDetails.Nscetname;
-                br_head_phone = BranchHeadDetails.Nscetphone;
+                br_head_name = BranchHeadDetails.Paraphernalianame;
+                br_head_phone = BranchHeadDetails.Paraphernaliaphone;
                 break;
             case 9:
                 br_head_name = BranchHeadDetails.Neodrishtiname;
                 br_head_phone = BranchHeadDetails.Neodrishtiphone;
                 break;
             case 10:
-                br_head_name = BranchHeadDetails.Exposicionname;
-                br_head_phone = BranchHeadDetails.Exposicionphone;
-                break;
-            case 11:
-                br_head_name = BranchHeadDetails.DuesExMachinaname;
-                br_head_phone = BranchHeadDetails.DuesExMachinaphone;
-                break;
-            case 12:
                 br_head_name = BranchHeadDetails.Avratanname;
                 br_head_phone = BranchHeadDetails.Avratanphone;
                 break;
-            case 13:
+            case 11:
                 br_head_name = BranchHeadDetails.Armageddonname;
                 br_head_phone = BranchHeadDetails.Armageddonphone;
                 break;
-            case 14:
-                br_head_name = BranchHeadDetails.Aakritiname;
-                br_head_phone = BranchHeadDetails.Aakritiphone;
-                break;
-            case 15:
+            case 12:
                 br_head_name = BranchHeadDetails.Prayasname;
                 br_head_phone = BranchHeadDetails.Prayasphone;
                 break;
-            case 16:
+            case 13:
+                br_head_name = BranchHeadDetails.Nogroundzonename;
+                br_head_phone = BranchHeadDetails.Nogroundzonephone;
+                break;
+            case 14:
+                br_head_name = BranchHeadDetails.Nscetname;
+                br_head_phone = BranchHeadDetails.Nscetphone;
+                break;
+            case 15:
                 br_head_name = BranchHeadDetails.LiveCSname;
                 br_head_phone = BranchHeadDetails.LiveCSphone;
+                break;
+            case 16:
+                br_head_name = BranchHeadDetails.Exposicionname;
+                br_head_phone = BranchHeadDetails.Exposicionphone;
                 break;
         }
 

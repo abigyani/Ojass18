@@ -12,7 +12,7 @@
     <RelativeLayout
         android:id="@+id/ll_topbar"
         android:layout_width="match_parent"
-        android:layout_height="55dp">
+        android:layout_height="50dp">
 
         <ImageView
             android:id="@+id/iv_header"
@@ -20,15 +20,23 @@
             android:layout_height="match_parent"
             android:background="@color/colorPrimary"/>
 
-        <TextView
+    <!--    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OJASS"
+            android:text="Ojass"
             android:paddingLeft="25dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:textColor="@color/white"
-            android:textSize="18sp"/>
+            android:textSize="18sp"/>  -->
+
+        <ImageView
+            android:layout_alignParentLeft="true"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/white_ojass"
+            android:padding="8dp"/>
 
         <ImageButton
             android:padding="8dp"
@@ -146,12 +154,10 @@
         android:background="@android:color/transparent"
         android:layout_above="@+id/ll_swipe_up"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/up_font"
-        android:tint="@android:color/holo_red_dark"
+        app:srcCompat="@drawable/ic_rocket___copy"
         android:layout_width="50dp"
-        android:padding="6dp"
         android:layout_height="50dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         android:layout_marginBottom="10dp"/>
 
     <LinearLayout

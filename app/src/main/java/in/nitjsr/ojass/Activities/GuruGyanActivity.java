@@ -42,6 +42,7 @@ public class GuruGyanActivity extends AppCompatActivity implements View.OnClickL
             if (isSmallVisible) card.performClick();
         }
     };
+    public static final String POSITION_PARAM = "position";
 
     private String[] images, title, shortDesc, longDesc, dates;
 
@@ -61,6 +62,8 @@ public class GuruGyanActivity extends AppCompatActivity implements View.OnClickL
         card.setOnClickListener(this);
 
         prepareViewPager();
+
+
 
         handler = new Handler(getMainLooper());
         handler.postDelayed(runnable, 1500);
@@ -97,6 +100,9 @@ public class GuruGyanActivity extends AppCompatActivity implements View.OnClickL
                         tvTitle.setText(title[0]);
                         tvShortDesc.setText(title[0]);
                         tvLongDesc.setText(longDesc[0]);
+
+                        int toOpenPos = getIntent().getIntExtra(POSITION_PARAM, 0);
+                        viewPager.setCurrentItem(toOpenPos);
                     } catch (Exception e){
 
                     }

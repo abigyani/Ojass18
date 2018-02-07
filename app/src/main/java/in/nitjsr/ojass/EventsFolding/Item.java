@@ -393,7 +393,7 @@ public class Item {
         items.add(new Item("Acumen","Sanrachna","Archmadeease","Exempler","Pipe-o-Mania","Metropolis",null,null,null,null,Array1[14], "Dream Dare Achieve",Array2[14],Array3[14]));
         items.add(new Item("360 Mania","Tachyon","Battleship","Kurukshetra","MAC FIFA","Shapeshifter",null,null,null,null,Array1[11], "Dream Dare Achieve",Array2[11],Array3[11]));
         items.add(new Item("Industrial Tycoon", "Utpreaks","Artifact", "DronaGyan", "M&I Quiz", null, null, null,null,null,Array1[5], "Dream Dare Achieve",Array2[5],Array3[5]));
-        items.add(new Item("The Great Ojass Race","SCI FI", "Mad Ad", "Lens View", "Director's Cut", null, null, null,null,null,Array1[4], "Dream Dare Achieve",Array2[4],Array3[4]));
+        items.add(new Item("The Great Ojass Race", "Mad Ad", "Lens View", "Director's Cut", null, null, null,null,null, null,Array1[4], "Dream Dare Achieve",Array2[4],Array3[4]));
         items.add(new Item("Codiyapa","Game of Troves","Scratch Easy","SimplySql","Tame the pyhton",null,null,null,null,null,Array1[9], "Dream Dare Achieve",Array2[9],Array3[9]));
         items.add(new Item("Spectra","Agnikund","Metal Trivia","Innovision","K.O.",null,null,null,null,null,Array1[12], "Dream Dare Achieve",Array2[12],Array3[12]));
         items.add(new Item("FIFA","Counter Strike- Global Offensive","NFS Most Wanted","Angry Birds","DOTA",null,null,null,null,null,Array1[13], "Dream Dare Achieve",Array2[13],Array3[13]));

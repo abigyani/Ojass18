@@ -36,6 +36,7 @@ import in.nitjsr.ojass.R;
 import in.nitjsr.ojass.Utils.Constants;
 import me.relex.circleindicator.CircleIndicator;
 
+import static in.nitjsr.ojass.Utils.Constants.EVENT_FLAG;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_IMAGE;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_SHORT_DESC;
@@ -44,6 +45,8 @@ import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_TITLE;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_IMG_CLICK;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_IMG_SRC;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_POSTERIMAGES;
+import static in.nitjsr.ojass.Utils.Constants.GURU_GYAN_FLAG;
+import static in.nitjsr.ojass.Utils.Constants.SPONSORS_FLAG;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -84,7 +87,7 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
         rv.setLayoutManager(ll);
         rv.setHasFixedSize(true);
         ArrayList<Modal> sponsorList = prepareSponsorList();
-        rv.setAdapter(new RecyclerViewAdapter(sponsorList, view.getContext()));
+        rv.setAdapter(new RecyclerViewAdapter(sponsorList, view.getContext(), SPONSORS_FLAG));
     }
 
     private ArrayList<Modal> prepareSponsorList() {
@@ -115,7 +118,7 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
                             dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_SHORT_DESC).getValue().toString()
                     ));
                 }
-                rv.setAdapter(new RecyclerViewAdapter(modals, rv.getContext()));
+                rv.setAdapter(new RecyclerViewAdapter(modals, rv.getContext(), GURU_GYAN_FLAG));
             }
 
             @Override
@@ -131,17 +134,17 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
         rv.setLayoutManager(ll);
         rv.setHasFixedSize(true);
         ArrayList<Modal> eventList = prepareEventList();
-        rv.setAdapter(new RecyclerViewAdapter(eventList, view.getContext()));
+        rv.setAdapter(new RecyclerViewAdapter(eventList, view.getContext(), EVENT_FLAG));
     }
 
     private ArrayList<Modal> prepareEventList() {
         ArrayList<Modal> models = new ArrayList<>();
-        models.add(new Modal(Constants.homeEvent[0], "Bizzathalon", "Business Quiz"));
-        models.add(new Modal(Constants.homeEvent[1], "Director's Cut", "Film Making"));
-        models.add(new Modal(Constants.homeEvent[2], "CodeMania", "Coding"));
-        models.add(new Modal(Constants.homeEvent[3], "No Ground Zone", "Fly Planes"));
-        models.add(new Modal(Constants.homeEvent[4], "Kurukshetra", "Robo War"));
-        models.add(new Modal(Constants.homeEvent[5], "Armageddon", "Gaming"));
+        models.add(new Modal(Constants.homeEvent[0], "Bizzathlon", "ArthaShastra"));
+        models.add(new Modal(Constants.homeEvent[1], "Director's Cut", "Paraphernalia"));
+        models.add(new Modal(Constants.homeEvent[2], "Codemania", "Vishwa CodeGenesis"));
+        models.add(new Modal(Constants.homeEvent[3], "Touch Down the plane", "No Ground Zone"));
+        models.add(new Modal(Constants.homeEvent[4], "Kurukshetra", "Deus-X-Machina"));
+        models.add(new Modal(Constants.homeEvent[5], "DOTA", "Armageddon"));
         return models;
     }
 
@@ -149,8 +152,8 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
         final ViewPager viewPager = view.findViewById(R.id.viewpager_poster);
         final CircleIndicator indicator = view.findViewById(R.id.indicator_slider);
         FirebaseDatabase dataref = FirebaseDatabase.getInstance();
-        //dataref.setPersistenceEnabled(false);
         DatabaseReference imageRef = dataref.getReference(FIREBASE_REF_POSTERIMAGES);
+        imageRef.keepSynced(true);
         imageRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

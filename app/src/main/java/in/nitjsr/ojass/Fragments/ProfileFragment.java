@@ -38,6 +38,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import in.nitjsr.ojass.Activities.LoginActivity;
+import in.nitjsr.ojass.Activities.RegisterActivity;
 import in.nitjsr.ojass.Adapters.ProfileEventAdapter;
 import in.nitjsr.ojass.Adapters.RecyclerViewAdapter;
 import in.nitjsr.ojass.Modals.Modal;
@@ -59,7 +60,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     private ImageView ivtShirt, ivKit;
     private ProgressDialog pd;
     private ImageButton ibRefresh;
-    private Button ibLogOut;
+    private Button ibLogOut, btnClickRegister;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -79,6 +80,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         ivKit = view.findViewById(R.id.iv_kit);
         ibRefresh = view.findViewById(R.id.ib_refresh);
         ibLogOut = view.findViewById(R.id.ib_logOut);
+        btnClickRegister = view.findViewById(R.id.btn_click_to_register);
 
         mUser = FirebaseAuth.getInstance().getCurrentUser();
         Utilities.setPicassoImage(view.getContext(), mUser.getPhotoUrl().toString(), circleImageView);
@@ -91,15 +93,16 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         tvEmail.setText(mUser.getEmail());
 
         prepareRecyclerView(view);
-        fetchData(view);
+        fetchData(view, 0);
 
         ibRefresh.setOnClickListener(this);
         ibLogOut.setOnClickListener(this);
+        btnClickRegister.setOnClickListener(this);
 
         return view;
     }
 
-    private void fetchData(final View view) {
+    private void fetchData(final View view, final int flag) {
         DatabaseReference userRef = FirebaseDatabase.getInstance().getReference(FIREBASE_REF_USERS).child(mUser.getUid());
         userRef.keepSynced(true);
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -107,6 +110,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
+                    btnClickRegister.setVisibility(View.GONE);
                     tvNum.setText("+91 "+dataSnapshot.child(Constants.FIREBASE_REF_MOBILE).getValue().toString());
                     if (dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue() != null) {
                         tvUserOjId.setText(dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue().toString());
@@ -127,11 +131,15 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                         ivKit.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_off_background));
                     }
                     if (pd.isShowing()) pd.dismiss();
+                    if (flag == 1){
+                        Toast.makeText(getContext(), "Profile updated!", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
                     if (pd.isShowing()) pd.dismiss();
                     tvUserOjId.setText(Constants.NOT_REGISTERED);
                     tvUserOjId.setTextColor(Color.RED);
                     Toast.makeText(getContext(), Constants.NOT_REGISTERED, Toast.LENGTH_SHORT).show();
+                    btnClickRegister.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -152,8 +160,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     private ArrayList<Modal> prepareDataSet() {
         ArrayList<Modal> dataSet = new ArrayList<>();
-        dataSet.add(new Modal(R.drawable.ic_launcher_background, "Event 1", "Team 1"));
-        dataSet.add(new Modal(R.drawable.ic_launcher_background, "Event 2", "Team 2"));
+        dataSet.add(new Modal("https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Fvishwacodegen.jpg?alt=media&token=2420396e-592c-4c86-beab-9675b7ce5277", "Codemania", "Result Not Declared"));
+        dataSet.add(new Modal("https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Fdeusxmachina.jpg?alt=media&token=b70e7814-f03e-47a7-bd6b-6bb964a69324", "Kurukshetra", "Result Not Declared"));
         dataSet.add(new Modal(R.drawable.ic_launcher_background, "Event 3", "Team 3"));
         dataSet.add(new Modal(R.drawable.ic_launcher_background, "Event1", "Event2"));
         dataSet.add(new Modal(R.drawable.ic_launcher_background, "Event1", "Event2"));
@@ -166,9 +174,12 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         if (view == ibRefresh) {
             pd.show();
-            fetchData(view);
+            fetchData(view, 1);
         } else if (view == ibLogOut) {
             signOut();
+        } else if (view == btnClickRegister){
+            startActivity(new Intent(getContext(), RegisterActivity.class));
+            getActivity().finish();
         }
     }
 
