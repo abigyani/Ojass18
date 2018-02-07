@@ -36,7 +36,6 @@ import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_NOTIFICATIONS;
 public class FeedActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    TextView toolbar;
     FAQAdapter adapter;
     DatabaseReference ref;
     public static ArrayList<FaqModel> data;
@@ -48,11 +47,7 @@ public class FeedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
 
-        toolbar = (TextView) findViewById(R.id.toolbarText);
-        Typeface tf = Typeface.createFromAsset(getAssets(), "ToolbarText.ttf");
-        toolbar.setTypeface(tf);
-
-        spinner = (Spinner) findViewById(R.id.spinner);
+        spinner = findViewById(R.id.spinner_feed);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.events, R.layout.spinner_layout);
         adapter.setDropDownViewResource(R.layout.spinner_layout);
@@ -83,6 +78,13 @@ public class FeedActivity extends AppCompatActivity {
             }
         });
 
+
+        findViewById(R.id.ib_back_feed).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
     }
 

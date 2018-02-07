@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 
 import com.bignerdranch.expandablerecyclerview.Model.ParentObject;
@@ -33,7 +34,6 @@ public class FaqActivity extends AppCompatActivity {
     DatabaseReference ref;
     public static ArrayList<FaqModel> data;
     ProgressDialog p;
-
 
 
     @Override
@@ -90,7 +90,12 @@ public class FaqActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
 
-
+        findViewById(R.id.ib_back_faq).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
     }
 

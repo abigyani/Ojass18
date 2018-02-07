@@ -4,21 +4,18 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import in.nitjsr.ojass.R;
 
 public class SponsersActivity extends AppCompatActivity {
 
-    TextView sponsers_toolbar;
     TextView i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18,i19;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sponsers);
-        sponsers_toolbar = (TextView) findViewById(R.id.sponsers_toolbar_title);
-        Typeface tf = Typeface.createFromAsset(getAssets(), "ToolbarText.ttf");
-        sponsers_toolbar.setTypeface(tf);
 
         i1 = (TextView) findViewById(R.id.i1);
         i2 = (TextView) findViewById(R.id.i2);
@@ -60,6 +57,13 @@ public class SponsersActivity extends AppCompatActivity {
         i14.setPaintFlags(i14.getPaintFlags()|Paint.UNDERLINE_TEXT_FLAG);
         i15.setPaintFlags(i15.getPaintFlags()|Paint.UNDERLINE_TEXT_FLAG);
 
+
+        findViewById(R.id.ib_back_sponsors).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
     }
 }

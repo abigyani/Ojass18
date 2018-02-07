@@ -153,11 +153,7 @@ public class SubscribeFragment extends DialogFragment {
                         editor.putString(ID,pos.trim());
                         //Toast.makeText(getActivity(),"selected list is : "+pos,Toast.LENGTH_SHORT).show();
                         editor.apply();
-
-                        if(checked.size()!=0)
-                        {
-                            Toast.makeText(getContext(),"Subscribed to event notifications",Toast.LENGTH_SHORT).show();
-                        }
+                        Toast.makeText(getContext(),"Subscriptions Updated!",Toast.LENGTH_SHORT).show();
 
                     }
                 })
