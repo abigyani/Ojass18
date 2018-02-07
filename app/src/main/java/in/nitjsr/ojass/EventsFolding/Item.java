@@ -362,7 +362,7 @@ public class Item {
                 largeEventImage[6],largeEventImage[7],largeEventImage[8],largeEventImage[9],largeEventImage[10],largeEventImage[11],largeEventImage[12],
                 largeEventImage[13],largeEventImage[14],largeEventImage[15],largeEventImage[16]};
 
-
+/*
         items.add(new Item("ABC","Neetishastra","Let's Start Up","Corporate Roadies","Bizzathlon","Wolf of Dalal Street",
                 "Selfie Ad","Teenpreneur",null,null,Array1[0], "Dream Dare Achieve",Array2[0],Array3[0]));
         items.add(new Item("High Voltage Concepts (HVC)","Elixir of Electricity","Pro-Lo-Co","Mat Sim","Nexus","Electro-Q","Who Am I",null,null,null,Array1[1], "Dream Dare Achieve",Array2[1],Array3[1]));
@@ -381,6 +381,36 @@ public class Item {
         items.add(new Item("Acumen","Sanrachna","Archmadeease","Exempler","Pipe-o-Mania","Metropolis",null,null,null,null,Array1[14], "Dream Dare Achieve",Array2[14],Array3[14]));
         items.add(new Item("Jagriti","Samvedna","Pratibimb",null,null,null,null,null,null,null,Array1[15], "Dream Dare Achieve",Array2[15],Array3[15]));
         items.add(new Item("LiveCS",null,null,null,null,null,null,null,null,null,Array1[16], "Dream Dare Achieve",Array2[16],Array3[16]));
+
+*/
+
+        items.add(new Item("Autoquiz","Accelodrome","Junkyard Wars","Samveg","Prakshepan","Enigma","Ansys",null,null,null,Array1[7], "Dream Dare Achieve",Array2[7],Array3[7]));
+        items.add(new Item("App Droid","Algorithma","Codemania","Code-O-Soccer","Sudo Code","Labyrinth","Web Weaver","Tech Know",null,null,Array1[2], "Dream Dare Achieve",Array2[2],Array3[2]));
+        items.add(new Item("High Voltage Concepts (HVC)","Elixir of Electricity","Pro-Lo-Co","Mat Sim","Nexus","Electro-Q","Who Am I",null,null,null,Array1[1], "Dream Dare Achieve",Array2[1],Array3[1]));
+        items.add(new Item("Tukvilla","Jigyasa","Codesense","Analog Hunter","Digizone","Netkraft","Embetrix",null,null,null,Array1[6], "Dream Dare Achieve",Array2[6],Array3[6]));
+        items.add(new Item("ABC","Neetishastra","Let's Start Up","Corporate Roadies","Bizzathlon","Wolf of Dalal Street",
+                "Selfie Ad","Teenpreneur",null,null,Array1[0], "Dream Dare Achieve",Array2[0],Array3[0]));
+        items.add(new Item("Acumen","Sanrachna","Archmadeease","Exempler","Pipe-o-Mania","Metropolis",null,null,null,null,Array1[14], "Dream Dare Achieve",Array2[14],Array3[14]));
+        items.add(new Item("360 Mania","Tachyon","Battleship","Kurukshetra","MAC FIFA","Shapeshifter",null,null,null,null,Array1[11], "Dream Dare Achieve",Array2[11],Array3[11]));
+        items.add(new Item("Industrial Tycoon", "Utpreaks","Artifact", "DronaGyan", "M&I Quiz", null, null, null,null,null,Array1[5], "Dream Dare Achieve",Array2[5],Array3[5]));
+        items.add(new Item("The Great Ojass Race","SCI FI", "Mad Ad", "Lens View", "Director's Cut", null, null, null,null,null,Array1[4], "Dream Dare Achieve",Array2[4],Array3[4]));
+        items.add(new Item("Codiyapa","Game of Troves","Scratch Easy","SimplySql","Tame the pyhton",null,null,null,null,null,Array1[9], "Dream Dare Achieve",Array2[9],Array3[9]));
+        items.add(new Item("Spectra","Agnikund","Metal Trivia","Innovision","K.O.",null,null,null,null,null,Array1[12], "Dream Dare Achieve",Array2[12],Array3[12]));
+        items.add(new Item("FIFA","Counter Strike- Global Offensive","NFS Most Wanted","Angry Birds","DOTA",null,null,null,null,null,Array1[13], "Dream Dare Achieve",Array2[13],Array3[13]));
+        items.add(new Item("Jagriti","Samvedna","Pratibimb",null,null,null,null,null,null,null,Array1[15], "Dream Dare Achieve",Array2[15],Array3[15]));
+        items.add(new Item("Touch Down the plane","MICAV",null, null, null, null,null,null,null,null,Array1[3], "Dream Dare Achieve",Array2[3],Array3[3]));
+        items.add(new Item("NSCET",null,null,null,null,null,null,null,null,null,Array1[8], "Dream Dare Achieve",Array2[8],Array3[8]));
+        items.add(new Item("LiveCS",null,null,null,null,null,null,null,null,null,Array1[16], "Dream Dare Achieve",Array2[16],Array3[16]));
+        items.add(new Item("Exposicion",null,null,null,null,null,null,null,null,null,Array1[10], "Dream Dare Achieve",Array2[10],Array3[10]));
+
+
+
+
+
+
+
+
+
         return items;
 
     }
