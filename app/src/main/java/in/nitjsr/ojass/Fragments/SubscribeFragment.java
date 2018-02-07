@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +35,7 @@ public class SubscribeFragment extends DialogFragment {
     ArrayList<String> checked = new ArrayList<String>();
     private static final String PREFS_TEXT="SubscribeInfo";
     private static final String ID="Checked";
+    private CheckBox cbSubscribe;
 
 
     @Override
@@ -45,6 +47,7 @@ public class SubscribeFragment extends DialogFragment {
         View view = inflater.inflate(R.layout.fragment_subscribe,null);
 
         mainListView = (ListView)view.findViewById(R.id.mainListView);
+        cbSubscribe = view.findViewById(R.id.cb_subscribe_all);
 
         SharedPreferences sharedPreferences=getActivity().getSharedPreferences(PREFS_TEXT,Context.MODE_PRIVATE);
         String Id=sharedPreferences.getString(ID," ");
@@ -123,7 +126,20 @@ public class SubscribeFragment extends DialogFragment {
         listAdapter = new SelectArralAdapter(getActivity(), planetList);
         mainListView.setAdapter(listAdapter);
 
-
+        cbSubscribe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    for (int i = 0 ; i < mainListView.getChildCount(); i++){
+                        ((CheckBox)mainListView.getChildAt(i).findViewById(R.id.CheckBox01)).setChecked(true);
+                    }
+                } else {
+                    for (int i = 0 ; i < mainListView.getChildCount(); i++){
+                        ((CheckBox)mainListView.getChildAt(i).findViewById(R.id.CheckBox01)).setChecked(false);
+                    }
+                }
+            }
+        });
 
         builder.setTitle("Subscribe for Event notifications")
                 .setView(view)

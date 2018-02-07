@@ -10,6 +10,8 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import in.nitjsr.ojass.R;
 import in.nitjsr.ojass.Utils.SharedPrefManager;
 import in.nitjsr.ojass.Utils.Utilities;
@@ -20,6 +22,7 @@ public class SplashScreen extends AppCompatActivity {
     private SharedPrefManager sharedPrefManager;
     private ImageView mImageView;
     private TextView tv;
+    private ImageView ivSplash;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,8 @@ public class SplashScreen extends AppCompatActivity {
         mImageView = findViewById(R.id.iv_splash_logo);
 
         //tv.animate().alpha(1.0f).setDuration(SPLASH_SCREEN_TIMER);
+        ivSplash = findViewById(R.id.iv_splashscreen);
+        Picasso.with(this).load("https://lh3.googleusercontent.com/-OJj_lIygYuw/Wnt49IcYdVI/AAAAAAAABKo/coVAn3ShO6EgEjGjUr3jwtg5KxofE87IgCL0BGAYYCw/h441/23%2B%25282%2529.jpg").fit().into(ivSplash);
         animation();
         doTheDelayStuff();
     }
