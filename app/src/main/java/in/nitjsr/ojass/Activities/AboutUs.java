@@ -39,7 +39,7 @@ public class AboutUs extends AppCompatActivity {
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/Ojassnitjamshedpur"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/Ojassnitjamshedpur/?ref=br_rs"));
                 startActivity(intent);
             }
         });
@@ -47,7 +47,7 @@ public class AboutUs extends AppCompatActivity {
         insta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/ojass_nitjsr"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/ojass_techfest/"));
                 startActivity(intent);
             }
         });
@@ -55,7 +55,7 @@ public class AboutUs extends AppCompatActivity {
         twitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/Ojass2k16"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/ojass_nitjsr?s=08"));
                 startActivity(intent);
             }
         });
@@ -63,7 +63,7 @@ public class AboutUs extends AppCompatActivity {
         webpage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.ojass.in"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://ojass.in"));
                 startActivity(intent);
             }
         });
