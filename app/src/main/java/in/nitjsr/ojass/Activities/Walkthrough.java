@@ -29,7 +29,6 @@ public class Walkthrough extends AppCompatActivity implements ViewPager.OnPageCh
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/WalkthroughImages%2FACT%20IND.png?alt=media&token=fff0d0f7-f9ff-437c-b1c3-ea3de32a84be",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/WalkthroughImages%2FApp%20Map.png?alt=media&token=92413930-09e8-49d7-96cb-7a4153795a90",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/WalkthroughImages%2FLOC.png?alt=media&token=e8aaddbc-5c87-40fa-b19b-f12e550e608d"
-
     };
 
     @Override

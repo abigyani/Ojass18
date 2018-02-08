@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -26,6 +27,7 @@ import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_DATE;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_IMAGE;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_LONG_DESC;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_SHORT_DESC;
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_SHORT_IMAGE;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_GURU_GYAN_TITLE;
 
 public class GuruGyanActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener{
@@ -90,6 +92,7 @@ public class GuruGyanActivity extends AppCompatActivity implements View.OnClickL
                             shortDesc[currIndex] = dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_SHORT_DESC).getValue().toString();
                             longDesc[currIndex] = dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_LONG_DESC).getValue().toString();
                             dates[currIndex] = dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_DATE).getValue().toString();
+                            Log.d("DekhBhai", images[currIndex]);
                             currIndex++;
                         }
                         ViewPager viewPager = findViewById(R.id.vp_guru_gyan);

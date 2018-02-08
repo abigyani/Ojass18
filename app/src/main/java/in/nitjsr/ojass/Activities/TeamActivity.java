@@ -73,7 +73,7 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(TeamActivity.this, getResources().getStringArray(R.array.team_names)[i], Toast.LENGTH_SHORT).show();
+                //Toast.makeText(TeamActivity.this, getResources().getStringArray(R.array.team_names)[i], Toast.LENGTH_SHORT).show();
                 prepareRecyclerView(i);
             }
 
@@ -123,7 +123,7 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<Team> robotics() {
         ArrayList<Team> Robotics=new ArrayList<>();
         Robotics.add(new Team("Kaushik Komanduri","Robotics","8008458784","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fkaushik.png?alt=media&token=875bf20b-32d1-4c0d-902a-65f9d5958069"));
-        Robotics.add(new Team("Sammeta Saisaran","Robotics","9471105567","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2FsaiCharan.png?alt=media&token=2dd2b8ac-f43b-44e9-ba11-b58483d938d2"));
+        Robotics.add(new Team("Sammeta Saisaran","Robotics","8434218038","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2FsaiCharan.png?alt=media&token=2dd2b8ac-f43b-44e9-ba11-b58483d938d2"));
         Robotics.add(new Team("Sushil Rajwar","Robotics","9905183679","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fsushil.png?alt=media&token=25f4c8eb-5827-48c4-80c4-f237060baf60"));
         Robotics.add(new Team("Mushref Tabrej","Robotics","8409680821","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fuserdp.png?alt=media&token=15f889fa-6f14-4e23-a259-001e3d017b50"));
         Robotics.add(new Team("Apurava","Robotics","9470171699", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fuserdp.png?alt=media&token=15f889fa-6f14-4e23-a259-001e3d017b50"));
@@ -189,11 +189,11 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
 
     private ArrayList<Team> eventManage() {
         ArrayList<Team> EventManage=new ArrayList<>();
-        EventManage.add(new Team("Santosh Kumar","Event Manage","8092437800","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fsantosh.png?alt=media&token=20f97fde-733a-467d-aebb-13f0218c79ab"));
-        EventManage.add(new Team("A.N.V.Nagesh Kumar","Event Manage","7075133711", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fuserdp.png?alt=media&token=15f889fa-6f14-4e23-a259-001e3d017b50"));
-        EventManage.add(new Team("Gunda Sai Teja","Event Manage","9471105585","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2FsaiTeja.png?alt=media&token=499c3613-b165-4dd2-bad9-826b2debb51a"));
-        EventManage.add(new Team("MD Saadique Anwar","Event Manage","8521781488","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fsaadique.png?alt=media&token=a1ebae8f-a74e-4c95-a7e7-eab0c044350a"));
-        EventManage.add(new Team("Abhishek Jha","Event Manage","9631888674","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2FabhishekJha.png?alt=media&token=baef8692-0860-4839-b34d-6803ea06d665"));
+        EventManage.add(new Team("Santosh Kumar","Event Management","8092437800","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fsantosh.png?alt=media&token=20f97fde-733a-467d-aebb-13f0218c79ab"));
+        EventManage.add(new Team("A.N.V.Nagesh Kumar","Event Management","7075133711", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fuserdp.png?alt=media&token=15f889fa-6f14-4e23-a259-001e3d017b50"));
+        EventManage.add(new Team("Gunda Sai Teja","Event Management","9471105585","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2FsaiTeja.png?alt=media&token=499c3613-b165-4dd2-bad9-826b2debb51a"));
+        EventManage.add(new Team("MD Saadique Anwar","Event Management","8521781488","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fsaadique.png?alt=media&token=a1ebae8f-a74e-4c95-a7e7-eab0c044350a"));
+        EventManage.add(new Team("Abhishek Jha","Event Management","9631888674","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2FabhishekJha.png?alt=media&token=baef8692-0860-4839-b34d-6803ea06d665"));
         setResourceOnClick(EventManage.get(0));
         return EventManage;
     }
@@ -217,8 +217,8 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
 
     private ArrayList<Team> teamCoordinator() {
         ArrayList<Team> TeamCoordinator=new ArrayList<>();
-        TeamCoordinator.add(new Team("Patthi Mahesh","Team Coordinator","7842255976","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fkaushik.png?alt=media&token=875bf20b-32d1-4c0d-902a-65f9d5958069"));
-        TeamCoordinator.add(new Team("Akhilesh K. Jain","Team Coordinator","9509164568","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Faditya.png?alt=media&token=a87a9fb3-6711-45f4-a1eb-92317de53327"));
+        TeamCoordinator.add(new Team("Patthi Mahesh","Team Coordinator","7842255976","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2FmaheshPatti.png?alt=media&token=85d9f2e7-80e8-469a-a601-221a27cd454d"));
+        TeamCoordinator.add(new Team("Akhilesh K. Jain","Team Coordinator","9509164568","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fakhilesh.png?alt=media&token=6333f17d-eda6-4a65-a6c2-3fef23967e26"));
         setResourceOnClick(TeamCoordinator.get(0));
         return TeamCoordinator;
     }

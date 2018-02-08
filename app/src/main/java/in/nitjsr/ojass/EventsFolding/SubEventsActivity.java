@@ -318,7 +318,7 @@ public class SubEventsActivity extends AppCompatActivity {
             case "Neetishastra":
                 position = 57;
                 break;
-            case "Selfie Ad":
+            case "TechArt":
                 position = 58;
                 break;
             case "Accelodrome":
