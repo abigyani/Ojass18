@@ -36,6 +36,8 @@ public class SubscribeFragment extends DialogFragment {
     private static final String PREFS_TEXT="SubscribeInfo";
     private static final String ID="Checked";
     private CheckBox cbSubscribe;
+    private static final String SUB_ALL = "subAll";
+    private SharedPreferences sharedPreferences;
 
 
     @Override
@@ -49,8 +51,11 @@ public class SubscribeFragment extends DialogFragment {
         mainListView = (ListView)view.findViewById(R.id.mainListView);
         cbSubscribe = view.findViewById(R.id.cb_subscribe_all);
 
-        SharedPreferences sharedPreferences=getActivity().getSharedPreferences(PREFS_TEXT,Context.MODE_PRIVATE);
+        sharedPreferences=getActivity().getSharedPreferences(PREFS_TEXT,Context.MODE_PRIVATE);
         String Id=sharedPreferences.getString(ID," ");
+
+        if (sharedPreferences.getBoolean(SUB_ALL, false)) cbSubscribe.setChecked(true);
+        else cbSubscribe.setChecked(false);
 
         mainListView
                 .setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -122,6 +127,7 @@ public class SubscribeFragment extends DialogFragment {
         }
 
 
+
         // Set our custom array adapter as the ListView's adapter.
         listAdapter = new SelectArralAdapter(getActivity(), planetList);
         mainListView.setAdapter(listAdapter);
@@ -132,10 +138,12 @@ public class SubscribeFragment extends DialogFragment {
                 if (b){
                     for (int i = 0 ; i < mainListView.getChildCount(); i++){
                         ((CheckBox)mainListView.getChildAt(i).findViewById(R.id.CheckBox01)).setChecked(true);
+                        planetList.get(i).setChecked(true);
                     }
                 } else {
                     for (int i = 0 ; i < mainListView.getChildCount(); i++){
                         ((CheckBox)mainListView.getChildAt(i).findViewById(R.id.CheckBox01)).setChecked(false);
+                        planetList.get(i).setChecked(false);
                     }
                 }
             }
@@ -164,9 +172,11 @@ public class SubscribeFragment extends DialogFragment {
                             //Toast.makeText(getActivity(),"selected list is : "+checked.get(i),Toast.LENGTH_SHORT).show();
                         }
                         //Toast.makeText(getActivity(),"selected list is : "+checked.size(),Toast.LENGTH_SHORT).show();
-                        SharedPreferences sharedPreferences=getActivity().getSharedPreferences(PREFS_TEXT, Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor=sharedPreferences.edit();
+
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString(ID,pos.trim());
+                        if (cbSubscribe.isChecked()) editor.putBoolean(SUB_ALL, true);
+                        else editor.putBoolean(SUB_ALL, false);
                         //Toast.makeText(getActivity(),"selected list is : "+pos,Toast.LENGTH_SHORT).show();
                         editor.apply();
                         Toast.makeText(getContext(),"Subscriptions Updated!",Toast.LENGTH_SHORT).show();

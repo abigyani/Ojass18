@@ -39,7 +39,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater= LayoutInflater.from(parent.getContext());
-        View view=inflater.inflate(R.layout.item_recyclerview, parent,false);
+        View view;
+        if (FLAG != GURU_GYAN_FLAG) view = inflater.inflate(R.layout.item_recyclerview, parent,false);
+        else view = inflater.inflate(R.layout.item_guru_gyan_home, parent,false);
         return new ViewHolder(view);
     }
 
@@ -50,7 +52,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         else Picasso.with(context).load(current.getDrawableImage()).fit().into(holder.eventImg);
 
         holder.evenTitle.setText(current.getEventName());
-        holder.eventDesc.setText(current.getDescription());
+        if (FLAG != GURU_GYAN_FLAG) holder.eventDesc.setText(current.getDescription());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +87,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             super(itemView);
             evenTitle = itemView.findViewById(R.id.event_title);
             eventImg = itemView.findViewById(R.id.eventImg);
-            eventDesc = itemView.findViewById(R.id.event_description);
+            if (FLAG != GURU_GYAN_FLAG) eventDesc = itemView.findViewById(R.id.event_description);
         }
     }
 }

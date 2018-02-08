@@ -65,9 +65,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="cursive"
                 android:gravity="center_horizontal"
-                android:text="OJASS - 18"
+                android:text="OJASS"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:textColor="#000"
                 android:textSize="28sp"
@@ -75,19 +74,21 @@
                 android:typeface="sans" />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/techfest"
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center"/>
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-
-                android:fontFamily="monospace"
                 android:gravity="center_horizontal"
-                android:text="       16th-18th March"
+                android:text="16th-18th March"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="#000"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:typeface="sans" />
+                android:textSize="12sp" />
 
 
             <TextView
@@ -99,11 +100,11 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="15dp"
                 android:autoLink="web"
+                android:justificationMode="inter_word"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Ojass, in its 8th installment, promise to live up to its name, implying invigorating, boundless energy. The annual Techno-Management fest of NIT Jamshedpur is one of East India's biggest and grandest college festivals. Year after year, it has been evolving, reinventing itself in leaps and bounds. Every year, Ojass throws participants newer an unprecedented challenges, sets new standards, leaving the participants awestruck. It is no wonder that Ojass has gained the kind of recognition it has, in such a short time span."
-
-                android:textSize="18sp" />
+                android:text="@string/about_us"
+                android:textSize="16sp" />
 
 
             <LinearLayout

@@ -100,8 +100,9 @@ public class DevelopersAcitivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-    public static void setDevData(int image, String name, String email, String desc, String linkedInLink,
+    public static void setDevData(String image, String name, String email, String desc, String linkedInLink,
                                   String fbLink, String githubLink, String whatsAppPhone) {
+        Utilities.setPicassoImage(context, image, ivImg);
         Picasso.with(context).load(image).fit().into(ivImg);
         tvName.setText(name);
         tvEmail.setText(email);

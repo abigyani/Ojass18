@@ -80,12 +80,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         LatLng NITJamshedpur = new LatLng(22.7766, 86.1437);
-        LatLng TSG = new LatLng(22.7751221, 86.1432939);
-        LatLng HostelJ = new LatLng(22.7718403, 86.1459633);
+        LatLng vsg = new LatLng(22.7771039, 86.1435186);
+        LatLng RoboticsArena = new LatLng(22.7764725, 86.1438097);
+        LatLng Mech = new LatLng(22.7776493, 86.1433833);
+        LatLng CC = new LatLng(22.7774994, 86.143929);
+        LatLng Downs = new LatLng(22.7788293, 86.1415053);
 
-        mMap.addMarker(new MarkerOptions().position(NITJamshedpur).title("NIT Jamshedpur").snippet("My Snippet").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(TSG).title("TSG").snippet("My Snippet").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
-        mMap.addMarker(new MarkerOptions().position(HostelJ).title("Hostel J").snippet("My Snippet").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));;
+        mMap.addMarker(new MarkerOptions().position(vsg).title("VSG").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        mMap.addMarker(new MarkerOptions().position(RoboticsArena).title("Robotics Arena").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        mMap.addMarker(new MarkerOptions().position(Mech).title("Mechanical Department").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));;
+        mMap.addMarker(new MarkerOptions().position(CC).title("CC").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));;
+        mMap.addMarker(new MarkerOptions().position(Downs).title("Downs").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));;
         mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
 
             @Override
