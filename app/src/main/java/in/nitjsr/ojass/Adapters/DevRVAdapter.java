@@ -15,6 +15,8 @@ import java.util.List;
 
 import in.nitjsr.ojass.Activities.DevelopersAcitivity;
 import in.nitjsr.ojass.R;
+import in.nitjsr.ojass.Utils.Constants;
+import in.nitjsr.ojass.Utils.Utilities;
 
 /**
  * Created by Abhishek on 03-Feb-18.
@@ -32,8 +34,9 @@ public class DevRVAdapter extends RecyclerView.Adapter<DevRVAdapter.Myviewholder
             "https://www.github.com/aditya314",
             "https://github.com/ravi9598",
             "https://github.com/anirudh1107",
-            "https://github.com/Saanayy",
             "https://github.com/",
+            "https://github.com/Saanayy",
+            "https://github.com/gasaha123",
             "https://github.com/utkarshh12",
             "https://github.com/developershubh13"
     };
@@ -48,7 +51,7 @@ public class DevRVAdapter extends RecyclerView.Adapter<DevRVAdapter.Myviewholder
             "https://www.facebook.com/anirudh.deep.5",
             "https://www.facebook.com/",
             "https://www.facebook.com/Fake.aarav",
-            "https://www.facebook.com/",
+            "https://www.facebook.com/gaurav.sethi.102",
             "https://www.facebook.com/utkarshh12",
             "https://www.facebook.com/profile.php?id=100008461894976"
     };
@@ -79,7 +82,7 @@ public class DevRVAdapter extends RecyclerView.Adapter<DevRVAdapter.Myviewholder
             "https://www.linkedin.com/in/anirudh-deep-642863144",
             "https://www.linkedin.com/in/",
             "https://www.linkedin.com/in/sanay-dev-817aa8147/",
-            "https://www.linkedin.com/in/",
+            "https://www.linkedin.com/in/gaurav-sethi-176a80138/",
             "https://www.linkedin.com/in/utkarsh-kulshrestha-40b37a122",
             "https://www.linkedin.com/in/shubham-kumar-a44b76158"
     };
@@ -111,7 +114,7 @@ public class DevRVAdapter extends RecyclerView.Adapter<DevRVAdapter.Myviewholder
             "anirudhdeep.11@gmail.com",
             "example@gmail.com",
             "sanay.nitjsr@gmail.com",
-            "example@gmail.com",
+            "gaurav.sethi32@gmail.com",
             "utkarshh12@gmail.com",
             "developershubh13@gmail.com"
     };
@@ -123,7 +126,7 @@ public class DevRVAdapter extends RecyclerView.Adapter<DevRVAdapter.Myviewholder
             "Computer Science & Engg.\nB.Tech. (Hons.)\n2014-2018",
             "Computer Science & Engg.\nB.Tech. (Hons.)\n2014-2018",
             "Computer Science & Engg.\nB.Tech. (Hons.)\n2015-2019",
-            "Computer Science & Engg.\nB.Tech. (Hons.)\n2015-2019",
+            "Electronics & Communication Engg.\nB.Tech. (Hons.)\n2015-2019",
             "Computer Science & Engg.\nB.Tech. (Hons.)\n2016-2020",
             "Computer Science & Engg.\nB.Tech. (Hons.)\n2016-2020",
             "Computer Science & Engg.\nB.Tech. (Hons.)\n2016-2020",
@@ -136,14 +139,14 @@ public class DevRVAdapter extends RecyclerView.Adapter<DevRVAdapter.Myviewholder
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fabhishek.png?alt=media&token=08440466-b6fe-41a3-aba5-927f081f5478",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Froushan.png?alt=media&token=67aa2688-0caf-454e-8678-3161f9eacae9",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Faditya.png?alt=media&token=c19148d8-9fc0-4e86-9ea8-5a69fdd722a9",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Faditya.png?alt=media&token=c19148d8-9fc0-4e86-9ea8-5a69fdd722a9",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fshivam.png?alt=media&token=d242014a-069d-465f-b865-6542bb0a6e9f",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Frajbharwa.png?alt=media&token=33642917-8dd1-4621-8ca2-a924cad69a4b",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fans.png?alt=media&token=a8fe96ca-9c83-4001-8236-768d250c1d7c",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fic_ravi_app.png?alt=media&token=ca969b77-43c8-4fba-9610-e0c9b55de564",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fic_ravi_app.png?alt=media&token=ca969b77-43c8-4fba-9610-e0c9b55de564",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fanirudh.png?alt=media&token=1251c5c5-fa49-4149-b0fb-bdb2ce8de273",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fic_naman_app.png?alt=media&token=264dfb3b-7678-425b-a0ba-8b9731665dd1",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fsanay.png?alt=media&token=bb579167-0c97-4da9-b3c2-12fa9475da9e",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fgaurav.png?alt=media&token=41f868c1-caa1-482e-b04f-db1096d25c4f",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fgauravimg.jpeg?alt=media&token=97a26c7c-a7d8-486e-934e-fc24947be6e9",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Futkarsh.png?alt=media&token=14f70e3c-2ab0-46c6-90cf-f067e8c40a7f",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fshubham.png?alt=media&token=5e3ae633-ac2d-4430-8f66-5612a8d74034"
     };
@@ -163,7 +166,7 @@ public class DevRVAdapter extends RecyclerView.Adapter<DevRVAdapter.Myviewholder
     public void onBindViewHolder(Myviewholder holder, final int position) {
         holder.name.setText(names[position]);
 
-        Picasso.with(context).load(images[position]).fit().into(holder.image);
+        Utilities.setPicassoImage(context, images[position], holder.image, Constants.SQUA_PLACEHOLDER);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

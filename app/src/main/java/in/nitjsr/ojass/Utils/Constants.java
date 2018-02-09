@@ -18,6 +18,9 @@ public class Constants {
     public static final int GURU_GYAN_FLAG = 2;
     public static final int SPONSORS_FLAG = 3;
 
+    public static final int RECT_PLACEHOLDER = 0;
+    public static final int SQUA_PLACEHOLDER = 1;
+
     public static final String FIREBASE_REF_USERS = "Users";
     public static final String FIREBASE_REF_EMAIL = "email";
     public static final String FIREBASE_REF_NAME = "name";

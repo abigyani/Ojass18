@@ -66,7 +66,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         verifyButton = findViewById(R.id.verify_button);
         registerButton = findViewById(R.id.register_button);
         spinner = findViewById(R.id.spinner);
-
+        spinner.setSelection(2);
         skipButton.setOnClickListener(this);
 
         //Picasso.with(this).load(R.mipmap.ojass_bg).fit().into(ivBackground);

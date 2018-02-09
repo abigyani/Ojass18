@@ -58,19 +58,25 @@ public class FaqActivity extends AppCompatActivity {
                 //Toast.makeText(FAQActivity.this,"fetched"+dataSnapshot.getChildrenCount(),Toast.LENGTH_SHORT).show();
                 p.dismiss();
                 data.clear();
-                for(DataSnapshot ds: dataSnapshot.getChildren())
-                {
-                    FaqModel q=ds.getValue(FaqModel.class);
-                    data.add(q);
-                    // Toast.makeText(FAQActivity.this,"Q"+q.getQuestion()+"\nA:"+q.getAns(),Toast.LENGTH_SHORT).show();
+                if (dataSnapshot.exists()){
+                    try {
+                        for(DataSnapshot ds: dataSnapshot.getChildren())
+                        {
+                            FaqModel q=ds.getValue(FaqModel.class);
+                            data.add(q);
+                            // Toast.makeText(FAQActivity.this,"Q"+q.getQuestion()+"\nA:"+q.getAns(),Toast.LENGTH_SHORT).show();
 
+                        }
+
+                        adapter = new FAQAdapter(FaqActivity.this,initData());
+                        adapter.setParentClickableViewAnimationDefaultDuration();
+                        adapter.setParentAndIconExpandOnClick(true);
+                        recyclerView.setAdapter(adapter);
+
+                     } catch (Exception e){
+
+                    }
                 }
-
-                adapter = new FAQAdapter(FaqActivity.this,initData());
-                adapter.setParentClickableViewAnimationDefaultDuration();
-                adapter.setParentAndIconExpandOnClick(true);
-                recyclerView.setAdapter(adapter);
-
 
             }
 

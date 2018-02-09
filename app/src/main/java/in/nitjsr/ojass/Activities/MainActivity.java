@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 } catch(Exception e){
                     if (progressDialog.isShowing()) progressDialog.dismiss();
-                    Toast.makeText(MainActivity.this, "Something went wrong in Events!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "Something went wrong in Events!", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewPager = findViewById(R.id.view_pager_mainactivity);
         viewPager.setAdapter(new MainActivityAdapter(getSupportFragmentManager()));
         viewPager.setOnPageChangeListener(this);
-        viewPager.setOffscreenPageLimit(3);
+        viewPager.setOffscreenPageLimit(0);
         viewPager.setPagingEnabled(false);
 
         findViewById(R.id.ll_team_menu).setOnClickListener(this);
@@ -192,8 +192,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int currIndex = 0;
                 if (dataSnapshot.exists()){
-                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
-                        if (Long.parseLong(dataSnapshot1.getKey()) > shared.getLastNotiTime()) currIndex++;
+                    try {
+                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
+                            if (Long.parseLong(dataSnapshot1.getKey()) > shared.getLastNotiTime()) currIndex++;
+                    } catch (Exception e){
+
+                    }
                 }
                 ((TextView)findViewById(R.id.tv_noti_count)).setText(""+currIndex);
             }
@@ -256,17 +260,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
-                    ivQR.setImageBitmap(getQRCode(mAuth.getCurrentUser().getUid()));
-                    if (dataSnapshot.child(FIREBASE_REF_OJASS_ID).exists()){
-                        tvOjassId.setText(dataSnapshot.child(FIREBASE_REF_OJASS_ID).getValue().toString());
-                        tvOjassId.setTextColor(Color.BLUE);
-                    } else {
-                        tvOjassId.setText(Constants.PAYMENT_DUE);
-                        tvOjassId.setTextColor(Color.RED);
+                    try {
+                        ivQR.setImageBitmap(getQRCode(mAuth.getCurrentUser().getUid()));
+                        if (dataSnapshot.child(FIREBASE_REF_OJASS_ID).exists()){
+                            tvOjassId.setText(dataSnapshot.child(FIREBASE_REF_OJASS_ID).getValue().toString());
+                            tvOjassId.setTextColor(Color.BLUE);
+                        } else {
+                            tvOjassId.setText(Constants.PAYMENT_DUE);
+                            tvOjassId.setTextColor(Color.RED);
+                        }
+                    } catch (Exception e){
+
                     }
                 } else {
                     //Show Please Register Image
-                    ivQR.setImageDrawable(getDrawable(R.drawable.not_reg));
+                    ivQR.setImageDrawable(getDrawable(R.drawable.notreg));
                     tvOjassId.setText(Constants.NOT_REGISTERED);
                     tvOjassId.setTextColor(Color.RED);
                 }
@@ -386,12 +394,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ArrayList<NotificationModal> noti = new ArrayList<>();
         int currIndex = 0;
         for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-            Log.d("TAG", dataSnapshot1.getKey() + ' ' +shared.getLastNotiTime());
-            if (Long.parseLong(dataSnapshot1.getKey()) > shared.getLastNotiTime()){
-                noti.add(new NotificationModal(
-                        dataSnapshot1.child(FIREBASE_REF_NOTIFICATIONS_TITLE).getValue().toString(),
-                        dataSnapshot1.child(FIREBASE_REF_NOTIFICATIONS_BODY).getValue().toString()));
-                currIndex++;
+            try {
+                if (Long.parseLong(dataSnapshot1.getKey()) > shared.getLastNotiTime()){
+                    noti.add(new NotificationModal(
+                            dataSnapshot1.child(FIREBASE_REF_NOTIFICATIONS_TITLE).getValue().toString(),
+                            dataSnapshot1.child(FIREBASE_REF_NOTIFICATIONS_BODY).getValue().toString()));
+                    currIndex++;
+                }
+            } catch (Exception e){
+
             }
         }
         ((TextView)findViewById(R.id.tv_noti_count)).setText(""+currIndex);

@@ -95,8 +95,8 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
         models.add(new Modal(R.drawable.sonnet, "Sonnet", "Associate Sponsor"));
         models.add(new Modal(R.drawable.codechef, "Codechef", "Programming Partner"));
         models.add(new Modal(R.drawable.hackerearth, "Hackerrank", "Programming Partner"));
-        models.add(new Modal(R.drawable.hondaq, "Dominoz", "Food Partner"));
-        models.add(new Modal(R.drawable.brubeck, "Bru Beck", "Food Partner"));
+        models.add(new Modal(R.drawable.dominos, "Domino's", "Food Partner"));
+        models.add(new Modal(R.drawable.brubeck, "BruBeck", "Food Partner"));
         return models;
     }
 
@@ -110,15 +110,21 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                ArrayList<Modal> modals = new ArrayList<>();
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-                    modals.add(new Modal(
-                            dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_SHORT_IMAGE).getValue().toString(),
-                            dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_TITLE).getValue().toString(),
-                            dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_SHORT_DESC).getValue().toString()
-                    ));
+                if (dataSnapshot.exists()){
+                    try {
+                        ArrayList<Modal> modals = new ArrayList<>();
+                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+                            modals.add(new Modal(
+                                    dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_SHORT_IMAGE).getValue().toString(),
+                                    dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_TITLE).getValue().toString(),
+                                    dataSnapshot1.child(FIREBASE_REF_GURU_GYAN_SHORT_DESC).getValue().toString()
+                            ));
+                        }
+                        rv.setAdapter(new RecyclerViewAdapter(modals, rv.getContext(), GURU_GYAN_FLAG));
+                    } catch (Exception e){
+
+                    }
                 }
-                rv.setAdapter(new RecyclerViewAdapter(modals, rv.getContext(), GURU_GYAN_FLAG));
             }
 
             @Override
@@ -157,39 +163,44 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
         imageRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                final int imageCount = (int) dataSnapshot.getChildrenCount();
-                String[] imageUrls = new String[imageCount];
-                String[] clickUrls = new String[imageCount];
-                int currIndex = 0;
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-                    imageUrls[currIndex] = dataSnapshot1.child(FIREBASE_REF_IMG_SRC).getValue().toString();
-                    //clickUrls[currIndex] = dataSnapshot1.child(FIREBASE_REF_IMG_CLICK).getValue().toString();
-                    Log.d("TAG", imageUrls[currIndex]);
-                    currIndex++;
-                }
-                viewPager.setAdapter(new PosterAdapter(view.getContext(), imageUrls, clickUrls));
-                indicator.setViewPager(viewPager);
-                viewPager.setOnPageChangeListener(HomeFragment.this);
-
-                try{
-                    Field mScroller = ViewPager.class.getDeclaredField("mScroller");
-                    mScroller.setAccessible(true);
-                    mScroller.set(viewPager, new CustomScroller(viewPager.getContext(),BANNER_TRANSITION_DELAY ));
-                } catch (Exception e){}
-
-                handler = new Handler(Looper.getMainLooper());
-                runnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        int currItem = viewPager.getCurrentItem();
-                        if (currItem == imageCount-1){
-                            viewPager.setCurrentItem(0);
-                        } else {
-                            viewPager.setCurrentItem(++currItem);
+                if (dataSnapshot.exists()){
+                    try {
+                        final int imageCount = (int) dataSnapshot.getChildrenCount();
+                        String[] imageUrls = new String[imageCount];
+                        String[] clickUrls = new String[imageCount];
+                        int currIndex = 0;
+                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+                            imageUrls[currIndex] = dataSnapshot1.child(FIREBASE_REF_IMG_SRC).getValue().toString();
+                            //clickUrls[currIndex] = dataSnapshot1.child(FIREBASE_REF_IMG_CLICK).getValue().toString();
+                            Log.d("TAG", imageUrls[currIndex]);
+                            currIndex++;
                         }
+                        viewPager.setAdapter(new PosterAdapter(view.getContext(), imageUrls, clickUrls));
+                        indicator.setViewPager(viewPager);
+                        viewPager.setOnPageChangeListener(HomeFragment.this);
+                        try{
+                            Field mScroller = ViewPager.class.getDeclaredField("mScroller");
+                            mScroller.setAccessible(true);
+                            mScroller.set(viewPager, new CustomScroller(viewPager.getContext(),BANNER_TRANSITION_DELAY ));
+                        } catch (Exception e){}
+
+                        handler = new Handler(Looper.getMainLooper());
+                        runnable = new Runnable() {
+                            @Override
+                            public void run() {
+                                int currItem = viewPager.getCurrentItem();
+                                if (currItem == imageCount-1){
+                                    viewPager.setCurrentItem(0);
+                                } else {
+                                    viewPager.setCurrentItem(++currItem);
+                                }
+                            }
+                        };
+                        handler.postDelayed(runnable, BANNER_DELAY_TIME);
+                    } catch (Exception e){
+
                     }
-                };
-                handler.postDelayed(runnable, BANNER_DELAY_TIME);
+                }
             }
 
             @Override

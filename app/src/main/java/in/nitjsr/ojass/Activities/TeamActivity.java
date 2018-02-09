@@ -29,6 +29,7 @@ import in.nitjsr.ojass.Adapters.TeamAdapter;
 import in.nitjsr.ojass.Modals.Modal;
 import in.nitjsr.ojass.Modals.Team;
 import in.nitjsr.ojass.R;
+import in.nitjsr.ojass.Utils.Constants;
 import in.nitjsr.ojass.Utils.Utilities;
 
 
@@ -47,7 +48,6 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_team);
 
         context = this;
-        userPhone = "7858030449";
 
         iv = findViewById(R.id.iv_team_img);
         tvName = findViewById(R.id.tv_team_name);
@@ -58,10 +58,6 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
         ibWhatsApp = findViewById(R.id.ib_whats_ap);
         ibWhatsApp.setOnClickListener(this);
         findViewById(R.id.ib_back_btn).setOnClickListener(this);
-
-        Picasso.with(context).load(R.drawable.portrait).fit().into(iv);
-        tvName.setText("Abhishek");
-        tvDesg.setText("BlackOp");
 
         sp.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
@@ -126,6 +122,7 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
         Robotics.add(new Team("Sammeta Saisaran","Robotics","8434218038","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2FsaiCharan.png?alt=media&token=2dd2b8ac-f43b-44e9-ba11-b58483d938d2"));
         Robotics.add(new Team("Sushil Rajwar","Robotics","9905183679","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fsushil.png?alt=media&token=25f4c8eb-5827-48c4-80c4-f237060baf60"));
         Robotics.add(new Team("Mushref Tabrej","Robotics","8409680821","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fuserdp.png?alt=media&token=15f889fa-6f14-4e23-a259-001e3d017b50"));
+        Robotics.add(new Team("Karthik Raja","Robotics","9703557055","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fuserdp.png?alt=media&token=15f889fa-6f14-4e23-a259-001e3d017b50"));
         Robotics.add(new Team("Apurava","Robotics","9470171699", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fuserdp.png?alt=media&token=15f889fa-6f14-4e23-a259-001e3d017b50"));
         setResourceOnClick(Robotics.get(0));
         return Robotics;
@@ -246,7 +243,7 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public static void setResourceOnClick(Team team){
-        Utilities.setPicassoImage(context, team.getImageSrc(), iv);
+        Utilities.setPicassoImage(context, team.getImageSrc(), iv, Constants.SQUA_PLACEHOLDER);
         tvName.setText(team.getName());
         tvDesg.setText(team.getDesg());
         userPhone = team.getPhone();
