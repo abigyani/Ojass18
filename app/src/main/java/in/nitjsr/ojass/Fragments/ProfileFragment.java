@@ -83,7 +83,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         btnClickRegister = view.findViewById(R.id.btn_click_to_register);
 
         mUser = FirebaseAuth.getInstance().getCurrentUser();
-        Utilities.setPicassoImage(view.getContext(), mUser.getPhotoUrl().toString(), circleImageView);
+        Utilities.setPicassoImage(view.getContext(), mUser.getPhotoUrl().toString(), circleImageView, Constants.SQUA_PLACEHOLDER);
         pd = new ProgressDialog(getContext());
         pd.setTitle("Please Wait");
         pd.setMessage("Loading...");
@@ -110,29 +110,33 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
-                    btnClickRegister.setVisibility(View.GONE);
-                    tvNum.setText("+91 "+dataSnapshot.child(Constants.FIREBASE_REF_MOBILE).getValue().toString());
-                    if (dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue() != null) {
-                        tvUserOjId.setText(dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue().toString());
-                        tvUserOjId.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
-                    }
-                    else {
-                        tvUserOjId.setText(Constants.PAYMENT_DUE);
-                        tvUserOjId.setTextColor(Color.RED);
-                    }
-                    if (dataSnapshot.child(Constants.FIREBASE_REF_TSHIRT).exists()){
-                        ivtShirt.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_on_background));
-                    } else {
-                        ivtShirt.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_off_background));
-                    }
-                    if (dataSnapshot.child(Constants.FIREBASE_REF_KIT).exists()){
-                        ivKit.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_on_background));
-                    } else {
-                        ivKit.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_off_background));
-                    }
-                    if (pd.isShowing()) pd.dismiss();
-                    if (flag == 1){
-                        Toast.makeText(getContext(), "Profile updated!", Toast.LENGTH_SHORT).show();
+                    try {
+                        btnClickRegister.setVisibility(View.GONE);
+                        tvNum.setText("+91 "+dataSnapshot.child(Constants.FIREBASE_REF_MOBILE).getValue().toString());
+                        if (dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue() != null) {
+                            tvUserOjId.setText(dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue().toString());
+                            tvUserOjId.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                        }
+                        else {
+                            tvUserOjId.setText(Constants.PAYMENT_DUE);
+                            tvUserOjId.setTextColor(Color.RED);
+                        }
+                        if (dataSnapshot.child(Constants.FIREBASE_REF_TSHIRT).exists()){
+                            ivtShirt.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_on_background));
+                        } else {
+                            ivtShirt.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_off_background));
+                        }
+                        if (dataSnapshot.child(Constants.FIREBASE_REF_KIT).exists()){
+                            ivKit.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_on_background));
+                        } else {
+                            ivKit.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_off_background));
+                        }
+                        if (pd.isShowing()) pd.dismiss();
+                        if (flag == 1){
+                            Toast.makeText(getContext(), "Profile updated!", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception e){
+
                     }
                 } else {
                     if (pd.isShowing()) pd.dismiss();

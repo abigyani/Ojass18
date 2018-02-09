@@ -23,6 +23,7 @@ public class SplashScreen extends AppCompatActivity {
     private ImageView mImageView;
     private TextView tv;
     private ImageView ivSplash;
+    private static final String SPLASH_SCREEN_IMAGE = "https://lh3.googleusercontent.com/-OJj_lIygYuw/Wnt49IcYdVI/AAAAAAAABKo/coVAn3ShO6EgEjGjUr3jwtg5KxofE87IgCL0BGAYYCw/h441/23%2B%25282%2529.jpg";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class SplashScreen extends AppCompatActivity {
 
         //tv.animate().alpha(1.0f).setDuration(SPLASH_SCREEN_TIMER);
         ivSplash = findViewById(R.id.iv_splashscreen);
-        Picasso.with(this).load("https://lh3.googleusercontent.com/-OJj_lIygYuw/Wnt49IcYdVI/AAAAAAAABKo/coVAn3ShO6EgEjGjUr3jwtg5KxofE87IgCL0BGAYYCw/h441/23%2B%25282%2529.jpg").fit().into(ivSplash);
+        Utilities.setPicassoImage(this, SPLASH_SCREEN_IMAGE, ivSplash);
         animation();
         doTheDelayStuff();
     }

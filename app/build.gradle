@@ -6,8 +6,8 @@ android {
         applicationId "in.nitjsr.ojass"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "2.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -50,10 +50,12 @@ dependencies {
     implementation 'com.github.Yalantis:OfficialFoldingTabBar.Android:v0.9'
     implementation 'com.nightonke:boommenu:2.1.1'
     implementation 'com.facebook.android:account-kit-sdk:4.+'
+    implementation 'com.google.firebase:firebase-core:11.8.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
+
 
 
 

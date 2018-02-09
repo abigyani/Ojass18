@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e){
-                Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Something went wrong!", Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "Google Sign in failed. Reason: " + e.getMessage());
                 if (pd.isShowing()) pd.dismiss();
             }
@@ -94,11 +94,11 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
+                            new SharedPrefManager(LoginActivity.this).setIsLoggedIn(true);
                             isRegisteredUser();
                         } else {
                             if (pd.isShowing()) pd.dismiss();
                             Log.d(TAG,"Authentication failed. Reason: "+ task.getException());
-                            Toast.makeText(LoginActivity.this, "LoginActivity Failed. Reason: "+ task.getException(), Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -122,13 +122,16 @@ public class LoginActivity extends AppCompatActivity {
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()){
-                    moveToMainActivity();
-                    new SharedPrefManager(LoginActivity.this).setIsLoggedIn(true);
-                    Toast.makeText(LoginActivity.this, "Welcome to Ojass Space Voyage Dashboard! "+fName, Toast.LENGTH_LONG).show();
-                } else {
-                    moveToRegisterActivity();
-                    Toast.makeText(LoginActivity.this, "Hey "+fName+"! Let us know you better.", Toast.LENGTH_LONG).show();
+                try {
+                    if (dataSnapshot.exists()){
+                        moveToMainActivity();
+                        Toast.makeText(LoginActivity.this, "Welcome to Ojass Space Voyage Dashboard! "+fName, Toast.LENGTH_LONG).show();
+                    } else {
+                        moveToRegisterActivity();
+                        Toast.makeText(LoginActivity.this, "Hey "+fName+"! Let us know you better.", Toast.LENGTH_LONG).show();
+                    }
+                } catch (Exception e){
+
                 }
                 //if (pd.isShowing()) pd.dismiss();
             }

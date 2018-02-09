@@ -18,6 +18,7 @@ import in.nitjsr.ojass.Activities.TeamActivity;
 import in.nitjsr.ojass.EventsFolding.SubEventsActivity;
 import in.nitjsr.ojass.Modals.Modal;
 import in.nitjsr.ojass.R;
+import in.nitjsr.ojass.Utils.Constants;
 import in.nitjsr.ojass.Utils.Utilities;
 
 import static in.nitjsr.ojass.Activities.GuruGyanActivity.POSITION_PARAM;
@@ -48,7 +49,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         final Modal current = dataset.get(position);
-        if (current.getImage() != null) Utilities.setPicassoImage(context, current.getImage(), holder.eventImg);
+        if (current.getImage() != null) Utilities.setPicassoImage(context, current.getImage(), holder.eventImg, Constants.SQUA_PLACEHOLDER);
         else Picasso.with(context).load(current.getDrawableImage()).fit().into(holder.eventImg);
 
         holder.evenTitle.setText(current.getEventName());

@@ -15,6 +15,7 @@ import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import in.nitjsr.ojass.R;
+import in.nitjsr.ojass.Utils.Constants;
 import in.nitjsr.ojass.Utils.Utilities;
 
 /**
@@ -37,7 +38,7 @@ public class PosterAdapter extends PagerAdapter {
         LayoutInflater layoutinflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = layoutinflater.inflate(R.layout.item_poster, container, false);
         final ImageView iv = view.findViewById(R.id.iv_poster);
-        Utilities.setPicassoImage(context, imageUrls[position], iv);
+        Utilities.setPicassoImage(context, imageUrls[position], iv, Constants.RECT_PLACEHOLDER);
         container.addView(view);
         return view;
     }

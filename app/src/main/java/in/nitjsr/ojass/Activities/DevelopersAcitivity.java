@@ -16,6 +16,7 @@ import com.squareup.picasso.Picasso;
 
 import in.nitjsr.ojass.Adapters.DevRVAdapter;
 import in.nitjsr.ojass.R;
+import in.nitjsr.ojass.Utils.Constants;
 import in.nitjsr.ojass.Utils.Utilities;
 
 public class DevelopersAcitivity extends AppCompatActivity implements View.OnClickListener {
@@ -24,7 +25,7 @@ public class DevelopersAcitivity extends AppCompatActivity implements View.OnCli
     private static ImageView ivImg;
     private static String linkedIn, fb, github, whatsApp;
     private static Context context;
-    private static final String abhiImage = "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/TeamImages%2FDSC_0012.JPG%20-%20Copy.jpg?alt=media&token=b57ffa9d-7d4d-45e6-be27-473f6aba248a";
+    private static final String abhiImage = "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fabhishek.png?alt=media&token=08440466-b6fe-41a3-aba5-927f081f5478";
     private static final String abhiFb = "https://www.facebook.com/ak47gyani";
     private static final String abhiLinkedIn = "https://www.linkedin.com/in/abhishek-kumar-1706/";
     private static final String abhiGithub = "https://github.com/abigyani";
@@ -59,7 +60,7 @@ public class DevelopersAcitivity extends AppCompatActivity implements View.OnCli
         tvName.setText("Abhishek Kumar");
         tvDesc.setText("Computer Science & Engg.\nB.Tech. (Hons.)\n2014-2018");
         tvEmail.setText("abhishek1706@hotmail.com");
-        Picasso.with(context).load(R.drawable.portrait).fit().into(ivImg);
+        Utilities.setPicassoImage(this, abhiImage, ivImg, Constants.SQUA_PLACEHOLDER);
         fb = abhiFb;
         linkedIn = abhiLinkedIn;
         github = abhiGithub;
@@ -102,8 +103,8 @@ public class DevelopersAcitivity extends AppCompatActivity implements View.OnCli
 
     public static void setDevData(String image, String name, String email, String desc, String linkedInLink,
                                   String fbLink, String githubLink, String whatsAppPhone) {
-        Utilities.setPicassoImage(context, image, ivImg);
-        Picasso.with(context).load(image).fit().into(ivImg);
+        Utilities.setPicassoImage(context, image, ivImg, Constants.SQUA_PLACEHOLDER);
+        Picasso.with(context).load(image).placeholder(R.drawable.placeholder_sqaure).fit().into(ivImg);
         tvName.setText(name);
         tvEmail.setText(email);
         tvDesc.setText(desc);

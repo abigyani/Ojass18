@@ -43,4 +43,32 @@ public class Utilities {
             }
         });
     }
+
+    public static void setPicassoImage(final Context context, final String imgSrc, final ImageView iv, final int FLAG){
+        if (FLAG == Constants.SQUA_PLACEHOLDER){
+            Picasso.with(context).load(imgSrc).placeholder(R.drawable.placeholder_sqaure).fit().networkPolicy(NetworkPolicy.OFFLINE).into(iv, new Callback() {
+                @Override
+                public void onSuccess() {
+
+                }
+
+                @Override
+                public void onError() {
+                    Picasso.with(context).load(imgSrc).placeholder(R.drawable.placeholder_sqaure).fit().into(iv);
+                }
+            });
+        } else {
+            Picasso.with(context).load(imgSrc).placeholder(R.drawable.placeholder_rect).fit().networkPolicy(NetworkPolicy.OFFLINE).into(iv, new Callback() {
+                @Override
+                public void onSuccess() {
+
+                }
+
+                @Override
+                public void onError() {
+                    Picasso.with(context).load(imgSrc).placeholder(R.drawable.placeholder_rect).fit().into(iv);
+                }
+            });
+        }
+    }
 }

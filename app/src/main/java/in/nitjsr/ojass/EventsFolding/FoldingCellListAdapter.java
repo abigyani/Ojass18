@@ -17,6 +17,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import in.nitjsr.ojass.R;
+import in.nitjsr.ojass.Utils.Constants;
 import in.nitjsr.ojass.Utils.Utilities;
 
 /**
@@ -153,8 +154,8 @@ public class FoldingCellListAdapter extends ArrayAdapter<Item> {
         // viewHolder.requestsCount.setText(String.valueOf(item.getRequestsCount()));
         // viewHolder.pledgePrice.setText(item.getPledgePrice());
 
-        Utilities.setPicassoImage(getContext(), item.getImage(), viewHolder.I2);
-        Utilities.setPicassoImage(getContext(), item.getImage1(), viewHolder.I1);
+        Utilities.setPicassoImage(getContext(), item.getImage(), viewHolder.I2, Constants.SQUA_PLACEHOLDER);
+        Utilities.setPicassoImage(getContext(), item.getImage1(), viewHolder.I1, Constants.RECT_PLACEHOLDER);
         viewHolder.tvEventName.setText(item.getHeadEventName());
         viewHolder.tvEventName2.setText(item.getHeadEventName());
         viewHolder.tvEventTag.setText(item.getHeadEventTag());
