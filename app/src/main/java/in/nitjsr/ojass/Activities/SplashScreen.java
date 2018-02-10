@@ -37,9 +37,8 @@ public class SplashScreen extends AppCompatActivity {
 
         mImageView = findViewById(R.id.iv_splash_logo);
 
-        //tv.animate().alpha(1.0f).setDuration(SPLASH_SCREEN_TIMER);
         ivSplash = findViewById(R.id.iv_splashscreen);
-        Utilities.setPicassoImage(this, SPLASH_SCREEN_IMAGE, ivSplash);
+        Picasso.with(this).load(R.drawable.menu_bg).fit().into(ivSplash);
         destinationFlag = getDestinationActivity();
         animation();
         doTheDelayStuff();
