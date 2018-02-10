@@ -136,7 +136,7 @@ public class DevRVAdapter extends RecyclerView.Adapter<DevRVAdapter.Myviewholder
     };
 
     private static final String[] images = new String[] {
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fabhishek.png?alt=media&token=08440466-b6fe-41a3-aba5-927f081f5478",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fabhishek2.jpg?alt=media&token=4d93fd34-7517-4abe-82e9-88126836a8c2",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Froushan.png?alt=media&token=67aa2688-0caf-454e-8678-3161f9eacae9",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Faditya.png?alt=media&token=c19148d8-9fc0-4e86-9ea8-5a69fdd722a9",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fshivam.png?alt=media&token=d242014a-069d-465f-b865-6542bb0a6e9f",

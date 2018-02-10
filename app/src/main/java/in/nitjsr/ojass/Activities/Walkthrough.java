@@ -18,10 +18,7 @@ import me.relex.circleindicator.CircleIndicator;
 public class Walkthrough extends AppCompatActivity implements ViewPager.OnPageChangeListener, View.OnClickListener {
 
     private ViewPager viewPager;
-    private IntroAdapter introAdapter;
-    private CircleIndicator circleIndicator;
     private int[] introSlides;
-    private int[] introSlidesImageView;
     private Button btnNext, btnSkip;
 
     @Override
@@ -32,7 +29,7 @@ public class Walkthrough extends AppCompatActivity implements ViewPager.OnPageCh
         Utilities.changeStatusBarColor(this);
 
         viewPager = findViewById(R.id.viewpager_slider);
-        circleIndicator = findViewById(R.id.circular_indicator);
+        CircleIndicator circleIndicator = findViewById(R.id.circular_indicator);
         btnNext = findViewById(R.id.btn_next);
         btnSkip = findViewById(R.id.btn_skip);
 
@@ -46,14 +43,14 @@ public class Walkthrough extends AppCompatActivity implements ViewPager.OnPageCh
                 R.layout.intro_slide_4
         };
 
-        introSlidesImageView = new int[] {
+        int[] introSlidesImageView = new int[]{
                 R.id.iv_intro_slide_1,
                 R.id.iv_intro_slide_2,
                 R.id.iv_intro_slide_3,
                 R.id.iv_intro_slide_4
         };
 
-        introAdapter = new IntroAdapter(this, introSlides, introSlidesImageView);
+        IntroAdapter introAdapter = new IntroAdapter(this, introSlides, introSlidesImageView);
         viewPager.setAdapter(introAdapter);
         viewPager.setOffscreenPageLimit(3);
         circleIndicator.setViewPager(viewPager);

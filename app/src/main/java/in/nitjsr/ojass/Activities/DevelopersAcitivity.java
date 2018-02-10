@@ -25,7 +25,7 @@ public class DevelopersAcitivity extends AppCompatActivity implements View.OnCli
     private static ImageView ivImg;
     private static String linkedIn, fb, github, whatsApp;
     private static Context context;
-    private static final String abhiImage = "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fabhishek.png?alt=media&token=08440466-b6fe-41a3-aba5-927f081f5478";
+    private static final String abhiImage = "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fabhishek2.jpg?alt=media&token=4d93fd34-7517-4abe-82e9-88126836a8c2";
     private static final String abhiFb = "https://www.facebook.com/ak47gyani";
     private static final String abhiLinkedIn = "https://www.linkedin.com/in/abhishek-kumar-1706/";
     private static final String abhiGithub = "https://github.com/abigyani";
@@ -38,11 +38,14 @@ public class DevelopersAcitivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_developers_acitivity);
 
         Utilities.changeStatusBarColor(this);
+        Picasso.with(this).load(R.drawable.star_bg).fit().into(((ImageView)findViewById(R.id.iv_dev_bg)));
+        Picasso.with(this).load(R.drawable.ojass_bg).fit().into(((ImageView)findViewById(R.id.iv_dev_ojass_bg)));
 
         findViewById(R.id.dev_linked_in).setOnClickListener(this);
         findViewById(R.id.dev_fb).setOnClickListener(this);
         findViewById(R.id.dev_github).setOnClickListener(this);
         findViewById(R.id.dev_whats_app).setOnClickListener(this);
+        findViewById(R.id.ib_back_dev).setOnClickListener(this);
 
         tvName = findViewById(R.id.tv_dev_name);
         tvDesc = findViewById(R.id.tv_dev_desc);
@@ -98,6 +101,9 @@ public class DevelopersAcitivity extends AppCompatActivity implements View.OnCli
                 String url = "https://api.whatsapp.com/send?phone=91" + whatsApp + "&text=Hey! I'm "+userName+".";
                 intent.setData(Uri.parse(url));
                 startActivity(intent);
+                break;
+            case R.id.ib_back_dev:
+                onBackPressed();
         }
     }
 

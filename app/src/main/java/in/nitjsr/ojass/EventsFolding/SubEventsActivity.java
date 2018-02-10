@@ -86,8 +86,6 @@ public class SubEventsActivity extends AppCompatActivity {
         FoldingTabBar tabBar = (FoldingTabBar) findViewById(R.id.folding_tab_bar);
         changeFragment(new AboutFragment());
         actionBarTitle = getIntent().getExtras().getString("title");
-        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         toolbar_tv = (TextView) findViewById(R.id.title_toolbar);
         toolbar_tv.setText(actionBarTitle);
         Typeface customFontBold = Typeface.createFromAsset(getAssets(), "ToolbarText.ttf");
@@ -137,6 +135,13 @@ public class SubEventsActivity extends AppCompatActivity {
                 } else {
                     bmb.setVisibility(View.GONE);
                 }
+            }
+        });
+
+        findViewById(R.id.ib_back_events).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
     }

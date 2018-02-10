@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import in.nitjsr.ojass.Adapters.FAQAdapter;
+import in.nitjsr.ojass.Fragments.SubscribeFragment;
 import in.nitjsr.ojass.Modals.FaqModel;
 import in.nitjsr.ojass.Modals.TitleChild;
 import in.nitjsr.ojass.Modals.TitleCreater1;
@@ -83,6 +84,13 @@ public class FeedActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+        findViewById(R.id.ib_subscribe_feed).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SubscribeFragment detailsfragment=new SubscribeFragment();
+                detailsfragment.show(getSupportFragmentManager(),"Subscribe");
             }
         });
 

@@ -91,4 +91,16 @@
 
     </android.support.v7.widget.CardView>
 
+    <ImageButton
+        android:id="@+id/ib_back_guru_gyan"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        tools:tint="#000"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/icon_back"
+        android:background="@android:color/transparent"/>
+
 </RelativeLayout>

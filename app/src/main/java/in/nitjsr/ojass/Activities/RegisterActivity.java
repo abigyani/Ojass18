@@ -36,7 +36,7 @@ import in.nitjsr.ojass.Utils.Constants;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private ImageView ivBackground, ivOjassIcon;
+    private ImageView ivOjassIcon, ivBg;
     private Spinner spinner;
     private Button registerButton, verifyButton, skipButton;
     private EditText inputName,inputEmail,inputMobile,inputCollege,inputRegId,inputBranch;
@@ -54,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         Utilities.changeStatusBarColor(this);
         mUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        //ivBackground = findViewById(R.id.iv_background);
+        ivBg = findViewById(R.id.iv_register);
         ivOjassIcon = findViewById(R.id.iv_ojass_icon);
         skipButton = findViewById(R.id.btn_skip_register);
         inputName = findViewById(R.id.input_name);
@@ -69,8 +69,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         spinner.setSelection(2);
         skipButton.setOnClickListener(this);
 
-        //Picasso.with(this).load(R.mipmap.ojass_bg).fit().into(ivBackground);
         Picasso.with(this).load(mUser.getPhotoUrl()).fit().into(ivOjassIcon);
+        Picasso.with(this).load(R.drawable.ojass_bg).fit().into(ivBg);
 
         verifyButton.setBackgroundColor(Color.GRAY);
         verifyButton.setOnClickListener(this);

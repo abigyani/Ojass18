@@ -6,6 +6,7 @@
 
     <ImageView
         android:id="@+id/iv_itinerary"
+        android:layout_gravity="center"
         android:src="@drawable/comingsoon"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
