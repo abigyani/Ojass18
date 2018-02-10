@@ -100,7 +100,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                tshirtSize = parent.getContext().getResources().getStringArray(R.array.tshirt_size)[position];
+                tshirtSize = parent.getContext().getResources().getStringArray(R.array.tshirt_size)[position].split(" ")[0];
             }
 
             @Override

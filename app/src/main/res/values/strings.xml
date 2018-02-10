@@ -20,12 +20,12 @@
     <string name="kit">Kit</string>
 
     <string-array name="tshirt_size">
-        <item>XS</item>
-        <item>S</item>
-        <item>M</item>
-        <item>L</item>
-        <item>XL</item>
-        <item>XXL</item>
+        <item>XS (34)</item>
+        <item>S (36)</item>
+        <item>M (38)</item>
+        <item>L (40)</item>
+        <item>XL (42)</item>
+        <item>XXL (44)</item>
     </string-array>
 
     <string-array name="team_names">

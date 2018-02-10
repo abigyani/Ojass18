@@ -194,215 +194,222 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="10dp"/>
 
-            <LinearLayout
-                android:animateLayoutChanges="true"
-                android:id="@+id/ll_swipe_up"
-                android:layout_below="@id/ib_swipe_up"
+            <RelativeLayout
+                android:layout_below="@+id/ib_swipe_up"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/colorAccent">
+                android:layout_height="320dp">
+
+                <ImageView
+                    android:id="@+id/iv_menu_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
                 <LinearLayout
+                    android:animateLayoutChanges="true"
+                    android:id="@+id/ll_swipe_up"
+                    android:layout_centerInParent="true"
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:background="@color/colorAccent"
-                    android:padding="10dp">
+                    android:orientation="vertical">
 
                     <LinearLayout
-                        android:id="@+id/ll_maps_menu"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:padding="6dp">
 
-                        <ImageView
-                            android:layout_height="30dp"
-                            android:layout_width="30dp"
-                            android:scaleType="centerInside"
-                            app:srcCompat="@drawable/icon_maps"
-                            android:tint="@color/white"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:id="@+id/ll_maps_menu"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="@string/Maps"
-                            android:textColor="@color/white"/>
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_height="45dp"
+                                android:layout_width="45dp"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/map" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Maps"
+                                android:textSize="12sp"
+                                android:textColor="@color/white"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_sponsors_menu"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_height="45dp"
+                                android:layout_width="45dp"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/sponsor" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Sponsors"
+                                android:textSize="12sp"
+                                android:textColor="@color/white"/>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/ll_sponsors_menu"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="horizontal"
+                        android:padding="6dp">
 
-                        <ImageView
-                            android:layout_height="30dp"
-                            android:layout_width="30dp"
-                            android:scaleType="centerInside"
-                            app:srcCompat="@drawable/icon_sponsors"
-                            android:tint="@color/white"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:id="@+id/ll_guru_gyan_menu"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="@string/Sponsors"
-                            android:textColor="@color/white"/>
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_height="45dp"
+                                android:layout_width="45dp"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/gurugyan" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/GuruGyan"
+                                android:textSize="12sp"
+                                android:textColor="@color/white"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_app_dev_menu"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_height="45dp"
+                                android:layout_width="45dp"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/app" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/AppDev"
+                                android:textSize="12sp"
+                                android:textColor="@color/white"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="6dp">
+
+                        <LinearLayout
+                            android:id="@+id/ll_team_menu"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_height="45dp"
+                                android:layout_width="45dp"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/team" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Team"
+                                android:textSize="12sp"
+                                android:textColor="@color/white"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_faq_menu"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_height="45dp"
+                                android:layout_width="45dp"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/faq" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Faqs"
+                                android:textSize="12sp"
+                                android:textColor="@color/white"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp">
+
+                        <LinearLayout
+                            android:id="@+id/ll_about_us_menu"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_height="45dp"
+                                android:layout_width="45dp"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/aboutus" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/AboutUs"
+                                android:textSize="12sp"
+                                android:textColor="@color/white"/>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:background="@color/colorAccent">
-
-                    <LinearLayout
-                        android:id="@+id/ll_guru_gyan_menu"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_height="30dp"
-                            android:layout_width="30dp"
-                            android:scaleType="centerInside"
-                            app:srcCompat="@drawable/icon_guru_gyan"
-                            android:tint="@color/white"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/GuruGyan"
-                            android:textColor="@color/white"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/ll_app_dev_menu"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_height="30dp"
-                            android:layout_width="30dp"
-                            android:scaleType="centerInside"
-                            app:srcCompat="@drawable/icon_dev"
-                            android:tint="@color/white"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/AppDev"
-                            android:textColor="@color/white"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:background="@color/colorAccent">
-
-                    <LinearLayout
-                        android:id="@+id/ll_team_menu"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_height="30dp"
-                            android:layout_width="30dp"
-                            android:scaleType="centerInside"
-                            app:srcCompat="@drawable/icon_team"
-                            android:tint="@color/white"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/Team"
-                            android:textColor="@color/white"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/ll_faq_menu"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_height="30dp"
-                            android:layout_width="30dp"
-                            android:scaleType="centerInside"
-                            app:srcCompat="@drawable/icon_faq"
-                            android:tint="@color/white"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/Faqs"
-                            android:textColor="@color/white"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:background="@color/colorAccent">
-
-                    <LinearLayout
-                        android:id="@+id/ll_about_us_menu"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_height="30dp"
-                            android:layout_width="30dp"
-                            android:scaleType="centerInside"
-                            app:srcCompat="@drawable/icon_about_us"
-                            android:tint="@color/white" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/AboutUs"
-                            android:textColor="@color/white"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
+            </RelativeLayout>
 
         </RelativeLayout>
 

@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Picasso.with(this).load(R.drawable.ojass_bg).fit().into(((ImageView)findViewById(R.id.iv_background)));
+        Picasso.with(this).load(R.drawable.menu_bg).fit().into((ImageView)findViewById(R.id.iv_menu_bg));
 
         //Events
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Events");
@@ -300,7 +301,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         isWarningShown = false;
-        checkAndClosePanel();
         if (view.getId() == R.id.ll_team_menu) {
             startActivity(new Intent(this, TeamActivity.class));
         } else if (view.getId() == R.id.ll_guru_gyan_menu) {
@@ -319,6 +319,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             SubscribeFragment detailsfragment=new SubscribeFragment();
             detailsfragment.show(getSupportFragmentManager(),"Subscribe");
         } else if(view.getId()==R.id.rl_notification_menu) {
+            checkAndClosePanel();
             if (!isNotiVisible){
                 (findViewById(R.id.tv_noti_count)).setVisibility(View.INVISIBLE);
                 llNoti.setVisibility(View.VISIBLE);
