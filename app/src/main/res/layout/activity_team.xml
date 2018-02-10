@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:id="@+id/ll_team_bg"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="in.nitjsr.ojass.Activities.TeamActivity"
-    android:background="@drawable/ojass_bg"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -19,8 +20,10 @@
         <ImageButton
             android:id="@+id/ib_back_btn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/icon_back"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            app:srcCompat="@drawable/ic_arrow_left_white_36px"
             android:background="@android:color/transparent"/>
 
         <Spinner
@@ -29,94 +32,106 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
             android:textAlignment="center"
+            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:spinnerMode="dialog"
             android:entries="@array/team_names"/>
 
     </RelativeLayout>
 
-    <android.support.v7.widget.CardView
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp" >
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+       <ImageView
+           android:id="@+id/iv_team_bg"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent" />
 
-            <ImageView
-                android:id="@+id/iv_team_img"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:background="@drawable/ic_launcher_background"
-                android:scaleType="fitXY"
-                android:elevation="20dp"/>
+       <android.support.v7.widget.CardView
+           android:layout_above="@+id/rv_team"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent" >
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="4dp">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_centerInParent="true">
+               <ImageView
+                   android:id="@+id/iv_team_img"
+                   android:layout_weight="1"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:scaleType="fitXY"
+                   android:elevation="20dp"/>
 
-                    <TextView
-                        android:id="@+id/tv_team_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:text="Abhishek Kumar"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:layout_gravity="center_horizontal"
-                        android:textSize="20sp" />
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:gravity="center_vertical"
+                   android:padding="4dp">
 
-                    <TextView
-                        android:id="@+id/tv_team_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:text="App Dev"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_gravity="center_horizontal"
-                        android:textSize="16sp"/>
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical"
+                       android:layout_centerInParent="true">
 
-                </LinearLayout>
+                       <TextView
+                           android:id="@+id/tv_team_name"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           tools:text="Abhishek Kumar"
+                           android:textColor="@color/colorPrimaryDark"
+                           android:layout_gravity="center_horizontal"
+                           android:textSize="20sp" />
 
-                <ImageButton
-                    android:id="@+id/ib_call"
-                    android:layout_toLeftOf="@+id/ib_whats_ap"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_centerVertical="true"
-                    android:background="@android:color/transparent"
-                    android:src="@android:drawable/stat_sys_phone_call"
-                    android:tint="#34af23"/>
+                       <TextView
+                           android:id="@+id/tv_team_desc"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           tools:text="App Dev"
+                           android:textColor="@color/colorPrimary"
+                           android:layout_gravity="center_horizontal"
+                           android:textSize="16sp"/>
 
-                <ImageButton
-                    android:id="@+id/ib_whats_ap"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="centerCrop"
-                    android:layout_marginRight="10dp"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/whatsapp_icon" />
+                   </LinearLayout>
 
-            </RelativeLayout>
+                   <ImageButton
+                       android:id="@+id/ib_call"
+                       android:layout_toLeftOf="@+id/ib_whats_ap"
+                       android:layout_width="30dp"
+                       android:layout_height="30dp"
+                       android:layout_centerVertical="true"
+                       android:background="@android:color/transparent"
+                       android:src="@android:drawable/stat_sys_phone_call"
+                       android:tint="#34af23"/>
 
-        </LinearLayout>
+                   <ImageButton
+                       android:id="@+id/ib_whats_ap"
+                       android:layout_width="45dp"
+                       android:layout_height="45dp"
+                       android:layout_centerVertical="true"
+                       android:layout_alignParentRight="true"
+                       android:scaleType="centerCrop"
+                       android:layout_marginRight="10dp"
+                       android:background="@android:color/transparent"
+                       android:src="@drawable/whatsapp_icon" />
 
-    </android.support.v7.widget.CardView>
+               </RelativeLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_team"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"/>
+           </LinearLayout>
+
+       </android.support.v7.widget.CardView>
+
+       <android.support.v7.widget.RecyclerView
+           android:layout_alignParentBottom="true"
+           android:id="@+id/rv_team"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="6dp" />
+
+   </RelativeLayout>
 
 </LinearLayout>

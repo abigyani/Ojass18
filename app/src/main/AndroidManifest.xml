@@ -16,7 +16,7 @@
         android:roundIcon="@drawable/ojass_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:largeHeap="true">
+        android:largeHeap="true" >
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -32,26 +32,27 @@
 
         <activity
             android:name="com.facebook.accountkit.ui.AccountKitActivity" />
-        <activity android:name=".Activities.SplashScreen">
+        <activity android:name=".Activities.SplashScreen" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.Walkthrough" />
-        <activity android:name=".Activities.LoginActivity" />
+        <activity android:name=".Activities.Walkthrough" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.LoginActivity" android:screenOrientation="portrait"/>
         <activity android:name=".Activities.RegisterActivity"
             android:windowSoftInputMode="adjustPan"
-            android:uiOptions="splitActionBarWhenNarrow" />
-        <activity android:name=".Activities.MainActivity" />
-        <activity android:name=".Activities.FaqActivity" />
-        <activity android:name=".Activities.TeamActivity" />
-        <activity android:name=".Activities.GuruGyanActivity" />
-        <activity android:name=".Activities.AboutUs" />
-        <activity android:name=".Activities.MapsActivity" />
-        <activity android:name=".EventsFolding.SubEventsActivity" />
-        <activity android:name=".Activities.FeedActivity" />
-        <activity android:name=".Activities.SponsersActivity"/>
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activities.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.FaqActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.TeamActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.GuruGyanActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.AboutUs" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.MapsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".EventsFolding.SubEventsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.FeedActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.SponsersActivity" android:screenOrientation="portrait"/>
 
         <service android:name=".Utils.FirebaseInstanceIdService">
             <intent-filter>

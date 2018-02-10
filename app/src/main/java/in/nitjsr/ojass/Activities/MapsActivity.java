@@ -80,17 +80,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         LatLng NITJamshedpur = new LatLng(22.7766, 86.1437);
-        LatLng vsg = new LatLng(22.7771039, 86.1435186);
-        LatLng RoboticsArena = new LatLng(22.7764725, 86.1438097);
-        LatLng Mech = new LatLng(22.7776493, 86.1433833);
-        LatLng CC = new LatLng(22.7774994, 86.143929);
-        LatLng Downs = new LatLng(22.7788293, 86.1415053);
+        LatLng vsg = new LatLng(22.777058, 86.143178);
+        LatLng RoboticsArena = new LatLng(22.776420, 86.144361);
+        LatLng Mech = new LatLng(22.777881, 86.143881);
+        LatLng CC = new LatLng(22.777436, 86.145088);
+        LatLng App_Origin = new LatLng(22.773629, 86.142704);
+        LatLng TSG = new LatLng(22.775124, 86.143830);
+        LatLng NIT_GOLCHAKKAR = new LatLng(22.776892, 86.144648);
+        LatLng ACADEMIC_BUILDING = new LatLng(22.776981, 86.144149);
+        LatLng BBC = new LatLng(22.779682, 86.143256);
 
         mMap.addMarker(new MarkerOptions().position(vsg).title("VSG").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
         mMap.addMarker(new MarkerOptions().position(RoboticsArena).title("Robotics Arena").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(Mech).title("Mechanical Department").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));;
-        mMap.addMarker(new MarkerOptions().position(CC).title("CC").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));;
-        mMap.addMarker(new MarkerOptions().position(Downs).title("Downs").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));;
+        mMap.addMarker(new MarkerOptions().position(Mech).title("Mechanical Department").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        mMap.addMarker(new MarkerOptions().position(CC).title("Computer Center").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        mMap.addMarker(new MarkerOptions().position(App_Origin).title("App Origin").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+        mMap.addMarker(new MarkerOptions().position(TSG).title("TSG").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        mMap.addMarker(new MarkerOptions().position(NIT_GOLCHAKKAR).title("NIT Golchakkar").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        mMap.addMarker(new MarkerOptions().position(ACADEMIC_BUILDING).title("NIT Jamshedpur").snippet("Academic Building").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        mMap.addMarker(new MarkerOptions().position(BBC).title("BBC").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+
         mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
 
             @Override
@@ -120,8 +129,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 return info;
             }
         });
-        CameraPosition cameraPosition = new CameraPosition.Builder().target(NITJamshedpur)      // Sets the center of the map to NIT Jamshedpur
-                .zoom(17).build();
+        CameraPosition cameraPosition = new CameraPosition.Builder().target(ACADEMIC_BUILDING).zoom(17).build();
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;

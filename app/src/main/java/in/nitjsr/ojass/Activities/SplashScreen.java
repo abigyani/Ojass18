@@ -18,12 +18,15 @@ import in.nitjsr.ojass.Utils.Utilities;
 
 public class SplashScreen extends AppCompatActivity {
 
-    private static final int SPLASH_SCREEN_TIMER =  2500;
+    private static final int SPLASH_SCREEN_TIMER =  1250;
     private SharedPrefManager sharedPrefManager;
     private ImageView mImageView;
-    private TextView tv;
     private ImageView ivSplash;
     private static final String SPLASH_SCREEN_IMAGE = "https://lh3.googleusercontent.com/-OJj_lIygYuw/Wnt49IcYdVI/AAAAAAAABKo/coVAn3ShO6EgEjGjUr3jwtg5KxofE87IgCL0BGAYYCw/h441/23%2B%25282%2529.jpg";
+    private static final int WALKTHROUGH = 1;
+    private static final int LOGIN = 2;
+    private static final int DASHBOARD = 3;
+    private int destinationFlag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +35,12 @@ public class SplashScreen extends AppCompatActivity {
 
         Utilities.changeStatusBarColor(this);
 
-        tv = findViewById(R.id.tv_ojass_text);
         mImageView = findViewById(R.id.iv_splash_logo);
 
         //tv.animate().alpha(1.0f).setDuration(SPLASH_SCREEN_TIMER);
         ivSplash = findViewById(R.id.iv_splashscreen);
         Utilities.setPicassoImage(this, SPLASH_SCREEN_IMAGE, ivSplash);
+        destinationFlag = getDestinationActivity();
         animation();
         doTheDelayStuff();
     }
@@ -58,28 +61,41 @@ public class SplashScreen extends AppCompatActivity {
 
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(scaleXAnimation).with(scaleYAnimation).with(alphaAnimation);
-        animatorSet.setStartDelay(500);
         animatorSet.start();
 
     }
 
     private void doTheDelayStuff() {
-        sharedPrefManager = new SharedPrefManager(this);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (sharedPrefManager.isFirstOpen()){
-                    sharedPrefManager.setIsFirstOpen(false);
-                    moveToWalkthrough();
-                } else {
-                    if (sharedPrefManager.isLoggedIn()){
+                switch (destinationFlag){
+                    case DASHBOARD:
                         moveToMainActivity();
-                    } else {
+                        break;
+                    case LOGIN:
                         moveToLoginPage();
-                    }
+                        break;
+                    case WALKTHROUGH:
+                        moveToWalkthrough();
+                        break;
                 }
             }
         }, SPLASH_SCREEN_TIMER);
+    }
+
+    private int getDestinationActivity(){
+        sharedPrefManager = new SharedPrefManager(this);
+        if (sharedPrefManager.isFirstOpen()){
+            sharedPrefManager.setIsFirstOpen(false);
+            return WALKTHROUGH;
+        } else {
+            if (sharedPrefManager.isLoggedIn()){
+                return DASHBOARD;
+            } else {
+                return LOGIN;
+            }
+        }
     }
 
     private void moveToLoginPage() {

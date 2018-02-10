@@ -62,6 +62,7 @@ public class GuruGyanActivity extends AppCompatActivity implements View.OnClickL
         card = findViewById(R.id.ll_info);
 
         card.setOnClickListener(this);
+        findViewById(R.id.ib_back_guru_gyan).setOnClickListener(this);
 
         prepareViewPager();
 
@@ -122,14 +123,18 @@ public class GuruGyanActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-        if (isSmallVisible){
-            tvLongDesc.setVisibility(View.VISIBLE);
-            isSmallVisible = false;
-        } else {
-            tvLongDesc.setVisibility(View.GONE);
-            isSmallVisible = true;
+        if (view == card){
+            if (isSmallVisible){
+                tvLongDesc.setVisibility(View.VISIBLE);
+                isSmallVisible = false;
+            } else {
+                tvLongDesc.setVisibility(View.GONE);
+                isSmallVisible = true;
+            }
+            handler.removeCallbacks(runnable);
+        } else if (view.getId() == R.id.ib_back_guru_gyan){
+            onBackPressed();
         }
-        handler.removeCallbacks(runnable);
     }
 
     @Override

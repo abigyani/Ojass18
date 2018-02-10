@@ -26,6 +26,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -82,13 +83,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public ProgressDialog progressDialog;
     private boolean isNotiVisible = false;
     private SharedPrefManager shared;
-
+    private LinearLayout llNoti;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Picasso.with(this).load(R.drawable.ojass_bg).fit().into(((ImageView)findViewById(R.id.iv_background)));
         //Events
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Events");
         progressDialog=new ProgressDialog(this);
@@ -149,6 +150,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAuth = FirebaseAuth.getInstance();
         isSwipeUpMenuVisible = false;
 
+        llNoti = findViewById(R.id.ll_notification);
+
         navigation =  findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -158,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewPager = findViewById(R.id.view_pager_mainactivity);
         viewPager.setAdapter(new MainActivityAdapter(getSupportFragmentManager()));
         viewPager.setOnPageChangeListener(this);
-        viewPager.setOffscreenPageLimit(0);
+        viewPager.setOffscreenPageLimit(3);
         viewPager.setPagingEnabled(false);
 
         findViewById(R.id.ll_team_menu).setOnClickListener(this);
@@ -170,9 +173,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.ll_blank).setOnClickListener(this);
         findViewById(R.id.ll_app_dev_menu).setOnClickListener(this);
         findViewById(R.id.tv_see_all_noti).setOnClickListener(this);
+        findViewById(R.id.iv_ojass_icon).setOnClickListener(this);
 
         findViewById(R.id.rl_notification_menu).setOnClickListener(this);
-        findViewById(R.id.rl_subscribe).setOnClickListener(this);
+        findViewById(R.id.ib_subscribe).setOnClickListener(this);
         findViewById(R.id.view_noti_blank).setOnClickListener(this);
 
         getFbHash();
@@ -199,7 +203,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     }
                 }
-                ((TextView)findViewById(R.id.tv_noti_count)).setText(""+currIndex);
+                if (currIndex != 0) ((TextView)findViewById(R.id.tv_noti_count)).setText(""+currIndex);
+                else findViewById(R.id.tv_noti_count).setVisibility(View.INVISIBLE);
             }
 
             @Override
@@ -214,9 +219,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            if (isSwipeUpMenuVisible) {
-                ibSwipeUp.performClick();
-            }
+            isWarningShown = false;
+            if (isSwipeUpMenuVisible) hideDrawer();
             switch (item.getItemId()) {
                 case R.id.bottom_nav_home:
                     viewPager.setCurrentItem(0);
@@ -298,21 +302,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    public void showDrawer(){
+        findViewById(R.id.ll_swipe_up).setVisibility(View.VISIBLE);
+        findViewById(R.id.ll_blank).setVisibility(View.VISIBLE);
+        isSwipeUpMenuVisible = true;
+    }
+
+    public void hideDrawer(){
+        findViewById(R.id.ll_swipe_up).setVisibility(View.GONE);
+        findViewById(R.id.ll_blank).setVisibility(View.GONE);
+        isSwipeUpMenuVisible = false;
+    }
+
     @Override
     public void onClick(View view) {
         isWarningShown = false;
         if (view == ibSwipeUp){
-            if (isSwipeUpMenuVisible) {
-                //ibSwipeUp.startAnimation(AnimationUtils.loadAnimation(this, R.anim.rotate_down));
-                findViewById(R.id.ll_swipe_up).setVisibility(View.GONE);
-                findViewById(R.id.ll_blank).setVisibility(View.GONE);
-                isSwipeUpMenuVisible = false;
-            } else {
-                //ibSwipeUp.startAnimation(AnimationUtils.loadAnimation(this, R.anim.rotate_up));
-                findViewById(R.id.ll_swipe_up).setVisibility(View.VISIBLE);
-                findViewById(R.id.ll_blank).setVisibility(View.VISIBLE);
-                isSwipeUpMenuVisible = true;
-            }
+            hideNotiPanel();
+            if (isSwipeUpMenuVisible) hideDrawer();
+            else showDrawer();
         } else if (view.getId() == R.id.ll_team_menu) {
             startActivity(new Intent(this, TeamActivity.class));
         } else if (view.getId() == R.id.ll_guru_gyan_menu) {
@@ -328,28 +336,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (view.getId() == R.id.ll_app_dev_menu) {
             startActivity(new Intent(this, DevelopersAcitivity.class));
         } else if (view.getId() == R.id.ll_blank) {
-            ibSwipeUp.performClick();
-        } else if(view.getId()==R.id.rl_subscribe) {
+            hideDrawer();
+        } else if(view.getId()==R.id.ib_subscribe) {
             SubscribeFragment detailsfragment=new SubscribeFragment();
             detailsfragment.show(getSupportFragmentManager(),"Subscribe");
         } else if(view.getId()==R.id.rl_notification_menu) {
+            (findViewById(R.id.tv_noti_count)).setVisibility(View.INVISIBLE);
             if (isNotiVisible) {
-                findViewById(R.id.ll_notification).setVisibility(View.GONE);
-                isNotiVisible = false;
+                hideNotiPanel();
             } else {
-                findViewById(R.id.ll_notification).setVisibility(View.VISIBLE);
+                llNoti.setVisibility(View.VISIBLE);
                 queryNotifications();
                 isNotiVisible = true;
             }
         } else if (view.getId() == R.id.tv_see_all_noti){
             startActivity(new Intent(this, FeedActivity.class));
-            findViewById(R.id.ll_notification).setVisibility(View.GONE);
-            isNotiVisible = false;
+            hideNotiPanel();
         } else if (view.getId() == R.id.view_noti_blank){
-            findViewById(R.id.ll_notification).setVisibility(View.GONE);
-            isNotiVisible = false;
+            hideNotiPanel();
+        } else if (view.getId() == R.id.iv_ojass_icon){
+            startActivity(new Intent(this, AboutUs.class));
         }
+    }
 
+    private void hideNotiPanel() {
+        llNoti.setVisibility(View.GONE);
+        isNotiVisible = false;
     }
 
     public void getFbHash(){
@@ -405,8 +417,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         }
-        ((TextView)findViewById(R.id.tv_noti_count)).setText(""+currIndex);
-        rv.setAdapter(new NotificationAdapter(this, noti));
+        if (currIndex != 0) {
+            //((TextView)findViewById(R.id.tv_noti_count)).setText(""+currIndex);
+            rv.setAdapter(new NotificationAdapter(this, noti));
+            rv.setVisibility(View.VISIBLE);
+            findViewById(R.id.tv_no_new_noti).setVisibility(View.INVISIBLE);
+        } else {
+            //(findViewById(R.id.tv_noti_count)).setVisibility(View.INVISIBLE);
+            findViewById(R.id.tv_no_new_noti).setVisibility(View.VISIBLE);
+            rv.setVisibility(View.INVISIBLE);
+        }
+
         shared.setNotiTime(System.currentTimeMillis()/1000);
     }
 
@@ -444,8 +465,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onBackPressed() {
-        if (isSwipeUpMenuVisible) ibSwipeUp.performClick();
-        else {
+        if (isSwipeUpMenuVisible) hideDrawer();
+        else if (isNotiVisible){
+            hideNotiPanel();
+        } else {
             if (viewPager.getCurrentItem() == 0){
                 if (!isWarningShown){
                     Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show();
@@ -454,6 +477,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 else finish();
             } else {
                 viewPager.setCurrentItem(0);
+                isWarningShown = false;
             }
         }
     }

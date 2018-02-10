@@ -25,8 +25,6 @@
 
         <Spinner
             android:id="@+id/spinner_feed"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="@color/white"
@@ -35,7 +33,17 @@
             android:spinnerMode="dialog"
             android:entries="@array/team_names"/>
 
-
+        <ImageButton
+            android:padding="8dp"
+            android:id="@+id/ib_subscribe_feed"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_bookmark_border_white_36px"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:tint="@color/white"
+            android:scaleType="fitCenter"/>
 
     </RelativeLayout>
 
