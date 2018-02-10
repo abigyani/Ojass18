@@ -45,6 +45,7 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
+import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.squareup.picasso.Picasso;
 
 import java.security.MessageDigest;
@@ -70,11 +71,8 @@ import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_OJASS_CHANNEL;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_OJASS_ID;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_USERS;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener, SlidingUpPanelLayout.PanelSlideListener{
 
-    private ImageButton ibSwipeUp,subscribe;
-    private RelativeLayout notifications;
-    private boolean isSwipeUpMenuVisible;
     private static CustomViewPager viewPager;
     private BottomNavigationView navigation;
     private FirebaseAuth mAuth;
@@ -84,12 +82,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean isNotiVisible = false;
     private SharedPrefManager shared;
     private LinearLayout llNoti;
+    private SlidingUpPanelLayout slidePanel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Picasso.with(this).load(R.drawable.ojass_bg).fit().into(((ImageView)findViewById(R.id.iv_background)));
+
         //Events
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Events");
         progressDialog=new ProgressDialog(this);
@@ -148,15 +148,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         mAuth = FirebaseAuth.getInstance();
-        isSwipeUpMenuVisible = false;
 
         llNoti = findViewById(R.id.ll_notification);
-
+        slidePanel = findViewById(R.id.slide_panel);
+        slidePanel.addPanelSlideListener(this);
         navigation =  findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-        ibSwipeUp = findViewById(R.id.ib_swipe_up);
-        ibSwipeUp.setOnClickListener(this);
 
         viewPager = findViewById(R.id.view_pager_mainactivity);
         viewPager.setAdapter(new MainActivityAdapter(getSupportFragmentManager()));
@@ -170,16 +167,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.ll_about_us_menu).setOnClickListener(this);
         findViewById(R.id.ll_maps_menu).setOnClickListener(this);
         findViewById(R.id.ll_sponsors_menu).setOnClickListener(this);
-        findViewById(R.id.ll_blank).setOnClickListener(this);
         findViewById(R.id.ll_app_dev_menu).setOnClickListener(this);
         findViewById(R.id.tv_see_all_noti).setOnClickListener(this);
         findViewById(R.id.iv_ojass_icon).setOnClickListener(this);
-
         findViewById(R.id.rl_notification_menu).setOnClickListener(this);
         findViewById(R.id.ib_subscribe).setOnClickListener(this);
         findViewById(R.id.view_noti_blank).setOnClickListener(this);
 
-        getFbHash();
+        //getFbHash();
     }
 
     @Override
@@ -220,7 +215,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             isWarningShown = false;
-            if (isSwipeUpMenuVisible) hideDrawer();
+            checkAndClosePanel();
             switch (item.getItemId()) {
                 case R.id.bottom_nav_home:
                     viewPager.setCurrentItem(0);
@@ -302,26 +297,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void showDrawer(){
-        findViewById(R.id.ll_swipe_up).setVisibility(View.VISIBLE);
-        findViewById(R.id.ll_blank).setVisibility(View.VISIBLE);
-        isSwipeUpMenuVisible = true;
-    }
-
-    public void hideDrawer(){
-        findViewById(R.id.ll_swipe_up).setVisibility(View.GONE);
-        findViewById(R.id.ll_blank).setVisibility(View.GONE);
-        isSwipeUpMenuVisible = false;
-    }
-
     @Override
     public void onClick(View view) {
         isWarningShown = false;
-        if (view == ibSwipeUp){
-            hideNotiPanel();
-            if (isSwipeUpMenuVisible) hideDrawer();
-            else showDrawer();
-        } else if (view.getId() == R.id.ll_team_menu) {
+        checkAndClosePanel();
+        if (view.getId() == R.id.ll_team_menu) {
             startActivity(new Intent(this, TeamActivity.class));
         } else if (view.getId() == R.id.ll_guru_gyan_menu) {
             startActivity(new Intent(this, GuruGyanActivity.class));
@@ -335,20 +315,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, SponsersActivity.class));
         } else if (view.getId() == R.id.ll_app_dev_menu) {
             startActivity(new Intent(this, DevelopersAcitivity.class));
-        } else if (view.getId() == R.id.ll_blank) {
-            hideDrawer();
         } else if(view.getId()==R.id.ib_subscribe) {
             SubscribeFragment detailsfragment=new SubscribeFragment();
             detailsfragment.show(getSupportFragmentManager(),"Subscribe");
         } else if(view.getId()==R.id.rl_notification_menu) {
-            (findViewById(R.id.tv_noti_count)).setVisibility(View.INVISIBLE);
-            if (isNotiVisible) {
-                hideNotiPanel();
-            } else {
+            if (!isNotiVisible){
+                (findViewById(R.id.tv_noti_count)).setVisibility(View.INVISIBLE);
                 llNoti.setVisibility(View.VISIBLE);
                 queryNotifications();
                 isNotiVisible = true;
-            }
+            } else hideNotiPanel();
         } else if (view.getId() == R.id.tv_see_all_noti){
             startActivity(new Intent(this, FeedActivity.class));
             hideNotiPanel();
@@ -373,7 +349,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());
                 String something = new String(Base64.encode(md.digest(), 0));
-                //String something = new String(Base64.encodeBytes(md.digest()));
                 Log.e("Facebook", something);
             }
         } catch (Exception e) {
@@ -418,12 +393,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         if (currIndex != 0) {
-            //((TextView)findViewById(R.id.tv_noti_count)).setText(""+currIndex);
             rv.setAdapter(new NotificationAdapter(this, noti));
             rv.setVisibility(View.VISIBLE);
             findViewById(R.id.tv_no_new_noti).setVisibility(View.INVISIBLE);
         } else {
-            //(findViewById(R.id.tv_noti_count)).setVisibility(View.INVISIBLE);
             findViewById(R.id.tv_no_new_noti).setVisibility(View.VISIBLE);
             rv.setVisibility(View.INVISIBLE);
         }
@@ -465,9 +438,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onBackPressed() {
-        if (isSwipeUpMenuVisible) hideDrawer();
-        else if (isNotiVisible){
+        if (isNotiVisible){
+            isWarningShown = false;
             hideNotiPanel();
+        } else if (checkAndClosePanel()){
         } else {
             if (viewPager.getCurrentItem() == 0){
                 if (!isWarningShown){
@@ -480,5 +454,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 isWarningShown = false;
             }
         }
+    }
+
+    public boolean checkAndClosePanel(){
+        if (slidePanel.getPanelState() == SlidingUpPanelLayout.PanelState.EXPANDED ||
+                slidePanel.getPanelState() == SlidingUpPanelLayout.PanelState.DRAGGING) {
+            isWarningShown = false;
+            slidePanel.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
+            return true;
+        } else return false;
+    }
+
+    @Override
+    public void onPanelSlide(View panel, float slideOffset) {
+
+    }
+
+    @Override
+    public void onPanelStateChanged(View panel, SlidingUpPanelLayout.PanelState previousState, SlidingUpPanelLayout.PanelState newState) {
+        isWarningShown = false;
+        if (isNotiVisible) hideNotiPanel();
     }
 }
