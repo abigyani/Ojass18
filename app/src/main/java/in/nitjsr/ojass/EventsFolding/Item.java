@@ -384,24 +384,24 @@ public class Item {
 
 */
 
-        items.add(new Item("Autoquiz","Accelodrome","Junkyard Wars","Samveg","Prakshepan","Enigma","Ansys",null,null,null,Array1[7], "Dream Dare Achieve",Array2[7],Array3[7]));
-        items.add(new Item("App Droid","Algorithma","Codemania","Code-O-Soccer","Sudo Code","Labyrinth","Web Weaver","Tech-Know",null,null,Array1[2], "Dream Dare Achieve",Array2[2],Array3[2]));
-        items.add(new Item("High Voltage Concepts (HVC)","Elixir of Electricity","Pro-Lo-Co","Mat Sim","Nexus","Electro-Q","Who Am I",null,null,null,Array1[1], "Dream Dare Achieve",Array2[1],Array3[1]));
-        items.add(new Item("Tukvilla","Jigyasa","Codesense","Analog Hunter","Digizone","Netkraft","Embetrix",null,null,null,Array1[6], "Dream Dare Achieve",Array2[6],Array3[6]));
+        items.add(new Item("Autoquiz","Accelodrome","Junkyard Wars","Samveg","Prakshepan","Enigma","Ansys",null,null,null,Array1[7], "Prizes Worth: \u20B960,000*",Array2[7],Array3[7]));
+        items.add(new Item("App Droid","Algorithma","Codemania","Code-O-Soccer","Sudo Code","Labyrinth","Web Weaver","Tech-Know",null,null,Array1[2], "Prizes Worth: \u20B985,000*",Array2[2],Array3[2]));
+        items.add(new Item("High Voltage Concepts (HVC)","Elixir of Electricity","Pro-Lo-Co","Mat Sim","Nexus","Electro-Q","Who Am I",null,null,null,Array1[1], "Prizes Worth: \u20B968,500*",Array2[1],Array3[1]));
+        items.add(new Item("Tukvilla","Jigyasa","Codesense","Analog Hunter","Digizone","Netkraft","Embetrix",null,null,null,Array1[6], "Prizes Worth: \u20B957,000*",Array2[6],Array3[6]));
         items.add(new Item("ABC","Neetishastra","Let's Start Up","Corporate Roadies","Bizzathlon","Wolf of Dalal Street",
-                "Teenpreneur",null, null ,null,Array1[0], "Dream Dare Achieve",Array2[0],Array3[0]));
-        items.add(new Item("Acumen","Sanrachna","Archmadeease","Exempler","Pipe-o-Mania","Metropolis",null,null,null,null,Array1[14], "Dream Dare Achieve",Array2[14],Array3[14]));
-        items.add(new Item("360 Mania","Tachyon","Battleship","Kurukshetra","MAC FIFA","Shapeshifter",null,null,null,null,Array1[11], "Dream Dare Achieve",Array2[11],Array3[11]));
-        items.add(new Item("Industrial Tycoon", "Utpreaks","Artifact", "DronaGyan", "M&I Quiz", null, null, null,null,null,Array1[5], "Dream Dare Achieve",Array2[5],Array3[5]));
-        items.add(new Item("The Great Ojass Race", "TechArt", "Mad Ad", "Lens View", "Director's Cut", null, null,null,null, null,Array1[4], "Dream Dare Achieve",Array2[4],Array3[4]));
-        items.add(new Item("Codiyapa","Game of Troves","Scratch Easy","SimplySql","Tame the pyhton",null,null,null,null,null,Array1[9], "Dream Dare Achieve",Array2[9],Array3[9]));
-        items.add(new Item("Spectra","Agnikund","Metal Trivia","Innovision","K.O.",null,null,null,null,null,Array1[12], "Dream Dare Achieve",Array2[12],Array3[12]));
-        items.add(new Item("FIFA","Counter Strike- Global Offensive","NFS Most Wanted","Angry Birds","DOTA",null,null,null,null,null,Array1[13], "Dream Dare Achieve",Array2[13],Array3[13]));
-        items.add(new Item("Jagriti","Samvedna","Pratibimb",null,null,null,null,null,null,null,Array1[15], "Dream Dare Achieve",Array2[15],Array3[15]));
-        items.add(new Item("Touch Down the plane","MICAV",null, null, null, null,null,null,null,null,Array1[3], "Dream Dare Achieve",Array2[3],Array3[3]));
-        items.add(new Item("NSCET",null,null,null,null,null,null,null,null,null,Array1[8], "Dream Dare Achieve",Array2[8],Array3[8]));
-        items.add(new Item("LiveCS",null,null,null,null,null,null,null,null,null,Array1[16], "Dream Dare Achieve",Array2[16],Array3[16]));
-        items.add(new Item("Exposicion",null,null,null,null,null,null,null,null,null,Array1[10], "Dream Dare Achieve",Array2[10],Array3[10]));
+                "Teenpreneur",null, null ,null,Array1[0], "Prizes Worth: \u20B91,19,000*",Array2[0],Array3[0]));
+        items.add(new Item("Acumen","Sanrachna","Archmadeease","Exempler","Pipe-o-Mania","Metropolis",null,null,null,null,Array1[14], "Prizes Worth: \u20B964,000*",Array2[14],Array3[14]));
+        items.add(new Item("360 Mania","Tachyon","Battleship","Kurukshetra","MAC FIFA","Shapeshifter",null,null,null,null,Array1[11], "Prizes Worth: \u20B91,50,000*",Array2[11],Array3[11]));
+        items.add(new Item("Industrial Tycoon", "Utpreaks","Artifact", "DronaGyan", "M&I Quiz", null, null, null,null,null,Array1[5], "Prizes Worth: \u20B945,000*",Array2[5],Array3[5]));
+        items.add(new Item("The Great Ojass Race", "TechArt", "Mad Ad", "Lens View", "Director's Cut", null, null,null,null, null,Array1[4], "Prizes Worth: \u20B977,000*",Array2[4],Array3[4]));
+        items.add(new Item("Codiyapa","Game of Troves","Scratch Easy","SimplySql","Tame the pyhton",null,null,null,null,null,Array1[9], "Prizes Worth: \u20B933,000*",Array2[9],Array3[9]));
+        items.add(new Item("Spectra","Agnikund","Metal Trivia","Innovision","K.O.",null,null,null,null,null,Array1[12], "Prizes Worth: \u20B933,000*",Array2[12],Array3[12]));
+        items.add(new Item("FIFA","Counter Strike- Global Offensive","NFS Most Wanted","Angry Birds","DOTA",null,null,null,null,null,Array1[13], "Prizes Worth: \u20B950,000*",Array2[13],Array3[13]));
+        items.add(new Item("Jagriti","Samvedna","Pratibimb",null,null,null,null,null,null,null,Array1[15], "Prizes Worth: \u20B920,000*",Array2[15],Array3[15]));
+        items.add(new Item("Touch Down the plane","MICAV",null, null, null, null,null,null,null,null,Array1[3], "Prizes Worth: \u20B965,000*",Array2[3],Array3[3]));
+        items.add(new Item("NSCET",null,null,null,null,null,null,null,null,null,Array1[8], "Prizes Worth: \u20B930,000*",Array2[8],Array3[8]));
+        items.add(new Item("LiveCS",null,null,null,null,null,null,null,null,null,Array1[16], "Prizes Worth: \u20B910,000*",Array2[16],Array3[16]));
+        items.add(new Item("Exposicion",null,null,null,null,null,null,null,null,null,Array1[10], "Prizes Worth: \u20B912,000*",Array2[10],Array3[10]));
 
 
 

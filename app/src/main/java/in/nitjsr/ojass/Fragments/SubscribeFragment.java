@@ -136,16 +136,18 @@ public class SubscribeFragment extends DialogFragment {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b){
-                    for (int i = 0 ; i < mainListView.getChildCount(); i++){
-                        ((CheckBox)mainListView.getChildAt(i).findViewById(R.id.CheckBox01)).setChecked(true);
+                    for (int i = 0 ; i < 17; i++){
+                        //((CheckBox)mainListView.getChildAt(i).findViewById(R.id.CheckBox01)).setChecked(true);
                         planetList.get(i).setChecked(true);
                     }
                 } else {
-                    for (int i = 0 ; i < mainListView.getChildCount(); i++){
-                        ((CheckBox)mainListView.getChildAt(i).findViewById(R.id.CheckBox01)).setChecked(false);
+                    for (int i = 0 ; i < 17; i++){
+                        //((CheckBox)mainListView.getChildAt(i).findViewById(R.id.CheckBox01)).setChecked(false);
                         planetList.get(i).setChecked(false);
                     }
                 }
+                listAdapter.notifyDataSetChanged();
+
             }
         });
 

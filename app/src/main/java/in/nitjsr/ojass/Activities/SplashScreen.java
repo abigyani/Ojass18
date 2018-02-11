@@ -38,7 +38,7 @@ public class SplashScreen extends AppCompatActivity {
         mImageView = findViewById(R.id.iv_splash_logo);
 
         ivSplash = findViewById(R.id.iv_splashscreen);
-        Picasso.with(this).load(R.drawable.menu_bg).fit().into(ivSplash);
+        Picasso.with(this).load(R.drawable.splashscreen).fit().into(ivSplash);
         destinationFlag = getDestinationActivity();
         animation();
         doTheDelayStuff();
