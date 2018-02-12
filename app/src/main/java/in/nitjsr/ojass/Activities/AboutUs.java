@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 import in.nitjsr.ojass.R;
 
@@ -28,6 +31,8 @@ public class AboutUs extends AppCompatActivity {
         twitter = findViewById(R.id.twitter);
         webpage = findViewById(R.id.web);
         back = findViewById(R.id.ib_back_about_us);
+
+        Picasso.with(this).load(R.drawable.ojass_bg).fit().into((ImageView)findViewById(R.id.iv_about_us));
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
