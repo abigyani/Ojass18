@@ -39,16 +39,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.WriterException;
-import com.google.zxing.common.BitMatrix;
-import com.journeyapps.barcodescanner.BarcodeEncoder;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.squareup.picasso.Picasso;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import in.nitjsr.ojass.Adapters.MainActivityAdapter;
@@ -62,6 +56,7 @@ import in.nitjsr.ojass.R;
 import in.nitjsr.ojass.Utils.Constants;
 import in.nitjsr.ojass.Utils.CustomViewPager;
 import in.nitjsr.ojass.Utils.SharedPrefManager;
+import in.nitjsr.ojass.Utils.Utilities;
 
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_NOTIFICATIONS;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_NOTIFICATIONS_BODY;
@@ -87,19 +82,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Picasso.with(this).load(R.drawable.ojass_bg).fit().into(((ImageView)findViewById(R.id.iv_background)));
         Picasso.with(this).load(R.drawable.menu_bg).fit().into((ImageView)findViewById(R.id.iv_menu_bg));
 
-        //Events
+        shared = new SharedPrefManager(this);
+
+        FirebaseMessaging.getInstance().subscribeToTopic(Constants.FIREBASE_REF_OJASS_CHANNEL);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        llNoti = findViewById(R.id.ll_notification);
+        slidePanel = findViewById(R.id.slide_panel);
+        slidePanel.addPanelSlideListener(this);
+        navigation =  findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        viewPager = findViewById(R.id.view_pager_mainactivity);
+        viewPager.setAdapter(new MainActivityAdapter(getSupportFragmentManager()));
+        viewPager.setOnPageChangeListener(this);
+        viewPager.setOffscreenPageLimit(3);
+        viewPager.setPagingEnabled(false);
+
+        findViewById(R.id.ll_team_menu).setOnClickListener(this);
+        findViewById(R.id.ll_guru_gyan_menu).setOnClickListener(this);
+        findViewById(R.id.ll_faq_menu).setOnClickListener(this);
+        findViewById(R.id.ll_about_us_menu).setOnClickListener(this);
+        findViewById(R.id.ll_maps_menu).setOnClickListener(this);
+        findViewById(R.id.ll_sponsors_menu).setOnClickListener(this);
+        findViewById(R.id.ll_app_dev_menu).setOnClickListener(this);
+        findViewById(R.id.tv_see_all_noti).setOnClickListener(this);
+        findViewById(R.id.iv_ojass_icon).setOnClickListener(this);
+        findViewById(R.id.rl_notification_menu).setOnClickListener(this);
+        findViewById(R.id.ib_subscribe).setOnClickListener(this);
+        findViewById(R.id.view_noti_blank).setOnClickListener(this);
+
+        eventStuff();
+    }
+
+    private void eventStuff(){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Events");
         progressDialog=new ProgressDialog(this);
         progressDialog.setMessage("Initialising App data...");
         progressDialog.setCancelable(false);
         progressDialog.show();
-
-        shared = new SharedPrefManager(this);
-
-        FirebaseMessaging.getInstance().subscribeToTopic(Constants.FIREBASE_REF_OJASS_CHANNEL);
 
         data=new ArrayList<>();
 
@@ -145,36 +171,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (progressDialog.isShowing()) progressDialog.dismiss();
             }
         });
-
-
-        mAuth = FirebaseAuth.getInstance();
-
-        llNoti = findViewById(R.id.ll_notification);
-        slidePanel = findViewById(R.id.slide_panel);
-        slidePanel.addPanelSlideListener(this);
-        navigation =  findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-        viewPager = findViewById(R.id.view_pager_mainactivity);
-        viewPager.setAdapter(new MainActivityAdapter(getSupportFragmentManager()));
-        viewPager.setOnPageChangeListener(this);
-        viewPager.setOffscreenPageLimit(3);
-        viewPager.setPagingEnabled(false);
-
-        findViewById(R.id.ll_team_menu).setOnClickListener(this);
-        findViewById(R.id.ll_guru_gyan_menu).setOnClickListener(this);
-        findViewById(R.id.ll_faq_menu).setOnClickListener(this);
-        findViewById(R.id.ll_about_us_menu).setOnClickListener(this);
-        findViewById(R.id.ll_maps_menu).setOnClickListener(this);
-        findViewById(R.id.ll_sponsors_menu).setOnClickListener(this);
-        findViewById(R.id.ll_app_dev_menu).setOnClickListener(this);
-        findViewById(R.id.tv_see_all_noti).setOnClickListener(this);
-        findViewById(R.id.iv_ojass_icon).setOnClickListener(this);
-        findViewById(R.id.rl_notification_menu).setOnClickListener(this);
-        findViewById(R.id.ib_subscribe).setOnClickListener(this);
-        findViewById(R.id.view_noti_blank).setOnClickListener(this);
-
-        //getFbHash();
     }
 
     @Override
@@ -260,10 +256,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
                     try {
-                        ivQR.setImageBitmap(getQRCode(mAuth.getCurrentUser().getUid()));
+                        Utilities.setPicassoImage(MainActivity.this, "https://api.qrserver.com/v1/create-qr-code/?data="+mAuth.getCurrentUser().getUid()+"&size=240x240&margin=10", ivQR, Constants.SQUA_PLACEHOLDER);
                         if (dataSnapshot.child(FIREBASE_REF_OJASS_ID).exists()){
                             tvOjassId.setText(dataSnapshot.child(FIREBASE_REF_OJASS_ID).getValue().toString());
-                            tvOjassId.setTextColor(Color.BLUE);
+                            tvOjassId.setTextColor(getResources().getColor(R.color.forest_green));
                         } else {
                             tvOjassId.setText(Constants.PAYMENT_DUE);
                             tvOjassId.setTextColor(Color.RED);
@@ -272,8 +268,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     }
                 } else {
-                    //Show Please Register Image
-                    ivQR.setImageDrawable(getDrawable(R.drawable.notreg));
+                    Picasso.with(MainActivity.this).load(R.drawable.notreg).fit().into(ivQR);
                     tvOjassId.setText(Constants.NOT_REGISTERED);
                     tvOjassId.setTextColor(Color.RED);
                 }
@@ -284,17 +279,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
-    }
-
-    private Bitmap getQRCode(String uid) {
-        MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-        try {
-            BitMatrix bMatrix = multiFormatWriter.encode(uid, BarcodeFormat.QR_CODE,300,300);
-            return new BarcodeEncoder().createBitmap(bMatrix);
-        } catch (WriterException e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 
     @Override

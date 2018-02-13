@@ -1,6 +1,7 @@
 package in.nitjsr.ojass.EventsFolding;
 
 import android.app.Fragment;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -30,8 +31,8 @@ public class PrizeFragment extends Fragment {
 
     private void createUI(View view) {
         TextView t1=(TextView) view.findViewById(R.id.title_prize);
-    //    Typeface customFontBold= Typeface.createFromAsset(getActivity().getAssets(),"Ojass.otf");
-    //    t1.setTypeface(customFontBold);
+        Typeface customFontBold= Typeface.createFromAsset(getActivity().getAssets(),"Ojass.otf");
+        t1.setTypeface(customFontBold);
         prize1=(TextView) view.findViewById(R.id.prize1);
         prize2=(TextView) view.findViewById(R.id.prize2);
         prize3=(TextView) view.findViewById(R.id.prize3);

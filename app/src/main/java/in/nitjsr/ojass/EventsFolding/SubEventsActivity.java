@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.desarrollodroide.libraryfragmenttransactionextended.FragmentTransactionExtended;
@@ -21,6 +22,7 @@ import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.nightonke.boommenu.ButtonEnum;
 import com.nightonke.boommenu.Piece.PiecePlaceEnum;
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -30,14 +32,10 @@ import in.nitjsr.ojass.R;
 
 public class SubEventsActivity extends AppCompatActivity {
 
-    private android.support.v7.widget.Toolbar toolbar;
     TextView toolbar_tv;
     int flag_show = 0;
     public static String actionBarTitle;
     private BoomMenuButton bmb;
-    private String[] name = {"Coordinator 1", "Coordinator 2", "Coordinator 3", "Coordinator 4"};
-    private String[] ph = {"Phone 1", "Phone 2", "Phone 3", "Phone 4"};
-
 
     public static int position;
 
@@ -48,6 +46,7 @@ public class SubEventsActivity extends AppCompatActivity {
         actionBarTitle = getIntent().getExtras().getString("title");
         getPostion();
 
+        Picasso.with(this).load(R.drawable.ojass_bg).fit().into((ImageView)findViewById(R.id.iv_sub_event_bg));
 
         bmb = (BoomMenuButton) findViewById(R.id.bmb);
         bmb.setButtonEnum(ButtonEnum.Ham);
@@ -88,9 +87,6 @@ public class SubEventsActivity extends AppCompatActivity {
         actionBarTitle = getIntent().getExtras().getString("title");
         toolbar_tv = (TextView) findViewById(R.id.title_toolbar);
         toolbar_tv.setText(actionBarTitle);
-        Typeface customFontBold = Typeface.createFromAsset(getAssets(), "ToolbarText.ttf");
-        toolbar_tv.setTypeface(customFontBold);
-
 
         tabBar.setOnFoldingItemClickListener(new FoldingTabBar.OnFoldingItemSelectedListener() {
             @Override

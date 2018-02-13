@@ -38,7 +38,7 @@ public class DevelopersAcitivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_developers_acitivity);
 
         Utilities.changeStatusBarColor(this);
-        Picasso.with(this).load(R.drawable.star_bg).fit().into(((ImageView)findViewById(R.id.iv_dev_bg)));
+        Picasso.with(this).load(R.drawable.menu_bg).fit().into(((ImageView)findViewById(R.id.iv_dev_bg)));
         Picasso.with(this).load(R.drawable.ojass_bg).fit().into(((ImageView)findViewById(R.id.iv_dev_ojass_bg)));
 
         findViewById(R.id.dev_linked_in).setOnClickListener(this);

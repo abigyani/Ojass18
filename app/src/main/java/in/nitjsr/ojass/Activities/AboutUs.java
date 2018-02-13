@@ -1,6 +1,7 @@
 package in.nitjsr.ojass.Activities;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.Image;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -33,6 +35,9 @@ public class AboutUs extends AppCompatActivity {
         back = findViewById(R.id.ib_back_about_us);
 
         Picasso.with(this).load(R.drawable.ojass_bg).fit().into((ImageView)findViewById(R.id.iv_about_us));
+        TextView t1 = findViewById(R.id.description);
+        Typeface customFontBold = Typeface.createFromAsset(getAssets(),"textfont.otf");
+        t1.setTypeface(customFontBold);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

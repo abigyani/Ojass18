@@ -1,6 +1,7 @@
 package in.nitjsr.ojass.EventsFolding;
 
 import android.app.Fragment;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.Html;
@@ -28,11 +29,11 @@ public class RulesFragment extends Fragment {
 
     private void createUI(View view) {
         TextView t1=(TextView) view.findViewById(R.id.title_rules);
-    //    Typeface customFontBold= Typeface.createFromAsset(getActivity().getAssets(),"Ojass.otf");
-    //    t1.setTypeface(customFontBold);
+        Typeface customFontBold= Typeface.createFromAsset(getActivity().getAssets(),"Ojass.otf");
+        t1.setTypeface(customFontBold);
         TextView t2=(TextView) view.findViewById(R.id.text_rules);
-    //    Typeface typeface= Typeface.createFromAsset(getActivity().getAssets(),"textfont.otf");
-    //    t2.setTypeface(typeface);
+        Typeface typeface= Typeface.createFromAsset(getActivity().getAssets(),"textfont.otf");
+        t2.setTypeface(typeface);
         String rules="";
 
         for(int i = 0; i< MainActivity.data.get(SubEventsActivity.position).getRulesModels().size(); i++)

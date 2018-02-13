@@ -47,7 +47,7 @@ public class FAQAdapter extends ExpandableRecyclerAdapter<TitleParentViewHolder,
     @Override
     public void onBindParentViewHolder(TitleParentViewHolder titleParentViewHolder, int i, Object o) {
         TitleParent title = (TitleParent)o;
-        Typeface typeface = Typeface.createFromAsset(context.getAssets(),"opificio_bold.ttf");
+        Typeface typeface = Typeface.createFromAsset(context.getAssets(),"textfont.otf");
         titleParentViewHolder._textView.setText(title.getTitle());
         titleParentViewHolder._textView.setTypeface(typeface);
 
@@ -56,7 +56,7 @@ public class FAQAdapter extends ExpandableRecyclerAdapter<TitleParentViewHolder,
     @Override
     public void onBindChildViewHolder(TitleChildViewHolder titleChildViewHolder, int i, Object o) {
         TitleChild title=(TitleChild)o;
-        Typeface typeface = Typeface.createFromAsset(context.getAssets(),"opificio_regular.ttf");
+        Typeface typeface = Typeface.createFromAsset(context.getAssets(),"textfont.otf");
 
         titleChildViewHolder.option1.setText(title.getOption1());
         titleChildViewHolder.option1.setTypeface(typeface);
