@@ -9,4 +9,12 @@
     <color name="bg_screen2">#20d2bb</color>
     <color name="bg_screen3">#3395ff</color>
     <color name="purple">#c873f4</color>
+
+    <color name="forest_green">#228B22</color>
+
+    <color name="card1">#2C556C</color>
+    <color name="card2">#207488</color>
+    <color name="card3">#89196B</color>
+    <color name="card4">#AD1457</color>
+    <color name="card5">#9C1825</color>
 </resources>

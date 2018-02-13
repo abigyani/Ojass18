@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@+id/activity_main"
+<LinearLayout
+    android:id="@+id/activity_main"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#170f11"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/app_bar"
+        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="55dp">
 
@@ -24,52 +26,54 @@
         <TextView
             android:layout_width="match_parent"
             tools:text="Some Text"
-            android:textStyle="bold"
             android:textColor="#fff"
             android:id="@+id/title_toolbar"
-            android:layout_marginRight="14dp"
             android:gravity="center"
-            android:textSize="20dp"
+            android:textSize="18sp"
             android:layout_height="match_parent" />
 
     </RelativeLayout>
 
-    <com.desarrollodroide.libraryfragmenttransactionextended.SlidingRelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_below="@+id/app_bar"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/app_bar">
 
-        <FrameLayout
-            android:id="@+id/container"
-
+        <ImageView
+            android:id="@+id/iv_sub_event_bg"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
-        <client.yalantis.com.foldingtabbar.FoldingTabBar
-            android:id="@+id/folding_tab_bar"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            android:elevation="6dp"
-            app:menu="@menu/menu_tab_bar"/>
+        <com.desarrollodroide.libraryfragmenttransactionextended.SlidingRelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <com.nightonke.boommenu.BoomMenuButton
-            android:id="@+id/bmb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/folding_tab_bar"
-            android:layout_marginLeft="50dp"
-            android:layout_marginBottom="8dp"/>
-    </com.desarrollodroide.libraryfragmenttransactionextended.SlidingRelativeLayout>
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
+            <client.yalantis.com.foldingtabbar.FoldingTabBar
+                android:id="@+id/folding_tab_bar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:elevation="6dp"
+                app:menu="@menu/menu_tab_bar"/>
 
-</RelativeLayout>
+            <com.nightonke.boommenu.BoomMenuButton
+                android:id="@+id/bmb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/folding_tab_bar"
+                android:layout_marginLeft="50dp"
+                android:layout_marginBottom="8dp"/>
+        </com.desarrollodroide.libraryfragmenttransactionextended.SlidingRelativeLayout>
 
-    <!--  android:paddingLeft="@dimen/additional_button_top_margin"
-            android:paddingRight="@dimen/additional_button_top_margin"
-            android:paddingTop="@dimen/additional_button_top_margin"
-             -->
+    </RelativeLayout>
+
+</LinearLayout>

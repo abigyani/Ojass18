@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_event_img_new"
+            android:layout_width="match_parent"
+            android:layout_height="180dp" />
+
+        <RelativeLayout
+            android:id="@+id/rl_event_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:background="@color/card1"
+            android:gravity="center_vertical"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/tv_event_name_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Event name"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_event_prize_new"
+                android:layout_below="@+id/tv_event_name_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Event Prize"
+                android:textSize="10sp"
+                android:singleLine="true"
+                android:textColor="@color/white"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_right_arrow"
+                android:scaleType="centerCrop"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="-6dp"
+                android:layout_centerVertical="true"
+                android:tint="@color/white"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

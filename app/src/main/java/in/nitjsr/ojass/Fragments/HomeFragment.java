@@ -241,8 +241,6 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
                 startActivity(new Intent(getContext(), GuruGyanActivity.class));
                 break;
             case R.id.tv_sponsors_see_all:
-
-
                 startActivity(new Intent(getContext(), SponsersActivity.class));
         }
     }

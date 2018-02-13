@@ -115,7 +115,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                         tvNum.setText("+91 "+dataSnapshot.child(Constants.FIREBASE_REF_MOBILE).getValue().toString());
                         if (dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue() != null) {
                             tvUserOjId.setText(dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue().toString());
-                            tvUserOjId.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                            tvUserOjId.setTextColor(getResources().getColor(R.color.forest_green));
                         }
                         else {
                             tvUserOjId.setText(Constants.PAYMENT_DUE);
