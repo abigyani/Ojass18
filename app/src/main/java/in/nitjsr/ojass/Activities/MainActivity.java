@@ -3,6 +3,7 @@ package in.nitjsr.ojass.Activities;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -11,13 +12,17 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.media.Image;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
@@ -41,6 +46,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.squareup.picasso.Picasso;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;
@@ -77,6 +85,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SharedPrefManager shared;
     private LinearLayout llNoti;
     private SlidingUpPanelLayout slidePanel;
+    private static final String urlOfApp = "https://play.google.com/store/apps/details?id=in.nitjsr.ojass&hl=en";
+    private String currentVersion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,7 +126,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.rl_notification_menu).setOnClickListener(this);
         findViewById(R.id.ib_subscribe).setOnClickListener(this);
         findViewById(R.id.view_noti_blank).setOnClickListener(this);
+        findViewById(R.id.tv_ojass).setOnClickListener(this);
 
+        compareAppVersion();
         eventStuff();
     }
 
@@ -316,6 +328,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             hideNotiPanel();
         } else if (view.getId() == R.id.iv_ojass_icon){
             startActivity(new Intent(this, AboutUs.class));
+        } else if (view.getId() == R.id.tv_ojass){
+            startActivity(new Intent(this, AboutUs.class));
         }
     }
 
@@ -458,5 +472,67 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onPanelStateChanged(View panel, SlidingUpPanelLayout.PanelState previousState, SlidingUpPanelLayout.PanelState newState) {
         isWarningShown = false;
         if (isNotiVisible) hideNotiPanel();
+    }
+
+    private void compareAppVersion() {
+        try {
+            PackageInfo pInfo = getPackageManager().getPackageInfo(this.getPackageName(), 0);
+            currentVersion = pInfo.versionName;
+            new GetCurrentVersion().execute();
+        } catch (PackageManager.NameNotFoundException e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    private class GetCurrentVersion extends AsyncTask<Void, Void, Void> {
+
+        private String latestVersion;
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                Document doc = Jsoup.connect(urlOfApp).get();
+                latestVersion = doc.getElementsByAttributeValue
+                        ("itemprop", "softwareVersion").first().text();
+
+            } catch (Exception e) {
+
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            if (!TextUtils.isEmpty(currentVersion) && !TextUtils.isEmpty(latestVersion)) {
+                Log.d("AppVersion", "Current : " + currentVersion + " Latest : " + latestVersion);
+                if (currentVersion.compareTo(latestVersion) < 0) {
+                    if (!isFinishing()) {
+                        showUpdateDialog();
+                    }
+                }
+            }
+            super.onPostExecute(aVoid);
+        }
+    }
+
+    private void showUpdateDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("New update");
+        builder.setMessage("We have changed since we last met. Let's get the updates.");
+        builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse
+                        ("market://details?id=in.nitjsr.ojass")));
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton("Later", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
 }
