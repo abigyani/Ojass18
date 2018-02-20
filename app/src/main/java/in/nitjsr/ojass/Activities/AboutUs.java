@@ -21,6 +21,9 @@ public class AboutUs extends AppCompatActivity {
     ImageButton insta;
     ImageButton twitter;
     ImageButton webpage, back;
+    ImageButton share, helpdesk_phone, helpdesk_whatsapp, rateUs;
+
+    private static final String AMAN_PHONE = "8839059122";
 
 
     @Override
@@ -28,14 +31,18 @@ public class AboutUs extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
 
-        fb = findViewById(R.id.fb);
-        insta = findViewById(R.id.insta);
-        twitter = findViewById(R.id.twitter);
-        webpage = findViewById(R.id.web);
-        back = findViewById(R.id.ib_back_about_us);
+        fb = (ImageButton) findViewById(R.id.fb);
+        insta = (ImageButton) findViewById(R.id.insta);
+        twitter = (ImageButton) findViewById(R.id.twitter);
+        webpage = (ImageButton) findViewById(R.id.web);
+        back = (ImageButton) findViewById(R.id.ib_back_about_us);
+        share = (ImageButton) findViewById(R.id.ib_app_share);
+        helpdesk_phone = (ImageButton) findViewById(R.id.ib_helpdesk_phone);
+        helpdesk_whatsapp = (ImageButton) findViewById(R.id.ib_helpdesk_whatsapp);
+        rateUs = (ImageButton) findViewById(R.id.ib_app_rate_us);
 
         Picasso.with(this).load(R.drawable.ojass_bg).fit().into((ImageView)findViewById(R.id.iv_about_us));
-        TextView t1 = findViewById(R.id.description);
+        TextView t1 = (TextView) findViewById(R.id.description);
         Typeface customFontBold = Typeface.createFromAsset(getAssets(),"textfont.otf");
         t1.setTypeface(customFontBold);
 
@@ -78,5 +85,50 @@ public class AboutUs extends AppCompatActivity {
             }
         });
 
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String playStoreURL = "https://play.google.com/store/apps/details?id=in.nitjsr.ojass";
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_SUBJECT, "Ojass");
+                i.putExtra(Intent.EXTRA_TEXT, playStoreURL);
+                startActivity(Intent.createChooser(i, ""));
+            }
+        });
+
+        rateUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String appPackageName = "in.nitjsr.ojass";
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                } catch (android.content.ActivityNotFoundException anfe) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                }
+            }
+        });
+
+        helpdesk_phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:+91"+AMAN_PHONE));
+                startActivity(intent);
+            }
+        });
+
+        helpdesk_whatsapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_VIEW);
+                String url = "https://api.whatsapp.com/send?phone=91" + AMAN_PHONE;
+                sendIntent.setData(Uri.parse(url));
+                startActivity(sendIntent);
+            }
+        });
+
     }
 }
+
