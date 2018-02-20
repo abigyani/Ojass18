@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -101,6 +102,9 @@ public class EventsFragmentNew extends Fragment {
             case 4: tvName.setBackgroundColor(Color.parseColor(alpha+"9C1825"));break;
         }
         dialog.show();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            dialog.findViewById(R.id.tv_dialog_pioneer).setElevation(5);
+        }
         dialog.findViewById(R.id.tv_dialog_pioneer).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

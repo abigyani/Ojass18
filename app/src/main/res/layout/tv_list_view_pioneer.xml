@@ -9,4 +9,5 @@
     android:gravity="center_vertical"
     android:drawableRight="@drawable/ic_phone"
     android:drawableTint="@android:color/holo_green_dark"
-    android:padding="8dp"/>
+    android:padding="8dp"
+    tools:targetApi="kitkat" />

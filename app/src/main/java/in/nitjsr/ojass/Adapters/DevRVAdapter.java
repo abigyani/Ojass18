@@ -142,7 +142,7 @@ public class DevRVAdapter extends RecyclerView.Adapter<DevRVAdapter.Myviewholder
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fshivam.png?alt=media&token=d242014a-069d-465f-b865-6542bb0a6e9f",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Frajbharwa.png?alt=media&token=33642917-8dd1-4621-8ca2-a924cad69a4b",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fans.png?alt=media&token=a8fe96ca-9c83-4001-8236-768d250c1d7c",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fic_ravi_app.png?alt=media&token=ca969b77-43c8-4fba-9610-e0c9b55de564",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fravi.jpg?alt=media&token=fe74d55b-6eb4-4dcc-bc4c-1215b25c659b",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fanirudh.png?alt=media&token=1251c5c5-fa49-4149-b0fb-bdb2ce8de273",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fic_naman_app.png?alt=media&token=264dfb3b-7678-425b-a0ba-8b9731665dd1",
             "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fsanay.png?alt=media&token=bb579167-0c97-4da9-b3c2-12fa9475da9e",

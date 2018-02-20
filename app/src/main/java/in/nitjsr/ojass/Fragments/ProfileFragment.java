@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
@@ -121,15 +122,20 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                             tvUserOjId.setText(Constants.PAYMENT_DUE);
                             tvUserOjId.setTextColor(Color.RED);
                         }
-                        if (dataSnapshot.child(Constants.FIREBASE_REF_TSHIRT).exists()){
-                            ivtShirt.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_on_background));
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                            if (dataSnapshot.child(Constants.FIREBASE_REF_TSHIRT).exists()){
+                                ivtShirt.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_on_background));
+                            } else {
+                                ivtShirt.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_off_background));
+                            }
+                            if (dataSnapshot.child(Constants.FIREBASE_REF_KIT).exists()){
+                                ivKit.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_on_background));
+                            } else {
+                                ivKit.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_off_background));
+                            }
                         } else {
-                            ivtShirt.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_off_background));
-                        }
-                        if (dataSnapshot.child(Constants.FIREBASE_REF_KIT).exists()){
-                            ivKit.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_on_background));
-                        } else {
-                            ivKit.setImageDrawable(getActivity().getDrawable(android.R.drawable.checkbox_off_background));
+                            ivtShirt.setVisibility(View.GONE);
+                            ivKit.setVisibility(View.GONE);
                         }
                         if (pd.isShowing()) pd.dismiss();
                         if (flag == 1){

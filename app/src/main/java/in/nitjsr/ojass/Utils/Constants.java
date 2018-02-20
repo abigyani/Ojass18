@@ -61,23 +61,23 @@ public class Constants {
     };
 
     public static final String[] smallEventImage = new String[]{
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Friseofmachines.jpg?alt=media&token=08c2dc21-68c8-43e2-b7f8-3990ea5d9d12",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Fvishwacodegen.jpg?alt=media&token=2420396e-592c-4c86-beab-9675b7ce5277",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2FcircuitHouse.jpg?alt=media&token=2d0a0205-f516-40e6-95c0-20cdc3469b6d",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Fsilicon.jpg?alt=media&token=b0f8992c-fd5e-4e41-9f97-ccfb4e93fd16",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Farthsashtra.jpg?alt=media&token=e392b1ad-a75e-4fe1-929e-07040f823060",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Fakriti.jpg?alt=media&token=11df2810-6646-435a-b9ff-0abb612684c6",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Fdeusxmachina.jpg?alt=media&token=b70e7814-f03e-47a7-bd6b-6bb964a69324",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Fprodus.jpg?alt=media&token=c0f25469-dcf3-4175-b80c-c34a7c77c596",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Fpara.jpg?alt=media&token=6f75121e-ba8c-4989-8e2e-b67cc2911ea3",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Fneodrishti.jpg?alt=media&token=d238074b-365e-45d1-9e1f-5f4b3e19181f",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Favartan.jpg?alt=media&token=3c260e7c-5edc-4337-b87d-dca3211d0453",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Farmageddon.jpg?alt=media&token=b1d527ee-2c7a-4e72-b70d-05b96ac00139",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2FPrayas.jpg?alt=media&token=727fa9e8-f848-4420-8d65-0fd4ed6744b6",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Fnogz.jpg?alt=media&token=232221bc-48ae-4a0d-8d7d-5cf5f72e9076",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Fnscet.jpg?alt=media&token=4dea8d55-cc5c-45e5-8581-1124b932a7f3",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2FliveCS.jpg?alt=media&token=34fa6a52-95fa-4e88-b95f-7aded4188332",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Fexcosicion.jpg?alt=media&token=8669b3c8-df88-42a4-be0b-0ac4988c1417",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Fmachine.png?alt=media&token=72e0b03a-885d-43da-8965-67f57cedb18f",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Fcode.png?alt=media&token=bc2d1cb4-e00e-41dc-8909-01d11a80d9c8",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Fcircuit.png?alt=media&token=29d982fe-205f-4b3f-8613-9a92ba154baa",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Fsiliconvalley.png?alt=media&token=8255a4ef-82b8-47d7-94a8-f1911d6d50d5",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Farthsastra.png?alt=media&token=4b3289e2-97d8-4d50-829a-0b08d3cc02c6",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Fakiriti.png?alt=media&token=ec3a8afe-e71f-4d6c-a770-1d54d3a29306",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Fduexmachina.png?alt=media&token=72892438-a216-4fb8-b2cd-efb32ceffe07",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Fprodus.png?alt=media&token=fc1ae821-af94-4ac4-a321-14b1ae17a6a8",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Fparpanalia.png?alt=media&token=01a258f5-9703-4806-aa02-b10f607423eb",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Fneodhristi.png?alt=media&token=c9411971-6b08-4efb-969c-d15387bf7cb1",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Favtaran.png?alt=media&token=113b08d8-2860-413f-9189-b000b19bca34",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Farmageddor.png?alt=media&token=351a95c8-d1e2-4b3d-bf0b-658633c55590",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Fpryas.png?alt=media&token=8e1c533c-9760-42f2-95c4-7f2a83b21240",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Fnogroundzone.png?alt=media&token=71ad6670-520d-4922-916f-c0b061a4b71b",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Fncet.png?alt=media&token=2135ab84-39ce-4598-86bc-e496a496f93e",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Flivecs.png?alt=media&token=882a27c1-5351-414b-8f3d-7d4108c1ef2d",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventSquareNew%2Fexposition.png?alt=media&token=1aac89b8-92f5-41be-95f4-a69a89c0d334"
     };
 
     public static final String[] largeEventImage = new String[]{

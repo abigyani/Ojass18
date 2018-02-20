@@ -127,31 +127,39 @@
 
                             <ImageButton
                                 android:layout_margin="10dp"
-                                android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:background="@drawable/ic_icon_facebook"
+                                android:layout_width="40dp"
+                                app:srcCompat="@drawable/ic_icon_facebook"
+                                android:background="@android:color/transparent"
                                 android:id="@+id/fb"
+                                android:scaleType="centerCrop"
                                 android:layout_gravity="center"
                                 />
                             <ImageButton
                                 android:layout_margin="10dp"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:background="@drawable/ic_icon_instagram"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/ic_icon_instagram"
+                                android:background="@android:color/transparent"
                                 android:id="@+id/insta"
                                 />
                             <ImageButton
                                 android:layout_margin="10dp"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:background="@drawable/ic_icon_twitter"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/ic_icon_twitter"
+                                android:background="@android:color/transparent"
                                 android:id="@+id/twitter"
                                 />
                             <ImageButton
                                 android:layout_margin="10dp"
                                 android:layout_width="45dp"
                                 android:layout_height="45dp"
-                                android:background="@drawable/ic_icon_www"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/ic_icon_www"
+                                android:background="@android:color/transparent"
                                 android:id="@+id/web"
                                 />
 
