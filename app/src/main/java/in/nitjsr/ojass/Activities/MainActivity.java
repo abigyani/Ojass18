@@ -206,8 +206,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     }
                 }
-                if (currIndex != 0) ((TextView)findViewById(R.id.tv_noti_count)).setText(""+currIndex);
-                else findViewById(R.id.tv_noti_count).setVisibility(View.INVISIBLE);
+                if (currIndex != 0){
+                    findViewById(R.id.tv_noti_count).setVisibility(View.VISIBLE);
+                    ((TextView)findViewById(R.id.tv_noti_count)).setText(""+currIndex);
+                } else findViewById(R.id.tv_noti_count).setVisibility(View.INVISIBLE);
             }
 
             @Override
@@ -382,8 +384,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             try {
                 if (Long.parseLong(dataSnapshot1.getKey()) > shared.getLastNotiTime()){
                     noti.add(new NotificationModal(
-                            dataSnapshot1.child(FIREBASE_REF_NOTIFICATIONS_TITLE).getValue().toString(),
-                            dataSnapshot1.child(FIREBASE_REF_NOTIFICATIONS_BODY).getValue().toString()));
+                            dataSnapshot1.child(FIREBASE_REF_NOTIFICATIONS_BODY).getValue().toString(),
+                            dataSnapshot1.child(FIREBASE_REF_NOTIFICATIONS_TITLE).getValue().toString()));
                     currIndex++;
                 }
             } catch (Exception e){
