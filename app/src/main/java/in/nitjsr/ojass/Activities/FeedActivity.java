@@ -53,10 +53,6 @@ public class FeedActivity extends AppCompatActivity {
         Picasso.with(this).load(R.drawable.ojass_bg).fit().into((ImageView)findViewById(R.id.iv_feed));
 
         spinner = findViewById(R.id.spinner_feed);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.events, R.layout.spinner_layout);
-        adapter.setDropDownViewResource(R.layout.spinner_layout);
-        spinner.setAdapter(adapter);
 
         recyclerView=(RecyclerView)findViewById(R.id.myRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -115,7 +111,7 @@ public class FeedActivity extends AppCompatActivity {
                 data.clear();
                 for(DataSnapshot ds: dataSnapshot.getChildren())
                 {
-                    FaqModel q=ds.getValue(FaqModel.class);
+                    FaqModel q = ds.getValue(FaqModel.class);
                     data.add(q);
                     // Toast.makeText(FAQActivity.this,"Q"+q.getQuestion()+"\nA:"+q.getAns(),Toast.LENGTH_SHORT).show();
 

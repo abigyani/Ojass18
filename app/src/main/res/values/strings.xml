@@ -16,7 +16,6 @@
     <string name="log_out">Log Out</string>
     <string name="event_name">Event: </string>
     <string name="team_result">Result: </string>
-    <string name="tshirt">T-Shirt</string>
     <string name="kit">Kit</string>
 
     <string-array name="tshirt_size">
@@ -26,6 +25,27 @@
         <item>L (40)</item>
         <item>XL (42)</item>
         <item>XXL (44)</item>
+    </string-array>
+'
+    <string-array name="noti_channel">
+        <item>OJASS</item>
+        <item>Arthashastra</item>
+        <item>CircuitHouse</item>
+        <item>VishwaCodeGenesis</item>
+        <item>NoGroundZone</item>
+        <item>Paraphernalia</item>
+        <item>Produs</item>
+        <item>SiliconValley</item>
+        <item>RiseOfMachines</item>
+        <item>NSCET</item>
+        <item>NeoDrishti</item>
+        <item>Exposicion</item>
+        <item>DeusXMachina</item>
+        <item>Avartan</item>
+        <item>Armageddon</item>
+        <item>Aakriti</item>
+        <item>Prayas</item>
+        <item>LiveCS</item>
     </string-array>
 
     <string-array name="team_names">
@@ -42,6 +62,7 @@
         <item>App Team</item>
         <item>Creative Team</item>
         <item>Robotics</item>
+        <item>Decorations</item>
     </string-array>
 
     <string name="FACEBOOK_APP_ID">1811310532502668</string>

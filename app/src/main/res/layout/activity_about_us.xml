@@ -220,21 +220,24 @@
 
                             <ImageButton
                                 android:id="@+id/ib_helpdesk_phone"
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:background="@drawable/ic_icon_whatsapp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:padding="5dp"
+                                android:src="@android:drawable/stat_sys_phone_call"
+                                android:background="@android:color/transparent"
                                 android:layout_centerVertical="true"
-                                android:layout_alignParentRight="true"
-                                android:layout_marginRight="10dp"/>
+                                android:tint="#34af23"
+                                android:layout_marginRight="10dp"
+                                android:layout_toLeftOf="@+id/ib_helpdesk_whatsapp" />
 
                             <ImageButton
                                 android:id="@+id/ib_helpdesk_whatsapp"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:layout_toLeftOf="@+id/ib_helpdesk_phone"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:padding="5dp"
+                                android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
-                                android:src="@android:drawable/stat_sys_phone_call"
-                                android:tint="#34af23"
+                                app:srcCompat="@drawable/ic_icon_whatsapp"
                                 android:background="@android:color/transparent"
                                 android:layout_marginRight="10dp"/>
 

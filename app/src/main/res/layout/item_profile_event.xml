@@ -32,13 +32,6 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/event_name"
-                    android:textSize="12sp"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
                     android:id="@+id/tv_profile_event_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -54,20 +47,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/team_result"
-                    android:textSize="12sp"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
                     android:id="@+id/tv_profile_team_result"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:textSize="12sp"
-                    android:textColor="@android:color/holo_green_dark"
-                    android:text="WON" />
+                    tools:text="WON" />
 
             </LinearLayout>
 

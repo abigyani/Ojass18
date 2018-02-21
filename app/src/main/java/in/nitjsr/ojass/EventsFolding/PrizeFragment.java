@@ -91,13 +91,13 @@ public class PrizeFragment extends Fragment {
             {
                 style1.setVisibility(View.GONE);
                 style2.setVisibility(View.VISIBLE);
-                f1.setText("2500");
-                f2.setText("1500");
-                ft.setText("Total : 4000");
-                s1.setText("2500");
-                s2.setText("1500");
-                st.setText("Total : 4000");
-                third.setVisibility(View.GONE);
+                f1.setText("2000");
+                f2.setText("1000");
+                ft.setText("Total : 3000");
+                s1.setText("2000");
+                s2.setText("1000");
+                st.setText("Total : 3000");
+                third.setVisibility(View.VISIBLE);
                 t_1.setText("0");
                 t2.setText("0");
                 tt.setText("0");
@@ -199,7 +199,7 @@ public class PrizeFragment extends Fragment {
                 one.setVisibility(View.GONE);
                 two.setVisibility(View.GONE);
                 three.setVisibility(View.GONE);
-                prizet.setText("8000/-");
+                prizet.setText("10000/-");
                 break;
             }
             case "Exposicion":

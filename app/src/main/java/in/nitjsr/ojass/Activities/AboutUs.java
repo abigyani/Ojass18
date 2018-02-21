@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
 import in.nitjsr.ojass.R;
@@ -123,7 +125,7 @@ public class AboutUs extends AppCompatActivity {
             public void onClick(View view) {
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_VIEW);
-                String url = "https://api.whatsapp.com/send?phone=91" + AMAN_PHONE;
+                String url = "https://api.whatsapp.com/send?phone=91" + AMAN_PHONE + "&text=Hey! I'm "+ FirebaseAuth.getInstance().getCurrentUser().getDisplayName()+".";
                 sendIntent.setData(Uri.parse(url));
                 startActivity(sendIntent);
             }
