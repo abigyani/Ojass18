@@ -496,7 +496,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         ("itemprop", "softwareVersion").first().text();
 
             } catch (Exception e) {
-
             }
             return null;
         }
@@ -522,8 +521,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse
-                        ("market://details?id=in.nitjsr.ojass")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=in.nitjsr.ojass")));
                 dialog.dismiss();
             }
         });

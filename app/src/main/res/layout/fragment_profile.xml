@@ -116,9 +116,9 @@
                         android:layout_marginRight="10dp"/>
 
                     <TextView
+                        android:id="@+id/tv_tshirt_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/tshirt"
                         android:textSize="12sp"
                         android:textColor="@color/colorPrimaryDark"/>
 
@@ -184,6 +184,7 @@
                 android:layout_marginRight="10dp"/>
 
             <TextView
+                android:id="@+id/tv_percentage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/holo_green_dark"
@@ -196,7 +197,6 @@
             android:id="@+id/rv_profile_events"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:layout_marginTop="6dp"/>
 
         <Button

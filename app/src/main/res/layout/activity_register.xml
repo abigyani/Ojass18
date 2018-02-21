@@ -126,7 +126,7 @@
                     android:id="@+id/input_regid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Reg Id/Roll No"
+                    android:hint="College Reg Id/Roll No"
                     android:inputType="text"
                     android:imeOptions="actionNext"
                     android:focusable="true"

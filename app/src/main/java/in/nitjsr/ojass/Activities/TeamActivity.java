@@ -119,8 +119,16 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case 12 : rv.setAdapter(new TeamAdapter(this, robotics()));
                 break;
+            case 13 : rv.setAdapter(new TeamAdapter(this, decorations()));
         }
 
+    }
+
+    private ArrayList<Team> decorations() {
+        ArrayList<Team> decors = new ArrayList<>();
+        decors.add(new Team("Chinthala S. Krishna", "Decorator", "9471591138", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fsaikrishna.png?alt=media&token=290aa44d-2f7b-4672-804c-dd44709640ae"));
+        setResourceOnClick(decors.get(0));
+        return decors;
     }
 
     private ArrayList<Team> robotics() {
@@ -130,15 +138,13 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
         Robotics.add(new Team("Sushil Rajwar","Robotics","9905183679","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fsushil.png?alt=media&token=25f4c8eb-5827-48c4-80c4-f237060baf60"));
         Robotics.add(new Team("Mushref Tabrej","Robotics","8409680821","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fuserdp.png?alt=media&token=15f889fa-6f14-4e23-a259-001e3d017b50"));
         Robotics.add(new Team("Karthik Raja","Robotics","9703557055","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fuserdp.png?alt=media&token=15f889fa-6f14-4e23-a259-001e3d017b50"));
-        Robotics.add(new Team("Apurava","Robotics","9470171699", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fuserdp.png?alt=media&token=15f889fa-6f14-4e23-a259-001e3d017b50"));
         setResourceOnClick(Robotics.get(0));
         return Robotics;
     }
 
     private ArrayList<Team> creativeTeam() {
         ArrayList<Team> CreativeTeam=new ArrayList<>();
-        CreativeTeam.add(new Team("Tanmesh Singhal","Creative Team","8102629668", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fuserdp.png?alt=media&token=15f889fa-6f14-4e23-a259-001e3d017b50"));
-        CreativeTeam.add(new Team("Rahul Kumar","Creative Team","8864033868", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fuserdp.png?alt=media&token=15f889fa-6f14-4e23-a259-001e3d017b50"));
+        CreativeTeam.add(new Team("Tanmesh Singhal","Creative Team","8102629668", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Ftanmesh.png?alt=media&token=bb51f581-b524-4341-ad27-b30fd4b8f716"));
         CreativeTeam.add(new Team("R.R.S.S. Sampath","Creative Team","9110460102","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fsampath.png?alt=media&token=aca5bc45-0244-47f8-ad4d-22e7d872319a"));
         CreativeTeam.add(new Team("Chavan Sandeep","Creative Team","9430387956","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fsandeep.png?alt=media&token=a615c053-adb9-4704-a35e-f3184acf4db8"));
         setResourceOnClick(CreativeTeam.get(0));
@@ -177,7 +183,7 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
         CorporateAffairs.add(new Team("Pranav Meshram","Corporate Affairs","9471582418","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fpranav.png?alt=media&token=1677728b-33bb-4a24-86ed-1d0338c214e3"));
         CorporateAffairs.add(new Team("Anureet K. Sinha","Corporate Affairs","9155677467", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fanurit.png?alt=media&token=5a486845-5cca-4732-90c2-1e44323dacd0"));
         CorporateAffairs.add(new Team("Neetika Sharma","Corporate Affairs","9006991018","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fneetika.png?alt=media&token=5935efee-c3a5-4116-b451-71117123d23a"));
-        CorporateAffairs.add(new Team("Avantika Bharti","Corporate Affairs","8579064858", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fuserdp.png?alt=media&token=15f889fa-6f14-4e23-a259-001e3d017b50"));
+        CorporateAffairs.add(new Team("Avantika Bharti","Corporate Affairs","8579064858", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Favantika.png?alt=media&token=08f8bb48-3f2f-453d-a92d-73d09360e6ee"));
         setResourceOnClick(CorporateAffairs.get(0));
         return CorporateAffairs;
     }
@@ -193,7 +199,6 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
 
     private ArrayList<Team> eventManage() {
         ArrayList<Team> EventManage=new ArrayList<>();
-        EventManage.add(new Team("Santosh Kumar","Event Management","8092437800","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fsantosh.png?alt=media&token=20f97fde-733a-467d-aebb-13f0218c79ab"));
         EventManage.add(new Team("A.N.V. Nagesh K.","Event Management","7075133711", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fuserdp.png?alt=media&token=15f889fa-6f14-4e23-a259-001e3d017b50"));
         EventManage.add(new Team("Gunda Sai Teja","Event Management","9471105585","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2FsaiTeja.png?alt=media&token=499c3613-b165-4dd2-bad9-826b2debb51a"));
         EventManage.add(new Team("MD Saadique Anwar","Event Management","8521781488","https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fsaadique.png?alt=media&token=a1ebae8f-a74e-4c95-a7e7-eab0c044350a"));

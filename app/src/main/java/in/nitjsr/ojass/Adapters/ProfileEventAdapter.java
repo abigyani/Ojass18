@@ -1,6 +1,7 @@
 package in.nitjsr.ojass.Adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -42,6 +43,9 @@ public class ProfileEventAdapter extends RecyclerView.Adapter<ProfileEventAdapte
         Modal current = dataset.get(position);
         Picasso.with(context).load(current.getImage()).fit().into(holder.ivEvent);
         holder.tvEventName.setText(current.getEventName());
+        holder.tvEventResult.setText(current.getDescription());
+        if (!current.getDescription().toLowerCase().equals("tba")) holder.tvEventResult.setTextColor(context.getResources().getColor(android.R.color.holo_green_dark));
+        else holder.tvEventResult.setVisibility(View.GONE);
     }
 
     @Override

@@ -27,10 +27,8 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
     public void onMessageReceived(RemoteMessage remoteMessage) {
         Log.d(TAG,"FROM :"+ remoteMessage.getFrom());
 
-        if(remoteMessage.getData().size()>0)
-        {
+        if(remoteMessage.getData().size()>0) {
             Log.d(TAG,"Message : "+ remoteMessage.getData());
-
         }
         if(remoteMessage.getNotification()!=null)
         {
@@ -52,7 +50,7 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
 
         NotificationCompat.Builder notifiBuilder= new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.white_ojass)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ojass_icon))
                 .setContentTitle("Ojass")
                 .setContentText(body)
                 .setAutoCancel(true)
@@ -62,9 +60,5 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
 
         NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0,notifiBuilder.build());
-
-
-
-
     }
 }

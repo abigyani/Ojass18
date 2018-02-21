@@ -11,6 +11,7 @@ import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,11 @@ import in.nitjsr.ojass.Utils.Constants;
 import in.nitjsr.ojass.Utils.SharedPrefManager;
 import in.nitjsr.ojass.Utils.Utilities;
 
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_NAME;
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_PARTICIPATED_EVENTS;
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_PARTICIPATED_EVENT_NAME;
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_PARTICIPATED_EVENT_RESULT;
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_TSHIRT_SIZE;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_USERS;
 
 /**
@@ -56,12 +62,14 @@ import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_USERS;
 public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     private FirebaseUser mUser;
-    private TextView tvUsername, tvUserOjId, tvEmail, tvNum;
+    private TextView tvUsername, tvUserOjId, tvEmail, tvNum, tvPercentage, tvTshirtSize;
     private CircleImageView circleImageView;
     private ImageView ivtShirt, ivKit;
     private ProgressDialog pd;
     private ImageButton ibRefresh;
     private Button ibLogOut, btnClickRegister;
+    private DatabaseReference userRef;
+    private RecyclerView rvEvents;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -82,18 +90,21 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         ibRefresh = view.findViewById(R.id.ib_refresh);
         ibLogOut = view.findViewById(R.id.ib_logOut);
         btnClickRegister = view.findViewById(R.id.btn_click_to_register);
+        rvEvents = view.findViewById(R.id.rv_profile_events);
+        tvPercentage = view.findViewById(R.id.tv_percentage);
+        tvTshirtSize = view.findViewById(R.id.tv_tshirt_size);
 
         mUser = FirebaseAuth.getInstance().getCurrentUser();
+        userRef = FirebaseDatabase.getInstance().getReference(FIREBASE_REF_USERS).child(mUser.getUid());
+        userRef.keepSynced(true);
         Utilities.setPicassoImage(view.getContext(), mUser.getPhotoUrl().toString(), circleImageView, Constants.SQUA_PLACEHOLDER);
         pd = new ProgressDialog(getContext());
         pd.setTitle("Please Wait");
         pd.setMessage("Loading...");
         pd.show();
 
-        tvUsername.setText(mUser.getDisplayName());
         tvEmail.setText(mUser.getEmail());
 
-        prepareRecyclerView(view);
         fetchData(view, 0);
 
         ibRefresh.setOnClickListener(this);
@@ -104,8 +115,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     }
 
     private void fetchData(final View view, final int flag) {
-        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference(FIREBASE_REF_USERS).child(mUser.getUid());
-        userRef.keepSynced(true);
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @SuppressLint("NewApi")
             @Override
@@ -113,6 +122,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 if (dataSnapshot.exists()){
                     try {
                         btnClickRegister.setVisibility(View.GONE);
+                        tvTshirtSize.setText("Tshirt ("+ dataSnapshot.child(FIREBASE_REF_TSHIRT_SIZE).getValue().toString() + ")");
+                        tvUsername.setText(dataSnapshot.child(FIREBASE_REF_NAME).getValue().toString());
                         tvNum.setText("+91 "+dataSnapshot.child(Constants.FIREBASE_REF_MOBILE).getValue().toString());
                         if (dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue() != null) {
                             tvUserOjId.setText(dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue().toString());
@@ -137,6 +148,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                             ivtShirt.setVisibility(View.GONE);
                             ivKit.setVisibility(View.GONE);
                         }
+                        if (dataSnapshot.child(FIREBASE_REF_PARTICIPATED_EVENTS).exists()){
+                            prepareRecyclerView(dataSnapshot.child(FIREBASE_REF_PARTICIPATED_EVENTS));
+                        }
                         if (pd.isShowing()) pd.dismiss();
                         if (flag == 1){
                             Toast.makeText(getContext(), "Profile updated!", Toast.LENGTH_SHORT).show();
@@ -160,25 +174,25 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         });
     }
 
-    private void prepareRecyclerView(View view) {
-        RecyclerView rvEvents = view.findViewById(R.id.rv_profile_events);
-        LinearLayoutManager ll = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false);
+    private void prepareRecyclerView(DataSnapshot child) {
+        LinearLayoutManager ll = new LinearLayoutManager(rvEvents.getContext(), LinearLayoutManager.HORIZONTAL, false);
         rvEvents.setHasFixedSize(true);
         rvEvents.setLayoutManager(ll);
-        rvEvents.setAdapter(new ProfileEventAdapter(view.getContext(), prepareDataSet()));
+        ArrayList<Modal> modals = new ArrayList<>();
+        int count = 0;
+        for (DataSnapshot dataSnapshot : child.getChildren()){
+            modals.add(new Modal(
+                    R.drawable.ic_launcher_background,
+                    dataSnapshot.child(FIREBASE_REF_PARTICIPATED_EVENT_NAME).getValue().toString(),
+                    dataSnapshot.child(FIREBASE_REF_PARTICIPATED_EVENT_RESULT).getValue().toString()
+            ));
+            count++;
+        }
+        float per = (float) (Math.round(((count * 100) / 81.0) *100) / 100.0); //Rounding off to 2-decimal places, Don't worry :)
+        tvPercentage.setText(""+per+"%");
+        rvEvents.setAdapter(new ProfileEventAdapter(rvEvents.getContext(), modals));
     }
 
-    private ArrayList<Modal> prepareDataSet() {
-        ArrayList<Modal> dataSet = new ArrayList<>();
-        dataSet.add(new Modal("https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Fvishwacodegen.jpg?alt=media&token=2420396e-592c-4c86-beab-9675b7ce5277", "Codemania", "Result Not Declared"));
-        dataSet.add(new Modal("https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Fdeusxmachina.jpg?alt=media&token=b70e7814-f03e-47a7-bd6b-6bb964a69324", "Kurukshetra", "Result Not Declared"));
-        dataSet.add(new Modal(R.drawable.ic_launcher_background, "Event 3", "Team 3"));
-        dataSet.add(new Modal(R.drawable.ic_launcher_background, "Event1", "Event2"));
-        dataSet.add(new Modal(R.drawable.ic_launcher_background, "Event1", "Event2"));
-        dataSet.add(new Modal(R.drawable.ic_launcher_background, "Event1", "Event2"));
-        dataSet.add(new Modal(R.drawable.ic_launcher_background, "Event1", "Event2"));
-        return dataSet;
-    }
 
     @Override
     public void onClick(View view) {

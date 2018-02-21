@@ -33,6 +33,9 @@ public class Constants {
     public static final String FIREBASE_REF_OJASS_ID = "ojassID";
     public static final String FIREBASE_REF_TSHIRT = "isTshirt";
     public static final String FIREBASE_REF_KIT = "isKit";
+    public static final String FIREBASE_REF_PARTICIPATED_EVENTS = "events";
+    public static final String FIREBASE_REF_PARTICIPATED_EVENT_NAME = "eventName";
+    public static final String FIREBASE_REF_PARTICIPATED_EVENT_RESULT = "eventResult";
 
     public static final String FIREBASE_REF_NOTIFICATIONS = "Notifications";
     public static final String FIREBASE_REF_OJASS_CHANNEL = "OJASS";

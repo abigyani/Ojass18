@@ -23,11 +23,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/iv_background"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
             <RelativeLayout
                 android:id="@+id/ll_topbar"
                 android:layout_width="match_parent"
@@ -103,6 +98,13 @@
                 </RelativeLayout>
 
             </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/iv_background"
+                android:layout_below="@id/ll_topbar"
+                tools:background="@drawable/ic_launcher_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
             <in.nitjsr.ojass.Utils.CustomViewPager
                 android:id="@+id/view_pager_mainactivity"
