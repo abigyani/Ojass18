@@ -99,7 +99,7 @@ public class DevRVAdapter extends RecyclerView.Adapter<DevRVAdapter.Myviewholder
             "Kumar Naman",
             "Sanay Dev",
             "Gaurav Sethi",
-            "Utkarsh Kumar",
+            "Utkarsh Kulshrestha",
             "Shubham Kumar"
     };
 
@@ -136,19 +136,19 @@ public class DevRVAdapter extends RecyclerView.Adapter<DevRVAdapter.Myviewholder
     };
 
     private static final String[] images = new String[] {
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fabhishek2.jpg?alt=media&token=4d93fd34-7517-4abe-82e9-88126836a8c2",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Froushan.png?alt=media&token=67aa2688-0caf-454e-8678-3161f9eacae9",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Faditya.png?alt=media&token=c19148d8-9fc0-4e86-9ea8-5a69fdd722a9",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fshivam.png?alt=media&token=d242014a-069d-465f-b865-6542bb0a6e9f",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Frajbharwa.png?alt=media&token=33642917-8dd1-4621-8ca2-a924cad69a4b",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fans.png?alt=media&token=a8fe96ca-9c83-4001-8236-768d250c1d7c",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fravi.jpg?alt=media&token=fe74d55b-6eb4-4dcc-bc4c-1215b25c659b",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fanirudh.png?alt=media&token=1251c5c5-fa49-4149-b0fb-bdb2ce8de273",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fdev_naman.jpg?alt=media&token=4e813360-3cb6-4d96-93fe-3da80c49bd90",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fsanay.png?alt=media&token=bb579167-0c97-4da9-b3c2-12fa9475da9e",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fgauravimg.jpeg?alt=media&token=97a26c7c-a7d8-486e-934e-fc24947be6e9",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2FIMG_20180103_235914.jpg?alt=media&token=586ce885-168e-45be-982c-bca8d12fbfff",
-            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fshubham.png?alt=media&token=5e3ae633-ac2d-4430-8f66-5612a8d74034"
+            "http://www.ojass.in/app/Images/Dev/ahishek.jpg",
+            "http://www.ojass.in/app/Images/Dev/roushan.png",
+            "http://www.ojass.in/app/Images/Dev/aditya.png",
+            "http://www.ojass.in/app/Images/Dev/shivam.png",
+            "http://www.ojass.in/app/Images/Dev/rajbharwa.png",
+            "http://www.ojass.in/app/Images/Dev/ans.png",
+            "http://www.ojass.in/app/Images/Dev/ravi1.jpg",
+            "http://www.ojass.in/app/Images/Dev/anirudh.png",
+            "http://www.ojass.in/app/Images/Dev/naman.jpg",
+            "http://www.ojass.in/app/Images/Dev/sanay.png",
+            "http://www.ojass.in/app/Images/Dev/gaurav.jpeg",
+            "http://www.ojass.in/app/Images/Dev/utkarsh.jpg",
+            "http://www.ojass.in/app/Images/Dev/shubham.png"
     };
 
     public DevRVAdapter(Context context) {

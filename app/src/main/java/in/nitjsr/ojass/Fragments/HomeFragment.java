@@ -94,7 +94,7 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
         ArrayList<Modal> models = new ArrayList<>();
         models.add(new Modal(R.drawable.sonnet, "Sonnet", "Associate Sponsor"));
         models.add(new Modal(R.drawable.codechef, "Codechef", "Programming Partner"));
-        models.add(new Modal(R.drawable.hackerearth, "Hackerrank", "Programming Partner"));
+        models.add(new Modal(R.drawable.hackerearth, "HackerEarth", "Programming Partner"));
         models.add(new Modal(R.drawable.dominos, "Domino's", "Food Partner"));
         models.add(new Modal(R.drawable.brubeck, "BruBeck", "Food Partner"));
         return models;

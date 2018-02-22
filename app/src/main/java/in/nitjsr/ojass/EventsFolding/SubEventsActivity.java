@@ -53,33 +53,37 @@ public class SubEventsActivity extends AppCompatActivity {
 
 
         // set no of  ham buttons
-      if (MainActivity.data.get(position).getCoordinatorsModelArrayList().size() == 1) {
-            bmb.setPiecePlaceEnum(PiecePlaceEnum.HAM_1);
-            bmb.setButtonPlaceEnum(ButtonPlaceEnum.HAM_1);
-        } else if (MainActivity.data.get(position).getCoordinatorsModelArrayList().size() == 2) {
-            bmb.setPiecePlaceEnum(PiecePlaceEnum.HAM_2);
-            bmb.setButtonPlaceEnum(ButtonPlaceEnum.HAM_2);
-        } else if (MainActivity.data.get(position).getCoordinatorsModelArrayList().size() == 3) {
-            bmb.setPiecePlaceEnum(PiecePlaceEnum.HAM_3);
-            bmb.setButtonPlaceEnum(ButtonPlaceEnum.HAM_3);
-        } else {
-            bmb.setPiecePlaceEnum(PiecePlaceEnum.HAM_4);
-            bmb.setButtonPlaceEnum(ButtonPlaceEnum.HAM_4);
-        }
+        try {
+            if (MainActivity.data.get(position).getCoordinatorsModelArrayList().size() == 1) {
+                bmb.setPiecePlaceEnum(PiecePlaceEnum.HAM_1);
+                bmb.setButtonPlaceEnum(ButtonPlaceEnum.HAM_1);
+            } else if (MainActivity.data.get(position).getCoordinatorsModelArrayList().size() == 2) {
+                bmb.setPiecePlaceEnum(PiecePlaceEnum.HAM_2);
+                bmb.setButtonPlaceEnum(ButtonPlaceEnum.HAM_2);
+            } else if (MainActivity.data.get(position).getCoordinatorsModelArrayList().size() == 3) {
+                bmb.setPiecePlaceEnum(PiecePlaceEnum.HAM_3);
+                bmb.setButtonPlaceEnum(ButtonPlaceEnum.HAM_3);
+            } else {
+                bmb.setPiecePlaceEnum(PiecePlaceEnum.HAM_4);
+                bmb.setButtonPlaceEnum(ButtonPlaceEnum.HAM_4);
+            }
 
 
-        for (int i = 0; i < bmb.getPiecePlaceEnum().pieceNumber(); i++) {
-            HamButton.Builder builder = new HamButton.Builder().listener(new OnBMClickListener() {
-                @Override
-                public void onBoomButtonClick(int index) {
-                    // When the boom-button corresponding this builder is clicked.
-                    callPhoneIntent(MainActivity.data.get(position).getCoordinatorsModelArrayList().get(index).getPhone());
-                    //Toast.makeText(getApplicationContext(), "Clicked " + index, Toast.LENGTH_SHORT).show();
-                }
-            })
-                    .normalText(MainActivity.data.get(position).getCoordinatorsModelArrayList().get(i).getName())
-                    .subNormalText(MainActivity.data.get(position).getCoordinatorsModelArrayList().get(i).getPhone());
-            bmb.addBuilder(builder);
+            for (int i = 0; i < bmb.getPiecePlaceEnum().pieceNumber(); i++) {
+                HamButton.Builder builder = new HamButton.Builder().listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        // When the boom-button corresponding this builder is clicked.
+                        callPhoneIntent(MainActivity.data.get(position).getCoordinatorsModelArrayList().get(index).getPhone());
+                        //Toast.makeText(getApplicationContext(), "Clicked " + index, Toast.LENGTH_SHORT).show();
+                    }
+                })
+                        .normalText(MainActivity.data.get(position).getCoordinatorsModelArrayList().get(i).getName())
+                        .subNormalText(MainActivity.data.get(position).getCoordinatorsModelArrayList().get(i).getPhone());
+                bmb.addBuilder(builder);
+            }
+        } catch (Exception e){
+
         }
 
         FoldingTabBar tabBar = (FoldingTabBar) findViewById(R.id.folding_tab_bar);
