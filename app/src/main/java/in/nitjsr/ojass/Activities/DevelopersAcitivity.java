@@ -26,7 +26,7 @@ public class DevelopersAcitivity extends AppCompatActivity implements View.OnCli
     private static ImageView ivImg;
     private static String linkedIn, fb, github, whatsApp;
     private static Context context;
-    private static final String abhiImage = "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/AppDevImages%2Fabhishek2.jpg?alt=media&token=4d93fd34-7517-4abe-82e9-88126836a8c2";
+    private static final String abhiImage = "http://www.ojass.in/app/Images/Dev/ahishek.jpg";
     private static final String abhiFb = "https://www.facebook.com/ak47gyani";
     private static final String abhiLinkedIn = "https://www.linkedin.com/in/abhishek-kumar-1706/";
     private static final String abhiGithub = "https://github.com/abigyani";

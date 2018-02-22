@@ -66,20 +66,20 @@ public class EventsFragmentNew extends Fragment {
         models.add(new Modal(smallEventImage[0], eventNames[0], "Prizes worth: \u20B960,000*"));
         models.add(new Modal(smallEventImage[1], eventNames[1], "Prizes worth: \u20B985,000*"));
         models.add(new Modal(smallEventImage[2], eventNames[2], "Prizes worth: \u20B968,500*"));
-        models.add(new Modal(smallEventImage[3], eventNames[3], "Prizes worth: \u20B930,000*"));
-        models.add(new Modal(smallEventImage[4], eventNames[4], "Prizes worth: \u20B957,000*"));
-        models.add(new Modal(smallEventImage[5], eventNames[5], "Prizes worth: \u20B91,19,000*"));
-        models.add(new Modal(smallEventImage[6], eventNames[6], "Prizes worth: \u20B964,000*"));
+        models.add(new Modal(smallEventImage[3], eventNames[3], "Prizes worth: \u20B960,000*"));
+        models.add(new Modal(smallEventImage[4], eventNames[4], "Prizes worth: \u20B91,19,000*"));
+        models.add(new Modal(smallEventImage[5], eventNames[5], "Prizes worth: \u20B957,000*"));
+        models.add(new Modal(smallEventImage[6], eventNames[6], "Prizes worth: \u20B91,50,000*"));
         models.add(new Modal(smallEventImage[7], eventNames[7], "Prizes worth: \u20B945,000*"));
-        models.add(new Modal(smallEventImage[8], eventNames[8], "Prizes worth: \u20B977,000*"));
-        models.add(new Modal(smallEventImage[9], eventNames[9], "Prizes worth: \u20B933,000*"));
-        models.add(new Modal(smallEventImage[10], eventNames[10], "Prizes worth: \u20B933,000*"));
-        models.add(new Modal(smallEventImage[11], eventNames[11], "Prizes worth: \u20B950,000*"));
-        models.add(new Modal(smallEventImage[12], eventNames[12], "Prizes worth: \u20B920,000*"));
-        models.add(new Modal(smallEventImage[13], eventNames[13], "Prizes worth: \u20B965,000*"));
-        models.add(new Modal(smallEventImage[14], eventNames[14], "Prizes worth: \u20B930,000*"));
-        models.add(new Modal(smallEventImage[15], eventNames[15], "Prizes worth: \u20B910,000*"));
-        models.add(new Modal(smallEventImage[16], eventNames[16], "Prizes worth: \u20B912,000*"));
+        models.add(new Modal(smallEventImage[8], eventNames[8], "Prizes worth: \u20B977,000*")); //para
+        models.add(new Modal(smallEventImage[9], eventNames[9], "Prizes worth: \u20B933,000*")); //neo drishti
+        models.add(new Modal(smallEventImage[10], eventNames[10], "Prizes worth: \u20B933,000*")); //avartan
+        models.add(new Modal(smallEventImage[11], eventNames[11], "Prizes worth: \u20B950,000*")); //armeggadon
+        models.add(new Modal(smallEventImage[12], eventNames[12], "Prizes worth: \u20B920,000*")); //prayas
+        models.add(new Modal(smallEventImage[13], eventNames[13], "Prizes worth: \u20B965,000*")); //no ground
+        models.add(new Modal(smallEventImage[14], eventNames[14], "Prizes worth: \u20B930,000*")); //nscet
+        models.add(new Modal(smallEventImage[15], eventNames[15], "Prizes worth: \u20B910,000*")); //live cs
+        models.add(new Modal(smallEventImage[16], eventNames[16], "Prizes worth: \u20B912,000*")); //exposion
         return models;
     }
 
