@@ -1,6 +1,5 @@
 package in.nitjsr.ojass.Fragments;
 
-
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -51,14 +50,18 @@ import in.nitjsr.ojass.Utils.Utilities;
 
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_NAME;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_PARTICIPATED_EVENTS;
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_PARTICIPATED_EVENT_BRANCH;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_PARTICIPATED_EVENT_NAME;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_PARTICIPATED_EVENT_RESULT;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_TSHIRT_SIZE;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_USERS;
+import static in.nitjsr.ojass.Utils.Constants.eventNames;
+import static in.nitjsr.ojass.Utils.Constants.smallEventImage;
 
 /**
  * A simple {@link Fragment} subclass.
  */
+
 public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     private FirebaseUser mUser;
@@ -105,7 +108,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
         tvEmail.setText(mUser.getEmail());
 
-        fetchData(view, 0);
+        fetchData(0);
 
         ibRefresh.setOnClickListener(this);
         ibLogOut.setOnClickListener(this);
@@ -114,7 +117,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
-    private void fetchData(final View view, final int flag) {
+    private void fetchData(final int flag) {
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @SuppressLint("NewApi")
             @Override
@@ -128,8 +131,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                         if (dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue() != null) {
                             tvUserOjId.setText(dataSnapshot.child(Constants.FIREBASE_REF_OJASS_ID).getValue().toString());
                             tvUserOjId.setTextColor(getResources().getColor(R.color.forest_green));
-                        }
-                        else {
+                        } else {
                             tvUserOjId.setText(Constants.PAYMENT_DUE);
                             tvUserOjId.setTextColor(Color.RED);
                         }
@@ -182,7 +184,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         int count = 0;
         for (DataSnapshot dataSnapshot : child.getChildren()){
             modals.add(new Modal(
-                    R.drawable.ic_launcher_background,
+                    getImage(dataSnapshot.child(FIREBASE_REF_PARTICIPATED_EVENT_BRANCH).getValue().toString()),
                     dataSnapshot.child(FIREBASE_REF_PARTICIPATED_EVENT_NAME).getValue().toString(),
                     dataSnapshot.child(FIREBASE_REF_PARTICIPATED_EVENT_RESULT).getValue().toString()
             ));
@@ -193,12 +195,18 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         rvEvents.setAdapter(new ProfileEventAdapter(rvEvents.getContext(), modals));
     }
 
+    private String getImage(String eventBranch) {
+        for (int i = 0; i < eventNames.length; i++)
+            if (eventNames[i].equals(eventBranch)) return smallEventImage[i];
+        return null;
+    }
+
 
     @Override
     public void onClick(View view) {
         if (view == ibRefresh) {
             pd.show();
-            fetchData(view, 1);
+            fetchData(1);
         } else if (view == ibLogOut) {
             signOut();
         } else if (view == btnClickRegister){

@@ -16,6 +16,8 @@ import java.util.ArrayList;
 
 import in.nitjsr.ojass.Modals.Modal;
 import in.nitjsr.ojass.R;
+import in.nitjsr.ojass.Utils.Constants;
+import in.nitjsr.ojass.Utils.Utilities;
 
 /**
  * Created by Abhishek on 30-Jan-18.
@@ -41,7 +43,8 @@ public class ProfileEventAdapter extends RecyclerView.Adapter<ProfileEventAdapte
     @Override
     public void onBindViewHolder(ProfileEventAdapter.ViewHolder holder, int position) {
         Modal current = dataset.get(position);
-        Picasso.with(context).load(current.getImage()).fit().into(holder.ivEvent);
+        if (current.getImage() != null) Utilities.setPicassoImage(context, current.getImage(), holder.ivEvent, Constants.SQUA_PLACEHOLDER);
+        else Picasso.with(context).load(R.drawable.ic_launcher_background).fit().into(holder.ivEvent);
         holder.tvEventName.setText(current.getEventName());
         holder.tvEventResult.setText(current.getDescription());
         if (!current.getDescription().toLowerCase().equals("tba")) holder.tvEventResult.setTextColor(context.getResources().getColor(android.R.color.holo_green_dark));
