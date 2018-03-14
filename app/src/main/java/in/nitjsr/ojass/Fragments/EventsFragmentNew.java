@@ -1,6 +1,5 @@
 package in.nitjsr.ojass.Fragments;
 
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -46,7 +45,6 @@ public class EventsFragmentNew extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -70,7 +68,7 @@ public class EventsFragmentNew extends Fragment {
         models.add(new Modal(smallEventImage[4], eventNames[4], "Prizes worth: \u20B91,19,000*"));
         models.add(new Modal(smallEventImage[5], eventNames[5], "Prizes worth: \u20B957,000*"));
         models.add(new Modal(smallEventImage[6], eventNames[6], "Prizes worth: \u20B91,50,000*"));
-        models.add(new Modal(smallEventImage[7], eventNames[7], "Prizes worth: \u20B945,000*"));
+        models.add(new Modal(smallEventImage[7], eventNames[7], "Prizes worth: \u20B945,000*")); //produs
         models.add(new Modal(smallEventImage[8], eventNames[8], "Prizes worth: \u20B977,000*")); //para
         models.add(new Modal(smallEventImage[9], eventNames[9], "Prizes worth: \u20B933,000*")); //neo drishti
         models.add(new Modal(smallEventImage[10], eventNames[10], "Prizes worth: \u20B933,000*")); //avartan
@@ -80,6 +78,7 @@ public class EventsFragmentNew extends Fragment {
         models.add(new Modal(smallEventImage[14], eventNames[14], "Prizes worth: \u20B930,000*")); //nscet
         models.add(new Modal(smallEventImage[15], eventNames[15], "Prizes worth: \u20B910,000*")); //live cs
         models.add(new Modal(smallEventImage[16], eventNames[16], "Prizes worth: \u20B912,000*")); //exposion
+        models.add(new Modal(smallEventImage[17], eventNames[17], "Prizes worth: \u20B95,000*")); //school events
         return models;
     }
 
@@ -94,7 +93,7 @@ public class EventsFragmentNew extends Fragment {
         TextView tvName = dialog.findViewById(R.id.tv_event_name_list_new);
         tvName.setText(eventNames[eventPos]);
         final String alpha = "#9a";
-        switch (eventPos % 5){
+        switch (eventPos % 5) {
             case 0: tvName.setBackgroundColor(Color.parseColor(alpha+"2C556C"));break;
             case 1: tvName.setBackgroundColor(Color.parseColor(alpha+"207488"));break;
             case 2: tvName.setBackgroundColor(Color.parseColor(alpha+"89196B"));break;

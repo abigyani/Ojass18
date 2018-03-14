@@ -33,9 +33,10 @@ public class Constants {
     public static final String FIREBASE_REF_OJASS_ID = "ojassID";
     public static final String FIREBASE_REF_TSHIRT = "isTshirt";
     public static final String FIREBASE_REF_KIT = "isKit";
-    public static final String FIREBASE_REF_PARTICIPATED_EVENTS = "events";
-    public static final String FIREBASE_REF_PARTICIPATED_EVENT_NAME = "eventName";
-    public static final String FIREBASE_REF_PARTICIPATED_EVENT_RESULT = "eventResult";
+    public static final String FIREBASE_REF_PARTICIPATED_EVENTS = "Events";
+    public static final String FIREBASE_REF_PARTICIPATED_EVENT_NAME = "name";
+    public static final String FIREBASE_REF_PARTICIPATED_EVENT_RESULT = "result";
+    public static final String FIREBASE_REF_PARTICIPATED_EVENT_BRANCH = "branch";
 
     public static final String FIREBASE_REF_NOTIFICATIONS = "Notifications";
     public static final String FIREBASE_REF_OJASS_CHANNEL = "OJASS";
@@ -53,6 +54,12 @@ public class Constants {
     public static final String FIREBASE_REF_GURU_GYAN_SHORT_IMAGE = "shortImage";
     public static final String FIREBASE_REF_GURU_GYAN_TITLE = "title";
     public static final String FIREBASE_REF_GURU_GYAN_DATE = "date";
+
+    public static final String[] ITINARY_IMAGES = new String[]{
+            "https://firebasestorage.googleapis.com/v0/b/firebase-autocart.appspot.com/o/Day1.jpg?alt=media&token=3de618ee-874d-45a6-9ccd-d55ea25dce94",
+            "https://firebasestorage.googleapis.com/v0/b/firebase-autocart.appspot.com/o/Day2.jpg?alt=media&token=4263d0f0-dafa-4115-a18a-ac35931f45af",
+            "https://firebasestorage.googleapis.com/v0/b/firebase-autocart.appspot.com/o/Day3.jpg?alt=media&token=da9f818f-b215-4270-8414-ec4c95d8941b"
+    };
 
     public static final String[] homeEvent = new String[]{
             "http://www.ojass.in/app/Images/HomeEvents/major_business.png",
@@ -80,7 +87,8 @@ public class Constants {
             "http://www.ojass.in/app/Images/EventsNew/nogroundzone.png",
             "http://www.ojass.in/app/Images/EventsNew/ncet.png",
             "http://www.ojass.in/app/Images/EventsNew/livecs.png",
-            "http://www.ojass.in/app/Images/EventsNew/exposition.png"
+            "http://www.ojass.in/app/Images/EventsNew/exposition.png",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages150x150%2Fschoolsquare.png?alt=media&token=9eb79d67-7dd5-4f9b-9cf6-6f94a6ad039f"
     };
 
     public static final String[] largeEventImage = new String[]{
@@ -101,6 +109,7 @@ public class Constants {
             "http://www.ojass.in/app/Images/EventLarge/NSCET.jpg",
             "http://www.ojass.in/app/Images/EventLarge/LiveCS.jpg",
             "http://www.ojass.in/app/Images/EventLarge/exposition.jpg",
+            "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/EventPageImages2%3A1%2Fschool.png?alt=media&token=5bbaf5ca-7c0f-415b-83cf-b6043802ad7c"
     };
 
     public static final String eventNames[] = new String[]{
@@ -120,7 +129,8 @@ public class Constants {
             "No Ground Zone",
             "NSCET",
             "LiveCS",
-            "Exposicion"
+            "Exposicion",
+            "School Events"
     };
 
     public static final String[][] EventList = new String[][]{
@@ -140,7 +150,9 @@ public class Constants {
             {"Touch Down the plane","MICAV"},
             {"NSCET"},
             {"LiveCS"},
-            {"Exposicion"}
+            {"Exposicion"},
+            {"School Event 1", "School Event 2", "School Event 3"}
+
     };
 
     public static final String[][] branchHeadName = new String[][]{
@@ -158,9 +170,11 @@ public class Constants {
             {"Jibak Roy", "Abhishek Roul"},
             {"Khusboo Rani", "Manish Kumar", "Ujjwal Kumar Yadav"},
             {"Pankaj Kumar"},
-            {"Kumar Ankur"},
+            {"Rajeev", "G. Chandra Teja"},
             {"Rahul Meena"},
-            {"Gajendra Kumar Gupta"}
+            {"Gajendra Kumar Gupta"},
+            {"Sourabh", "Ravi Shankar"},
+
     };
 
     public static final String[][] branchHeadNum = new String[][]{
@@ -178,9 +192,10 @@ public class Constants {
             {"9470177612", "7992455725"},
             {"8757080513", "8541833888", "9771935189"},
             {"9304022913"},
-            {"8406028040"},
+            {"7980335651", "9963745816"},
             {"9530476929"},
-            {"7209359790"}
+            {"7209359790"},
+            {"9693944942", "9031649537"}
     };
 
 }
