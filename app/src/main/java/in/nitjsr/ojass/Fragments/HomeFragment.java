@@ -92,11 +92,11 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
 
     private ArrayList<Modal> prepareSponsorList() {
         ArrayList<Modal> models = new ArrayList<>();
-        models.add(new Modal(R.drawable.sonnet, "Sonnet", "Associate Sponsor"));
-        models.add(new Modal(R.drawable.codechef, "Codechef", "Programming Partner"));
-        models.add(new Modal(R.drawable.hackerearth, "HackerEarth", "Programming Partner"));
-        models.add(new Modal(R.drawable.dominos, "Domino's", "Food Partner"));
-        models.add(new Modal(R.drawable.brubeck, "BruBeck", "Food Partner"));
+        models.add(new Modal(R.drawable.ic_em1, "Jharkhand Tourism", "Title Sponsor"));
+        models.add(new Modal(R.drawable.ic_em11, "Digital India", "Patronage"));
+        models.add(new Modal(R.drawable.ic_em12, "Unesco", "Patronage"));
+        models.add(new Modal(R.drawable.ic_em2, "VLCC", "Major Sponsor"));
+        models.add(new Modal(R.drawable.ic_em3, "Turtle", "Major Sponsor"));
         return models;
     }
 

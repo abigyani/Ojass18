@@ -35,6 +35,8 @@ import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -53,6 +55,7 @@ import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_PARTICIPATED_EVENTS;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_PARTICIPATED_EVENT_BRANCH;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_PARTICIPATED_EVENT_NAME;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_PARTICIPATED_EVENT_RESULT;
+import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_PARTICIPATED_EVENT_TIME;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_TSHIRT_SIZE;
 import static in.nitjsr.ojass.Utils.Constants.FIREBASE_REF_USERS;
 import static in.nitjsr.ojass.Utils.Constants.eventNames;
@@ -158,7 +161,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                             Toast.makeText(getContext(), "Profile updated!", Toast.LENGTH_SHORT).show();
                         }
                     } catch (Exception e){
-
+                        if (pd.isShowing()) pd.dismiss();
                     }
                 } else {
                     if (pd.isShowing()) pd.dismiss();
@@ -186,13 +189,30 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             modals.add(new Modal(
                     getImage(dataSnapshot.child(FIREBASE_REF_PARTICIPATED_EVENT_BRANCH).getValue().toString()),
                     dataSnapshot.child(FIREBASE_REF_PARTICIPATED_EVENT_NAME).getValue().toString(),
-                    dataSnapshot.child(FIREBASE_REF_PARTICIPATED_EVENT_RESULT).getValue().toString()
+                    dataSnapshot.child(FIREBASE_REF_PARTICIPATED_EVENT_RESULT).getValue().toString(),
+                    dataSnapshot.child(FIREBASE_REF_PARTICIPATED_EVENT_TIME).getValue().toString()
             ));
             count++;
         }
         float per = (float) (Math.round(((count * 100) / 81.0) *100) / 100.0); //Rounding off to 2-decimal places, Don't worry :)
         tvPercentage.setText(""+per+"%");
-        rvEvents.setAdapter(new ProfileEventAdapter(rvEvents.getContext(), modals));
+        if (modals.size() != 0){
+            Collections.sort(modals, new ProfileEventComparator());
+            rvEvents.setAdapter(new ProfileEventAdapter(rvEvents.getContext(), modals));
+        }
+    }
+
+    private class ProfileEventComparator implements Comparator<Modal> {
+
+        @Override
+        public int compare(Modal modal, Modal t1) {
+            return t1.getTimeStamp().compareTo(modal.getTimeStamp());
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            return false;
+        }
     }
 
     private String getImage(String eventBranch) {

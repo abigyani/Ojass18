@@ -395,6 +395,11 @@ public class SubEventsActivity extends AppCompatActivity {
             case "Lens View":
                 position = 81;
                 break;
+            case "ScrapStar":
+                    position = 82;
+                    break;
+
+
 
         }
 

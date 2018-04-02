@@ -23,7 +23,8 @@ public class SponsersActivity extends AppCompatActivity {
 
         Picasso.with(this).load(R.drawable.ojass_bg).fit().into((ImageView)findViewById(R.id.iv_sponsors));
 
-        i1 = (TextView) findViewById(R.id.i1);
+        /*
+        * i1 = (TextView) findViewById(R.id.i1);
         i2 = (TextView) findViewById(R.id.i2);
         i3 = (TextView) findViewById(R.id.i3);
         i4 = (TextView) findViewById(R.id.i4);
@@ -62,6 +63,7 @@ public class SponsersActivity extends AppCompatActivity {
         i13.setPaintFlags(i13.getPaintFlags()|Paint.UNDERLINE_TEXT_FLAG);
         i14.setPaintFlags(i14.getPaintFlags()|Paint.UNDERLINE_TEXT_FLAG);
         i15.setPaintFlags(i15.getPaintFlags()|Paint.UNDERLINE_TEXT_FLAG);
+        * */
 
 
         findViewById(R.id.ib_back_sponsors).setOnClickListener(new View.OnClickListener() {

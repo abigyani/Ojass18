@@ -2,6 +2,6 @@
     <string name="google_maps_key"
         templateMergeStrategy="preserve"
         translatable="false">
-        AIzaSyAD3QG7mz9UBahjMgWXkiKrQGVWg1D6UII
+        {Your maps key}
     </string>
 </resources>

@@ -58,6 +58,7 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
         iv = findViewById(R.id.iv_team_img);
         tvName = findViewById(R.id.tv_team_name);
         tvDesg = findViewById(R.id.tv_team_desc);
+
         sp = findViewById(R.id.sp_team);
         ibCall = findViewById(R.id.ib_call);
         ibCall.setOnClickListener(this);
@@ -93,33 +94,35 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
         rv.setHasFixedSize(true);
         rv.setLayoutManager(ll);
         switch (index){
-            case 0 : rv.setAdapter(new TeamAdapter(this, prepareCore()));
+            case 0 : rv.setAdapter(new TeamAdapter(this, prepareAdministration()));
                 break;
-            case 1 : rv.setAdapter(new TeamAdapter(this, preparePnD()));
+            case 1 : rv.setAdapter(new TeamAdapter(this, prepareCore()));
                 break;
-            case 2 : rv.setAdapter(new TeamAdapter(this, teamCoordinator()));
+            case 2 : rv.setAdapter(new TeamAdapter(this, preparePnD()));
                 break;
-            case 3 : rv.setAdapter(new TeamAdapter(this, mediaRelation()));
+            case 3 : rv.setAdapter(new TeamAdapter(this, teamCoordinator()));
                 break;
-            case 4 : rv.setAdapter(new TeamAdapter(this, publicRelation()));
+            case 4 : rv.setAdapter(new TeamAdapter(this, mediaRelation()));
                 break;
-            case 5 : rv.setAdapter(new TeamAdapter(this, eventManage()));
+            case 5 : rv.setAdapter(new TeamAdapter(this, publicRelation()));
                 break;
-            case 6 : rv.setAdapter(new TeamAdapter(this, hospitality()));
+            case 6 : rv.setAdapter(new TeamAdapter(this, eventManage()));
                 break;
-            case 7 : rv.setAdapter(new TeamAdapter(this, corporate()));
+            case 7 : rv.setAdapter(new TeamAdapter(this, hospitality()));
                 break;
-            case 8 : rv.setAdapter(new TeamAdapter(this, logistics()));
+            case 8 : rv.setAdapter(new TeamAdapter(this, corporate()));
                 break;
-            case 9 : rv.setAdapter(new TeamAdapter(this, webteam()));
+            case 9 : rv.setAdapter(new TeamAdapter(this, logistics()));
                 break;
-            case 10 : rv.setAdapter(new TeamAdapter(this, appteam()));
+            case 10 : rv.setAdapter(new TeamAdapter(this, webteam()));
                 break;
-            case 11 : rv.setAdapter(new TeamAdapter(this, creativeTeam()));
+            case 11 : rv.setAdapter(new TeamAdapter(this, appteam()));
                 break;
-            case 12 : rv.setAdapter(new TeamAdapter(this, robotics()));
+            case 12 : rv.setAdapter(new TeamAdapter(this, creativeTeam()));
                 break;
-            case 13 : rv.setAdapter(new TeamAdapter(this, decorations()));
+            case 13 : rv.setAdapter(new TeamAdapter(this, robotics()));
+                break;
+            case 14 : rv.setAdapter(new TeamAdapter(this, decorations()));
         }
 
     }
@@ -252,6 +255,17 @@ public class TeamActivity extends AppCompatActivity implements View.OnClickListe
         coreTeam.add(new Team("Akula Sreekar Roy","Spokesperson","8500435856","http://www.ojass.in/app/Images/CoreTeam/AsreekarRoy.jpg"));
         setResourceOnClick(coreTeam.get(0));
         return coreTeam;
+    }
+
+    private ArrayList<Team> prepareAdministration() {
+        ArrayList<Team> adminTeam = new ArrayList<>();
+        adminTeam.add(new Team("Prof. Karunesh Shukla", "Director", "06572373407", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fadmin1.jpeg?alt=media&token=fb96aa93-3428-4979-b59f-e29a375bc377"));
+        adminTeam.add(new Team("Dr. Sripati Jha", "Student's Welfare Dean", "9934532473", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fadmin5.jpeg?alt=media&token=f1645bea-f62d-4844-8294-e6e5a2c4d2b7"));
+        adminTeam.add(new Team("Dilip Kumar", "P I Incharge", "9431330646", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fadmin4.jpeg?alt=media&token=d32fe4d8-46ae-48c8-a3a7-99574d99ae1c"));
+        adminTeam.add(new Team("Sonal Kumar", "President", "9504030431", "https://firebasestorage.googleapis.com/v0/b/ojass18-1cb0d.appspot.com/o/CoreTeamImages%2Fadmin3.jpeg?alt=media&token=4aa6cbc7-39d1-4bd0-b6f0-5e2c8176b95d"));
+        adminTeam.add(new Team("Shubham K. Singh","Technical Secretary","8404879565","http://www.ojass.in/app/Images/CoreTeam/techie.jpg"));
+        setResourceOnClick(adminTeam.get(0));
+        return adminTeam;
     }
 
     public static void setResourceOnClick(Team team){

@@ -37,6 +37,7 @@ public class Constants {
     public static final String FIREBASE_REF_PARTICIPATED_EVENT_NAME = "name";
     public static final String FIREBASE_REF_PARTICIPATED_EVENT_RESULT = "result";
     public static final String FIREBASE_REF_PARTICIPATED_EVENT_BRANCH = "branch";
+    public static final String FIREBASE_REF_PARTICIPATED_EVENT_TIME = "time";
 
     public static final String FIREBASE_REF_NOTIFICATIONS = "Notifications";
     public static final String FIREBASE_REF_OJASS_CHANNEL = "OJASS";
@@ -151,7 +152,7 @@ public class Constants {
             {"NSCET"},
             {"LiveCS"},
             {"Exposicion"},
-            {"School Event 1", "School Event 2", "School Event 3"}
+            {"Teenpreneur", "TechArt", "ScrapStar"}
 
     };
 
